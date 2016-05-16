@@ -1,0 +1,23 @@
+This file contains the role tiers.
+Role tiers indicate in which order players actions should be processed.
+Tiers are important because some roles influence the actions and results of other roles.
+They also allow us to make important assumptions when we process the activity.
+Roles on the same tier can be processed in any arbitrary order.
+There are special cases which will be addressed as well.
+
+Tier 1: Jailor
+Tier 2: Veteran
+Tier 3: Transporter
+Tier 4: Witch
+Tier 5: Consort, Escort
+Tier 6: Consigliere, Framer, Blackmailer
+Tier 7: Sheriff, Investigator
+Tier 8: Doctor, Bodyguard, Survivor
+Tier 9: Vampire Hunter, Vigilante, Mafia's killing role, Serial Killer, Arsonist, Vampire
+Tier 10: Forger, Janitor, Disguisor
+Tier 11: Spy, Lookout
+Tier 12(no actions): Medium, Mayor, Retributionist, Jester, Executioner, Werewolf, Amnesiac
+
+Special case 1: Vigilante and Disguisor will go to Tier 12 unless controlled by a witch,
+where they will instead go to their listed tier location
+

@@ -1,0 +1,218 @@
+This file contains:
+	- Each role
+	- Short description of each role
+	- Special immunities
+	- The influence they have or the info they gain during the first night
+	
+Town Roles:
+
+Special town:
+
+
+Jailor
+Desc: Chooses a target to jail during the night.
+Immunities: None
+Influence: The jailed target cannot perform any action, and is immune to everything
+
+
+Town Investigative:
+
+
+Investigator
+Desc: Chooses a target to investigate during the night
+Immunities: None
+Influence: Knows one of the possible roles of the chosen target
+
+Lookout
+Desc: Chooses a target during the night to watch who visits him
+Immunities: None
+Influence: Knows all the visitors of whoever they watched
+
+Sheriff
+Desc: Chooses a target during the night to check if they are suspicious or not
+Immunities: None
+Influence: Knows if his target is evil aligned or not
+
+Spy 
+Desc: Can read the mafia chat, and sees the mafia visits each night
+Immunities: None
+Influence: Knows all the targets that the mafia visited
+
+
+Town Support:
+
+
+Transporter
+Desc: Chooses two targets and swaps their spots, forcing all visitors of one
+target to instead target the other one(without notification of such)
+Immunities: Control, Roleblock
+Influence: Forces targets on one player to instead target the other, and vice versa
+
+Escort
+Desc: Chooses a target during the night to roleblock them
+Immunities: Roleblock
+Influence: Prevents a player from doing their ability during the night
+
+Medium
+Desc: Talks with the dead during the night
+Immunities: None
+Influence: None
+
+Mayor
+Desc: May reveal as the mayor of the town for increased votes
+Immunities: None
+Influence: None
+
+Retributionist
+Desc: May revive a single dead town member
+Immunities: None
+Influence: None
+
+
+Town Protective:
+
+
+Doctor
+Desc: Chooses a target to save during the night, with the option to save himself
+once during the game
+Immunities: None
+Influence: Can save a player from an attacker(excluding Arsonist)
+
+BodyGuard
+Desc: Chooses a target to save during the night, with the option to save himself
+once during the game
+Immunities: None
+Influence: Will counter-attack and kill a single attacker, regardless of immunity,
+and will die himself instead of the attacked target
+
+
+Town Killing:
+
+
+Vigilante
+Desc: May choose a target to shoot during the night, but never on night 1
+Immunities: None
+Influence: None, unless forced to shoot by a Witch
+
+Veteran
+Desc: May choose to go on Alert, gaining attack immunity, and killing every player
+that visits him that night, regardless of immunity
+Immunities: Control, Roleblock
+Influence: Kills everyone that visits him that night, if on Alert
+
+Vampire Hunter
+Desc: Checks players during the night to see if they are a Vampire
+Immunities: None
+Influence: Kills the player he checked if they are a Vampire
+
+
+Mafia Killing:
+
+
+Godfather
+Desc: Leader of the mafia, selects the target of the mafia that night
+Immunities: Attack, Detection
+Influence: Does the killing himself if the Mafioso is unable to
+
+Mafioso
+Desc: Carries out the Godfathers death orders
+Immunities: None
+Influence: Performs the killing of the chosen target, if he is able to
+
+
+Mafia Random:
+
+
+Disguisor
+Desc: May choose to target a player, and if he dies, disguise as them
+Immunities: None
+Influence: None, unless Witched(disguising is a terrible idea night 1)
+
+Janitor
+Desc: May choose to clean a target, hiding their role and will from the town
+Immunities: None
+Influence: Will attempt to follow the mafia kill target and clean them
+
+Framer
+Desc: May choose to frame a target for one night
+Immunities: None
+Influence: Makes all investigative roles visiting that target to think that they
+are a member of the Mafia(Consiglieres ignore this)
+
+Forger
+Desc: May choose to forge a mafia kill target, altering their will
+Immunities: None
+Influence: If he decides to go, will attempt to follow the mafia kill target
+and forge their will
+
+Consort
+Desc: May choose a non mafia target to roleblock them
+Immunities: Roleblock
+Influence: Prevents a player from doing their ability during the night
+
+Consigliere
+Desc: May choose a non mafia target to find out their exact role
+Immunities: None
+Influence: Will know the exact role of the player he selected
+
+
+Neutral Killing:
+
+
+Serial Killer
+Desc: May choose a single target to kill during the night
+Immunities: Attack
+Influence: Will attempt to kill his chosen target. If he is roleblocked, he will
+instead attack all roleblockers(this includes the jailor)
+
+Arsonist
+Desc: May choose a single target to douse in gasoline during the night
+Immunities: Attack
+Influence: Will attempt to do douse his target(considered an attack)
+
+Werewolf
+Desc: May choose a single target to kill during even nights
+Immunities: Attack
+Influence: None night 1
+
+
+Neutral Evil:
+
+
+Jester
+Desc: Has to trick the town to get himself lynched
+Immunities: None
+Influence: None
+
+Executioner
+Desc: Has to trick the town to get his target lynched
+Immunities: Attack
+Influence: None
+
+Witch
+Desc: Can force a target to perform their action on others(few special cases)
+Immunities: Control, Roleblock
+Influence: Will force a given target to perform an action on someone/themselves
+
+
+Neutral Benign:
+
+
+Survivor
+Desc: May put on a vest at night to gain attack immunity(4 times per game)
+Immunities: None
+Influence: May survive an attack directed at him, dependant on if he vested
+
+Amnesiac
+Desc: May become a dead role from the graveyard
+Immunities: None
+Influence: None
+
+
+Neutral Chaos:
+
+
+Vampire
+Desc: May choose to bite a player during the night, transforming them into a vampire.
+Immunities: None
+Influence: If the target is not bite-immune, strip them of their powers and make them a vampire.

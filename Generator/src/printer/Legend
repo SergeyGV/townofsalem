@@ -1,0 +1,42 @@
+This text file is a legend for the strings used to determine what exactly gets printed.
+
+For activity:
+Transported - This player was transported by a transporter
+VetShot - Veteran exclusive, indication for him that he had shot someone who visited him
+VetAtt - Veteran exclusive, someone targeted him with an attack but he was on alert
+WitchJail - This player was targeted by a witch while he was in jail
+WitchImmune - This player was controlled by a witch but he was immune
+Witched - This player was controlled by a witch
+RBJail - This player was roleblocked but was in jail
+RBImmune - This player was roleblocked, but were immune to that roleblock
+RB - This player was roleblocked by another player
+SKBlock - This player, a Serial Killer, was roleblocked by another player
+SKJail - This player, a Serial Killer, was jailed by the jailor
+BMJail - This player was blackmailed while in jail
+BM - This player was blackmailed
+DocSave - This player was saved by the Doctor
+DocAtt - This player, a doctor, had his target be attacked
+DocvsBG - This player was attacked by a bodyguard but healed by a doctor!
+BGSave - This player was saved by the Bodyguard
+VestSave - This player was saved by a bulletproof Vest
+ImmuneSave - This player was saved due to being night immune
+JailSave - This player was saved due to being in jail
+NightImmune - The target of this player was immune to their attack!
+VHStake - This player, a Vampire Hunter, was visited by a Vampire
+DousedJail - This player had an Arsonist target him, but was in jail that night
+BGArsoSave - This player was targeted by an Arsonist but was saved by a Bodyguard
+Doused - This player was doused by an Arsonist
+SpyVisits - This player, a spy, saw all the Mafia visits that night
+LKVisits - This player, a lookout, watched a target and saw X people visit him
+
+For attackers:
+Veteran - This player has visited an alerted Veteran
+Vigilante - This player was shot by a Vigilante
+Vampire Hunter - This player was staked by a visiting Vampire Hunter
+VHVisit - This player, a vampire, visited a Vampire Hunter
+SKVisit - This player has roleblocked a Serial Killer
+JailedSK - This player has jailed a Serial Killer
+Serial Killer - This player was attacked by a Serial Killer
+Mafia - This player was attacked by a member of the mafia
+Bodyguard - This player was attacked by a bodyguard
+BGAttack - This player, a bodyguard, was killed defending his target
