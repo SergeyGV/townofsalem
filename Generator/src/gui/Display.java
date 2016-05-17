@@ -4,11 +4,16 @@ import java.awt.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
+/**
+ * Display - The main menu of the GUI, in charge of saying what gets
+ * displayed, and when
+ */
 public class Display {
 
-    private Frame mainFrame;
-    private int FrameLength = 1000;
-    private int FrameWidth = 600;
+    private Frame mainFrame; // Overarching Frame
+    private int FrameLength = 700;
+    private int FrameWidth = 1000;
+    private RoleStack roleList;
 
     public Display() {
 
@@ -20,7 +25,9 @@ public class Display {
                 System.exit(0);
             }
         });
-        mainFrame.setVisible(true);
+        roleList = new RoleStack();
+        mainFrame.add(roleList.returnPanel());
+        mainFrame.setVisible(true); // Should be done as the very last step
 
     }
 
