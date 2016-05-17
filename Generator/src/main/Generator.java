@@ -7,6 +7,7 @@ import java.util.Random;
 import actions.Actions;
 import actions.RoleInfo;
 import actions.RoleProcessor;
+import gui.Display;
 
 public class Generator {
 	
@@ -195,10 +196,13 @@ public class Generator {
 	public static void main(String[] args) {
 		
 		new RoleInfo(); // Generate investigative results
+		new Display(); // Display the screen
+		/* // WHILE GUI IS WORKED ON
 		Generator gen = new Generator();
 		gen.Create();
 		Actions test = new Actions();
 		test.generate(gen.FinalList);
+		*/
 
 	}
 
