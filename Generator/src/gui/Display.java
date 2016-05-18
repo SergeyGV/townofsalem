@@ -2,8 +2,6 @@ package gui;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.File;
@@ -18,7 +16,6 @@ public class Display {
     private Panel mainWindow; // First menu
     private int FrameLength = 700;
     private int FrameWidth = 1000;
-    private RoleStack roleList;
     private String BGpath = "/home/sergey/workspace/townofsalem/Generator/pictures/TOSSimBG.png";
 
     public Display() {
@@ -35,31 +32,25 @@ public class Display {
         mainWindow = new Window();
         mainWindow.setLayout(null);
         mainWindow.setBounds(0, 0, FrameWidth, FrameLength);
-        roleList = new RoleStack(mainWindow);
-        Button butt = new Button("Add role");
-        Button butter = new Button("Remove role");
-        butt.setBounds(400, 400, 130, 50);
-        butter.setBounds(400, 450, 130, 50);
-        butt.setActionCommand("Add");
-        butter.setActionCommand("Remove");
-        butt.addActionListener(new ButtonListener());
-        butter.addActionListener(new ButtonListener());
-        mainWindow.add(butt);
-        mainWindow.add(butter);
+        ButtonHandler.roleList = new RoleStack(mainWindow);
+        Button AddRole = new Button("Add role");
+        Button RemoveRole = new Button("Remove role");
+        Button Start = new Button("Start");
+        AddRole.setBounds(500, 610, 200, 60);
+        RemoveRole.setBounds(750, 510, 200, 60);
+        Start.setBounds(750, 610, 200, 60);
+        AddRole.setActionCommand("Add");
+        RemoveRole.setActionCommand("Remove");
+        Start.setActionCommand("Start");
+        AddRole.addActionListener(new ButtonHandler());
+        RemoveRole.addActionListener(new ButtonHandler());
+        Start.addActionListener(new ButtonHandler());
+        mainWindow.add(AddRole);
+        mainWindow.add(RemoveRole);
+        mainWindow.add(Start);
         mainFrame.add(mainWindow);
         mainFrame.setVisible(true); // Should be done as the very last step
 
-    }
-
-    public class ButtonListener implements ActionListener {
-        public void actionPerformed(ActionEvent e) {
-            String command = e.getActionCommand();
-            if (command.equals("Add")) {
-                roleList.pushRole("Town Investigative");
-            } else {
-                roleList.popRole();
-            }
-        }
     }
 
     class Window extends Panel {
