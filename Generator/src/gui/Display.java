@@ -1,7 +1,5 @@
 package gui;
 
-import javafx.scene.layout.Pane;
-
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.event.ActionEvent;

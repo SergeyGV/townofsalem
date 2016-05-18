@@ -1,8 +1,6 @@
 package gui;
 
-import javax.imageio.ImageIO;
 import java.awt.*;
-import java.io.File;
 import java.util.ArrayList;
 
 /**
