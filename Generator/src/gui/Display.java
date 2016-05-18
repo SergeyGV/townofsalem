@@ -1,10 +1,14 @@
 package gui;
 
+import javafx.scene.layout.Pane;
+
+import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.io.File;
 
 /**
  * Display - The main menu of the GUI, in charge of saying what gets
@@ -13,15 +17,14 @@ import java.awt.event.WindowEvent;
 public class Display {
 
     private Frame mainFrame; // Overarching Frame
+    private Panel mainWindow; // First menu
     private int FrameLength = 700;
     private int FrameWidth = 1000;
     private RoleStack roleList;
+    private String BGpath = "/home/sergey/workspace/townofsalem/Generator/pictures/TOSSimBG.png";
 
     public Display() {
 
-        Panel thing = new Panel();
-        thing.setLayout(null);
-        thing.setBounds(0,0,1000,1000);
         mainFrame = new Frame("Town Of Salem Simulator");
         mainFrame.setSize(FrameWidth, FrameLength);
         mainFrame.setResizable(false);
@@ -31,8 +34,10 @@ public class Display {
                 System.exit(0);
             }
         });
-        roleList = new RoleStack();
-        mainFrame.add(roleList.returnPanel());
+        mainWindow = new Window();
+        mainWindow.setLayout(null);
+        mainWindow.setBounds(0, 0, FrameWidth, FrameLength);
+        roleList = new RoleStack(mainWindow);
         Button butt = new Button("Add role");
         Button butter = new Button("Remove role");
         butt.setBounds(400, 400, 130, 50);
@@ -41,9 +46,9 @@ public class Display {
         butter.setActionCommand("Remove");
         butt.addActionListener(new ButtonListener());
         butter.addActionListener(new ButtonListener());
-        thing.add(butt);
-        thing.add(butter);
-        mainFrame.add(thing);
+        mainWindow.add(butt);
+        mainWindow.add(butter);
+        mainFrame.add(mainWindow);
         mainFrame.setVisible(true); // Should be done as the very last step
 
     }
@@ -57,6 +62,23 @@ public class Display {
                 roleList.popRole();
             }
         }
+    }
+
+    class Window extends Panel {
+
+        Image background;
+        public Window() {
+            try {
+                background = ImageIO.read(new File(BGpath));
+            } catch (Exception e) {
+                System.out.println("Couldn't add the background");
+            }
+        }
+
+        public void paint(Graphics g) {
+            g.drawImage(background, 0, 0, null);
+        }
+
     }
 
 }
