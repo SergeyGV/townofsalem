@@ -36,9 +36,9 @@ public class Display {
         Button AddRole = new Button("Add role");
         Button RemoveRole = new Button("Remove role");
         Button Start = new Button("Start");
-        AddRole.setBounds(500, 610, 200, 60);
-        RemoveRole.setBounds(750, 510, 200, 60);
-        Start.setBounds(750, 610, 200, 60);
+        AddRole.setBounds(500, 618, 200, 60);
+        RemoveRole.setBounds(750, 517, 200, 60);
+        Start.setBounds(750, 618, 200, 60);
         AddRole.setActionCommand("Add");
         RemoveRole.setActionCommand("Remove");
         Start.setActionCommand("Start");

@@ -15,9 +15,9 @@ public class RoleStack {
     private int currentLabel; // Tracker for which element in the stack we are on
     private int fontSize = 20;
     private int initx = 750; // X coordinate of the stack of boxes
-    private int inity = 60; // Y coordinate of the corner of the top left box
+    private int inity = 28; // Y coordinate of the corner of the top left box
     private int boxlength = 200; // Length of each box
-    private int boxwidth = 27; // Height of each box
+    private int boxwidth = 30; // Height of each box
 
     public RoleStack(Panel target) {
 
