@@ -1,6 +1,8 @@
 package gui;
 
+import javax.imageio.ImageIO;
 import java.awt.*;
+import java.io.File;
 import java.util.ArrayList;
 
 /**
@@ -12,6 +14,7 @@ public class RoleStack {
     private ArrayList<Label> roleList;
     private Font mainFont;
     private String chosenFont = "Calibra";
+    public String LabelPic = "/home/sergey/workspace/townofsalem/Generator/pictures/RoleStackBG.png";
     private int currentLabel; // Tracker for which element in the stack we are on
     private int fontSize = 20;
     private int initx = 750; // X coordinate of the stack of boxes
@@ -26,7 +29,7 @@ public class RoleStack {
         roleList = new ArrayList<>();
         Label role;
         for (int i = 0; i < 15; i++) {
-            role = new Label();
+            role = new RoleDisplay();
             role.setAlignment(Label.LEFT);
             role.setFont(mainFont);
             role.setBounds(initx, inity + boxwidth*i, boxlength, boxwidth);
@@ -53,7 +56,7 @@ public class RoleStack {
 
     }
 
-    /**
+    /**xA
      * Removes the top role on the current panel
      */
     public void popRole() {
@@ -82,5 +85,21 @@ public class RoleStack {
 
     }
 
+    class RoleDisplay extends Label {
+
+        Image background;
+        public RoleDisplay() {
+            try {
+                background = ImageIO.read(new File(LabelPic));
+            } catch (Exception e) {
+                System.out.println("Couldn't add the background");
+            }
+        }
+
+        public void paint(Graphics g) {
+            g.drawImage(background, 0, 0, null);
+        }
+
+    }
 
 }
