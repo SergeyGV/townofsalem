@@ -14,7 +14,7 @@ public class RoleStack {
     private ArrayList<Label> roleList;
     private Font mainFont;
     private String chosenFont = "Calibra";
-    public String LabelPic = "/home/sergey/workspace/townofsalem/Generator/pictures/RoleStackBG.png";
+    public String LabelPic = "Generator/pictures/RoleStackBG.png";
     private int currentLabel; // Tracker for which element in the stack we are on
     private int fontSize = 20;
     private int initx = 750; // X coordinate of the stack of boxes
@@ -56,7 +56,7 @@ public class RoleStack {
 
     }
 
-    /**xA
+    /**
      * Removes the top role on the current panel
      */
     public void popRole() {
