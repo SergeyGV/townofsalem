@@ -14,8 +14,7 @@ public class RoleStack {
     private ArrayList<Label> roleList;
     private Font mainFont;
     private String chosenFont = "Calibra";
-    public String LabelPic = "Generator/pictures/RoleStackBG.png";
-    private int currentLabel; // Tracker for which element in the stack we are on
+    private Panel origin;
     private int fontSize = 20;
     private int initx = 750; // X coordinate of the stack of boxes
     private int inity = 28; // Y coordinate of the corner of the top left box
@@ -24,9 +23,10 @@ public class RoleStack {
 
     public RoleStack(Panel target) {
 
-        currentLabel = 0;
         mainFont = new Font(chosenFont, Font.PLAIN, fontSize);
         roleList = new ArrayList<>();
+        origin = target;
+        /*
         Label role;
         for (int i = 0; i < 15; i++) {
             role = new RoleDisplay();
@@ -37,6 +37,7 @@ public class RoleStack {
             roleList.add(role);
             target.add(role);
         }
+        */
 
     }
 
@@ -48,10 +49,12 @@ public class RoleStack {
      */
     public void pushRole(String role) {
 
-        if (currentLabel < 15) {
-            roleList.get(currentLabel).setText(role);
-            roleList.get(currentLabel).setVisible(true);
-            currentLabel++;
+        if (roleList.size() < 15) {
+            Label newRole = new RoleDisplay(role);
+            newRole.setText(role);
+            newRole.setBounds(initx, inity + roleList.size()*boxwidth, boxlength, boxwidth);
+            roleList.add(newRole);
+            origin.add(newRole);
         }
 
     }
@@ -61,10 +64,8 @@ public class RoleStack {
      */
     public void popRole() {
 
-        if (currentLabel != 0) {
-            currentLabel--;
-            roleList.get(currentLabel).setVisible(false);
-            roleList.get(currentLabel).setText(null);
+        if (roleList.size() != 0) {
+            origin.remove(roleList.remove(roleList.size() - 1));
         }
 
     }
@@ -78,7 +79,7 @@ public class RoleStack {
     public ArrayList<String> returnRoleList() {
 
         ArrayList<String> result = new ArrayList<>();
-        for (int i = 0; i < currentLabel; i++) {
+        for (int i = 0; i < roleList.size(); i++) {
             result.add(roleList.get(i).getText());
         }
         return (result);
@@ -88,9 +89,9 @@ public class RoleStack {
     class RoleDisplay extends Label {
 
         Image background;
-        public RoleDisplay() {
+        public RoleDisplay(String role) {
             try {
-                background = ImageIO.read(new File(LabelPic));
+                background = ImageMapper.roleImages.get(role);
             } catch (Exception e) {
                 System.out.println("Couldn't add the background");
             }

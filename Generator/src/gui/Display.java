@@ -34,6 +34,7 @@ public class Display {
         mainWindow.setBounds(0, 0, FrameWidth, FrameLength);
         ButtonHandler.roleList = new RoleStack(mainWindow);
         new CategorySelect(mainWindow);
+        new ImageMapper();
         Button AddRole = new Button("Add role");
         Button RemoveRole = new Button("Remove role");
         Button Start = new Button("Start");
