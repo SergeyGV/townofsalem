@@ -1,7 +1,6 @@
 package gui;
 
 import java.awt.*;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -47,10 +46,6 @@ public class RoleSelect {
         configPanel(Mafia, mafiaPanel);
         configPanel(Neutral, neutralPanel);
         configPanel(Random, randomPanel);
-        origin.add(townPanel);
-        origin.add(mafiaPanel);
-        origin.add(neutralPanel);
-        origin.add(randomPanel);
 
     }
 
@@ -67,6 +62,7 @@ public class RoleSelect {
         destination.setVisible(false);
         destination.setLayout(null);
         destination.setBounds(initx, inity, 200, height*roles.size());
+        origin.add(destination);
 
     }
 

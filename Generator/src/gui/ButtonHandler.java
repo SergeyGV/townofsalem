@@ -20,13 +20,13 @@ public class ButtonHandler implements ActionListener {
                 Random randomizer = new Random();
                 int res = randomizer.nextInt(47);
                 if (res > 33) { // RANDOM
-                    roleList.pushRole("any");
+                    roleList.pushRole("neutral killing");
                 } else if (res > 24) { // MAFIA
-                    roleList.pushRole("random mafia");
+                    roleList.pushRole("executioner");
                 } else if (res > 15) { // NEUTRAL
-                    roleList.pushRole("neutral evil");
+                    roleList.pushRole("vampire");
                 } else { // TOWN
-                    roleList.pushRole("transporter");
+                    roleList.pushRole("town investigative");
                 }
                 break;
             case "Remove":
