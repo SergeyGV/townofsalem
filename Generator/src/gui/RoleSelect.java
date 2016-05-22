@@ -1,6 +1,8 @@
 package gui;
 
+import javax.imageio.ImageIO;
 import java.awt.*;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -42,18 +44,18 @@ public class RoleSelect {
         Random = new ArrayList<>(Arrays.asList("Random Town", "Town Investigative", "Town Protective",
                 "Town Killing", "Town Support", "Random Mafia", "Mafia Support", "Mafia Deception",
                 "Random Neutral", "Neutral Benign", "Neutral Evil", "Neutral Killing", "Any"));
-        configPanel(Town, townPanel);
-        configPanel(Mafia, mafiaPanel);
-        configPanel(Neutral, neutralPanel);
-        configPanel(Random, randomPanel);
+        configPanel(Town, townPanel, "Town");
+        configPanel(Mafia, mafiaPanel, "Mafia");
+        configPanel(Neutral, neutralPanel, "Neutral");
+        configPanel(Random, randomPanel, "Random");
 
     }
 
-    private void configPanel(ArrayList<String> roles, Panel destination) {
+    private void configPanel(ArrayList<String> roles, Panel destination, String category) {
 
         Button roleButton;
         for (int i = 0; i < roles.size(); i++) {
-            roleButton = new Button(roles.get(i));
+            roleButton = new RoleButton(roles.get(i), category);
             roleButton.addActionListener(new NonRoleListener());
             roleButton.setActionCommand(roles.get(i).toLowerCase());
             roleButton.setBounds(0, i*height, length, height);
@@ -87,6 +89,24 @@ public class RoleSelect {
                 break;
         }
         currentPanel.setVisible(true);
+
+    }
+
+    class RoleButton extends Button {
+
+        Image background;
+        public RoleButton(String role, String category) {
+            try {
+                background = ImageIO.read(new File("Generator/pictures/mini Buttons/"
+                        + category + "/" + role.toLowerCase() + ".jpg"));
+            } catch (Exception e) {
+                System.out.println("Couldn't add the background");
+            }
+        }
+
+        public void paint(Graphics g) {
+            g.drawImage(background, 0, 0, null);
+        }
 
     }
 
