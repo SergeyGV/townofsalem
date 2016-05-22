@@ -54,9 +54,10 @@ public class RoleSelect {
         Button roleButton;
         for (int i = 0; i < roles.size(); i++) {
             roleButton = new Button(roles.get(i));
-            roleButton.addActionListener(new ButtonHandler());
-            roleButton.setActionCommand(roles.get(i));
-            roleButton.setBounds(initx, inity + i*height, length, height);
+            roleButton.addActionListener(new NonRoleListener());
+            roleButton.setActionCommand(roles.get(i).toLowerCase());
+            roleButton.setBounds(0, i*height, length, height);
+            roleButton.addActionListener(new RoleListener());
             destination.add(roleButton);
         }
         destination.setVisible(false);

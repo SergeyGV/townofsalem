@@ -14,6 +14,7 @@ public class Display {
 
     private Frame mainFrame; // Overarching Frame
     private Panel mainWindow; // First menu
+    private RoleStack selectedRoles;
     private int FrameLength = 700;
     private int FrameWidth = 1000;
     private String BGpath = "Generator/pictures/TOSSimBG.png";
@@ -32,8 +33,7 @@ public class Display {
         mainWindow = new Window();
         mainWindow.setLayout(null);
         mainWindow.setBounds(0, 0, FrameWidth, FrameLength);
-        ButtonHandler.roleList = new RoleStack(mainWindow);
-        ButtonHandler.categorySorter = new RoleSelect(mainWindow);
+        NonRoleListener.categorySorter = new RoleSelect(mainWindow);
         new ImageMapper();
         new CategorySelect(mainWindow);
         Button AddRole = new Button("Add role");
@@ -45,9 +45,10 @@ public class Display {
         AddRole.setActionCommand("Add");
         RemoveRole.setActionCommand("Remove");
         Start.setActionCommand("Start");
-        AddRole.addActionListener(new ButtonHandler());
-        RemoveRole.addActionListener(new ButtonHandler());
-        Start.addActionListener(new ButtonHandler());
+        selectedRoles = new RoleStack(mainWindow);
+        AddRole.addActionListener(new RoleListener(selectedRoles));
+        RemoveRole.addActionListener(new RoleListener(selectedRoles));
+        Start.addActionListener(new NonRoleListener());
         mainWindow.add(AddRole);
         mainWindow.add(RemoveRole);
         mainWindow.add(Start);
