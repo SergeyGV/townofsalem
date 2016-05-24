@@ -95,6 +95,7 @@ public class RoleSelect {
     class RoleButton extends Button {
 
         Image background;
+        boolean drawn = false;
         public RoleButton(String role, String category) {
             try {
                 background = ImageIO.read(new File("Generator/pictures/mini Buttons/"
@@ -105,7 +106,10 @@ public class RoleSelect {
         }
 
         public void paint(Graphics g) {
-            g.drawImage(background, 0, 0, null);
+            if (!drawn) {
+                g.drawImage(background, 0, 0, null);
+                drawn = true;
+            }
         }
 
     }
