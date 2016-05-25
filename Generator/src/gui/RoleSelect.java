@@ -22,6 +22,7 @@ public class RoleSelect {
     private Panel neutralPanel;
     private Panel randomPanel;
     private Panel currentPanel = null;
+    private String currentCat = null;
     private int initx = 500;
     private int inity = 245;
     private int length = 200;
@@ -53,13 +54,11 @@ public class RoleSelect {
 
     private void configPanel(ArrayList<String> roles, Panel destination, String category) {
 
-        Button roleButton;
+        Label roleButton;
         for (int i = 0; i < roles.size(); i++) {
             roleButton = new RoleButton(roles.get(i), category);
-            roleButton.addActionListener(new NonRoleListener());
-            roleButton.setActionCommand(roles.get(i).toLowerCase());
+            roleButton.addMouseListener(new SelectListener(roles.get(i).toLowerCase()));
             roleButton.setBounds(0, i*height, length, height);
-            roleButton.addActionListener(new RoleListener());
             destination.add(roleButton);
         }
         destination.setVisible(false);
@@ -71,31 +70,32 @@ public class RoleSelect {
 
     public void showNewPanel(String name) {
 
-        if (currentPanel != null) {
-            currentPanel.setVisible(false);
+        if (!name.equals(currentCat)) {
+            if (currentPanel != null) {
+                currentPanel.setVisible(false);
+            }
+            currentCat = name;
+            switch (name) {
+                case "Town":
+                    currentPanel = townPanel;
+                    break;
+                case "Mafia":
+                    currentPanel = mafiaPanel;
+                    break;
+                case "Neutral":
+                    currentPanel = neutralPanel;
+                    break;
+                case "Random":
+                    currentPanel = randomPanel;
+                    break;
+            }
+            currentPanel.setVisible(true);
         }
-        switch (name) {
-            case "Town":
-                currentPanel = townPanel;
-                break;
-            case "Mafia":
-                currentPanel = mafiaPanel;
-                break;
-            case "Neutral":
-                currentPanel = neutralPanel;
-                break;
-            case "Random":
-                currentPanel = randomPanel;
-                break;
-        }
-        currentPanel.setVisible(true);
-
     }
 
-    class RoleButton extends Button {
+    class RoleButton extends Label {
 
         Image background;
-        boolean drawn = false;
         public RoleButton(String role, String category) {
             try {
                 background = ImageIO.read(new File("Generator/pictures/mini Buttons/"
@@ -106,10 +106,7 @@ public class RoleSelect {
         }
 
         public void paint(Graphics g) {
-            if (!drawn) {
-                g.drawImage(background, 0, 0, null);
-                drawn = true;
-            }
+            g.drawImage(background, 0, 0, null);
         }
 
     }

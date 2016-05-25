@@ -21,7 +21,7 @@ public class CategorySelect {
         Button catSelect;
         for (int i = 0; i < 4; i++) {
             catSelect = new Button(selections.get(i));
-            catSelect.addActionListener(new NonRoleListener());
+            catSelect.addActionListener(new CategoryListener());
             catSelect.setActionCommand(selections.get(i));
             catSelect.setBounds(initx, inity + height*i, length, height);
             target.add(catSelect);
