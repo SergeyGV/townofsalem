@@ -18,13 +18,32 @@ public class CategorySelect {
     public CategorySelect(Panel target) {
 
         selections = new ArrayList<>(Arrays.asList("Town", "Mafia", "Neutral", "Random"));
-        Button catSelect;
+        Label catSelect;
         for (int i = 0; i < 4; i++) {
-            catSelect = new Button(selections.get(i));
-            catSelect.addActionListener(new CategoryListener());
-            catSelect.setActionCommand(selections.get(i));
+            catSelect = new Label(selections.get(i));
+            catSelect.addMouseListener(new CategoryListener(selections.get(i)));
             catSelect.setBounds(initx, inity + height*i, length, height);
             target.add(catSelect);
+        }
+
+    }
+
+    class CatDisplay extends Label {
+
+        Image background;
+        public CatDisplay(String role) {
+            /*
+            try {
+                background = ImageMapper.roleImages.get(role);
+            } catch (Exception e) {
+                System.out.println("Couldn't add the background");
+            }
+            */
+        }
+
+        public void paint(Graphics g) {
+            super.paint(g);
+            //g.drawImage(background, 0, 0, null);
         }
 
     }
