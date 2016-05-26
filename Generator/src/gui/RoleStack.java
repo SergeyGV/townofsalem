@@ -1,8 +1,6 @@
 package gui;
 
-import javax.imageio.ImageIO;
 import java.awt.*;
-import java.io.File;
 import java.util.ArrayList;
 
 /**
@@ -12,10 +10,7 @@ import java.util.ArrayList;
 public class RoleStack {
 
     private ArrayList<Label> roleList;
-    private Font mainFont;
-    private String chosenFont = "Calibra";
     private Panel origin;
-    private int fontSize = 20;
     private int initx = 750; // X coordinate of the stack of boxes
     private int inity = 28; // Y coordinate of the corner of the top left box
     private int boxlength = 200; // Length of each box
@@ -23,21 +18,8 @@ public class RoleStack {
 
     public RoleStack(Panel target) {
 
-        mainFont = new Font(chosenFont, Font.PLAIN, fontSize);
         roleList = new ArrayList<>();
         origin = target;
-        /*
-        Label role;
-        for (int i = 0; i < 15; i++) {
-            role = new RoleDisplay();
-            role.setAlignment(Label.LEFT);
-            role.setFont(mainFont);
-            role.setBounds(initx, inity + boxwidth*i, boxlength, boxwidth);
-            role.setVisible(false);
-            roleList.add(role);
-            target.add(role);
-        }
-        */
 
     }
 
