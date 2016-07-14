@@ -14,7 +14,6 @@ public class RoleStorage {
     ArrayList<String> NK = new ArrayList<>();
     ArrayList<String> NB = new ArrayList<>();
     ArrayList<String> NE = new ArrayList<>();
-    ArrayList<String> NC = new ArrayList<>();
     ArrayList<String> Unique = new ArrayList<>();
 
     public RoleStorage() {
