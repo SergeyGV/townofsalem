@@ -32,13 +32,46 @@ public class Generator {
      */
     public ArrayList<String> Generate() {
 
-        ArrayList<String> RoleList = new ArrayList<>();
-        VampireChecker();
+        ArrayList<String> FinalList = new ArrayList<>();
+        ArrayList<String> GeneralRoles = new ArrayList<>();
         TownSize = storage.TI.size() + storage.TP.size() + storage.TK.size() + storage.TS.size();
         NeutralSize = storage.NB.size() + storage.NE.size() + storage.NK.size();
         MafiaSize = storage.MK.size() + storage.MS.size() + storage.MD.size();
         AnySize = TownSize + NeutralSize + MafiaSize;
-        return RoleList;
+        VampireChecker();
+        for (String role: roleList) {
+            if (storage.director.containsKey(role) || role.equals("Random Town")
+                    || role.equals("Random Mafia") || role.equals("Random Neutral")
+                    || role.equals("Any")) {
+                GeneralRoles.add(role);
+            } else {
+                if (storage.Unique.contains(role)) {
+                    storage.Unique.remove(role);
+                }
+                FinalList.add(role);
+            }
+        }
+        for (String genRole: GeneralRoles) {
+            switch (genRole) {
+                case "Random Town":
+                    //FinalList.add(getRandomTown());
+                    break;
+                case "Random Mafia":
+                    //FinalList.add(getRandomMafia);
+                    break;
+                case "Random Neutral":
+                    //FinalList.add(getRandomNeutral);
+                    break;
+                case "Any":
+                    //FinalList.add(getAny());
+                    break;
+                default:
+                    //FinalList.add(getRoleCategory());
+                    break;
+            }
+        }
+        Collections.shuffle(roleList);
+        return roleList;
 
     }
 
@@ -48,32 +81,42 @@ public class Generator {
         if (roleList.contains("Vampire")) {
             VampPresent = true;
             storage.TK.add(storage.TK.size(), "Vampire Hunter");
+            TownSize++;
+            AnySize++;
             return;
         }
         if (roleList.contains("Random Neutral")) {
             i = roleList.indexOf("Random Neutral");
             while (i != roleList.size() && roleList.get(i).equals("Random Neutral") ) {
                 if (randomizer.nextInt(NeutralSize + 1) == NeutralSize) {
-                    roleList.remove(i);
-                    roleList.add(i, "Vampire");
-                    VampPresent = true;
-                    storage.TK.add(storage.TK.size(), "Vampire Hunter");
+                    AddVampire(i);
                     return;
                 }
+                i++;
             }
         }
         if (roleList.contains("Any")) {
             i = roleList.indexOf("Any");
             while (i != roleList.size() && roleList.get(i).equals("Any") ) {
+                System.out.println("Iteration");
                 if (randomizer.nextInt(AnySize + 1) == AnySize) {
-                    roleList.remove(i);
-                    roleList.add(i, "Vampire");
-                    VampPresent = true;
-                    storage.TK.add(storage.TK.size(), "Vampire Hunter");
+                    AddVampire(i);
                     return;
                 }
+                i++;
             }
         }
+
+    }
+
+    private void AddVampire(int index) {
+
+        roleList.remove(index);
+        roleList.add(index, "Vampire");
+        VampPresent = true;
+        TownSize++;
+        AnySize++;
+        storage.TK.add(storage.TK.size(), "Vampire Hunter");
 
     }
 

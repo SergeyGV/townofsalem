@@ -1,6 +1,7 @@
 package generation;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class RoleStorage {
 
@@ -15,6 +16,7 @@ public class RoleStorage {
     ArrayList<String> NB = new ArrayList<>();
     ArrayList<String> NE = new ArrayList<>();
     ArrayList<String> Unique = new ArrayList<>();
+    HashMap<String, ArrayList> director = new HashMap<>();
 
     public RoleStorage() {
         /*
@@ -74,6 +76,17 @@ public class RoleStorage {
         NE.add(0, "Witch");
         NE.add(1, "Jester");
         NE.add(2, "Executioner");
+        // Setting up the access towards the ArrayLists
+        director.put("Town Killing", TK);
+        director.put("Town Support", TS);
+        director.put("Town Investigative", TI);
+        director.put("Town Protective", TP);
+        director.put("Mafia Killing", MK);
+        director.put("Mafia Deception", MD);
+        director.put("Mafia Support", MS);
+        director.put("Neutral Killing", NK);
+        director.put("Neutral Benign", NB);
+        director.put("Neutral Evil", NE);
     }
 
 }
