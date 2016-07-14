@@ -37,7 +37,7 @@ public class Generator {
 		// Town Killing
 		TK.add(0, "Vigilante");
 		TK.add(1, "Veteran"); // Unique
-		Unique.add(0, "Veteran");
+		Unique.add("Veteran");
 		// Town Investigative
 		TI.add(0, "Investigator");
 		TI.add(1, "Lookout");
@@ -49,8 +49,8 @@ public class Generator {
 		TS.add(2, "Escort");
 		TS.add(3, "Mayor"); // Unique
 		TS.add(4, "Retributionist"); // Unique
-		Unique.add(0, "Mayor");
-		Unique.add(1, "Retributionist");
+		Unique.add("Mayor");
+		Unique.add("Retributionist");
 		// Town Protective
 		TP.add(0, "Doctor");
 		TP.add(1, "Bodyguard");
@@ -67,7 +67,7 @@ public class Generator {
 		NK.add(0, "Serial Killer");
 		NK.add(1, "Arsonist");
 		NK.add(2, "Werewolf"); // Unique
-		Unique.add(0, "Werewolf");
+		Unique.add("Werewolf");
 		// Neutral Benign
 		NB.add(0, "Survivor");
 		NB.add(1, "Amnesiac");
@@ -196,13 +196,12 @@ public class Generator {
 	public static void main(String[] args) {
 		
 		new RoleInfo(); // Generate investigative results
-		new Display(); // Display the screen
-		/* // WHILE GUI IS WORKED ON
+		//new Display(); // Display the screen
+		// WHILE GUI IS WORKED ON
 		Generator gen = new Generator();
 		gen.Create();
 		Actions test = new Actions();
 		test.generate(gen.FinalList);
-		*/
 
 	}
 

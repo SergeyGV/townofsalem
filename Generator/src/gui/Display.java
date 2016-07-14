@@ -50,6 +50,10 @@ public class Display {
         mainWindow.add(RemoveRole);
         mainWindow.add(Start);
         mainFrame.add(mainWindow);
+        Label test = new Label("fug");
+        test.setBackground(new Color(0.4f, 0.6f, 0.8f, 0.2f));
+        test.setBounds(100, 100, 100, 100);
+        mainWindow.add(test);
         mainFrame.setVisible(true); // Should be done as the very last step
 
     }
