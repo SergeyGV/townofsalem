@@ -17,7 +17,7 @@ public class Display {
     private RoleStack selectedRoles;
     private int FrameLength = 700;
     private int FrameWidth = 1000;
-    private String BGpath = "Generator/pictures/TOSSimBG.png";
+    private String BGpath = "Controller/pictures/TOSSimBG.png";
 
     public Display() {
 

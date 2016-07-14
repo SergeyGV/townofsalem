@@ -4,17 +4,18 @@ import java.util.ArrayList;
 
 public class RoleStorage {
 
-    public ArrayList<String> TK = new ArrayList<>();
-    public ArrayList<String> TS = new ArrayList<>();
-    public ArrayList<String> TI = new ArrayList<>();
-    public ArrayList<String> TP = new ArrayList<>();
-    public ArrayList<String> MK = new ArrayList<>();
-    public ArrayList<String> MD = new ArrayList<>();
-    public ArrayList<String> MS = new ArrayList<>();
-    public ArrayList<String> NK = new ArrayList<>();
-    public ArrayList<String> NB = new ArrayList<>();
-    public ArrayList<String> NE = new ArrayList<>();
-    public ArrayList<String> Unique = new ArrayList<>();
+    ArrayList<String> TK = new ArrayList<>();
+    ArrayList<String> TS = new ArrayList<>();
+    ArrayList<String> TI = new ArrayList<>();
+    ArrayList<String> TP = new ArrayList<>();
+    ArrayList<String> MK = new ArrayList<>();
+    ArrayList<String> MD = new ArrayList<>();
+    ArrayList<String> MS = new ArrayList<>();
+    ArrayList<String> NK = new ArrayList<>();
+    ArrayList<String> NB = new ArrayList<>();
+    ArrayList<String> NE = new ArrayList<>();
+    ArrayList<String> NC = new ArrayList<>();
+    ArrayList<String> Unique = new ArrayList<>();
 
     public RoleStorage() {
         /*
