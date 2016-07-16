@@ -16,7 +16,7 @@ public class RoleStorage {
     ArrayList<String> NB = new ArrayList<>();
     ArrayList<String> NE = new ArrayList<>();
     ArrayList<String> Unique = new ArrayList<>();
-    HashMap<String, ArrayList> director = new HashMap<>();
+    HashMap<String, ArrayList<String>> director = new HashMap<>();
 
     public RoleStorage() {
         /*

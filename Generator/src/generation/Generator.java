@@ -6,14 +6,14 @@ import java.util.Random;
 
 public class Generator {
 
-    private RoleStorage storage;
-    private ArrayList<String> roleList;
-    private Random randomizer;
-    private boolean VampPresent;
-    private int AnySize;
-    private int TownSize;
-    private int MafiaSize;
-    private int NeutralSize;
+    RoleStorage storage;
+    ArrayList<String> roleList;
+    boolean VampPresent;
+    int AnySize;
+    int TownSize;
+    int MafiaSize;
+    int NeutralSize;
+    Random randomizer;
 
     public Generator(RoleStorage info, ArrayList<String> roles) {
 
@@ -38,8 +38,7 @@ public class Generator {
         NeutralSize = storage.NB.size() + storage.NE.size() + storage.NK.size();
         MafiaSize = storage.MK.size() + storage.MS.size() + storage.MD.size();
         AnySize = TownSize + NeutralSize + MafiaSize;
-        VampireChecker();
-        for (String role: roleList) {
+        for (String role : roleList) {
             if (storage.director.containsKey(role) || role.equals("Random Town")
                     || role.equals("Random Mafia") || role.equals("Random Neutral")
                     || role.equals("Any")) {
@@ -51,22 +50,22 @@ public class Generator {
                 FinalList.add(role);
             }
         }
-        for (String genRole: GeneralRoles) {
+        for (String genRole : GeneralRoles) {
             switch (genRole) {
                 case "Random Town":
                     //FinalList.add(getRandomTown());
                     break;
                 case "Random Mafia":
-                    //FinalList.add(getRandomMafia);
+                    //FinalList.add(getRandomMafia());
                     break;
                 case "Random Neutral":
-                    //FinalList.add(getRandomNeutral);
+                    //FinalList.add(getRandomNeutral());
                     break;
                 case "Any":
                     //FinalList.add(getAny());
                     break;
                 default:
-                    //FinalList.add(getRoleCategory());
+                    FinalList.add(getRoleCategory(storage.director.get(genRole)));
                     break;
             }
         }
@@ -75,49 +74,12 @@ public class Generator {
 
     }
 
-    private void VampireChecker() {
-
-        int i;
-        if (roleList.contains("Vampire")) {
-            VampPresent = true;
-            storage.TK.add(storage.TK.size(), "Vampire Hunter");
-            TownSize++;
-            AnySize++;
-            return;
+    private String getRoleCategory(ArrayList<String> category) {
+        String result = category.get(randomizer.nextInt(category.size()));
+        if (storage.Unique.contains(result)) {
+            storage.Unique.remove(result);
         }
-        if (roleList.contains("Random Neutral")) {
-            i = roleList.indexOf("Random Neutral");
-            while (i != roleList.size() && roleList.get(i).equals("Random Neutral") ) {
-                if (randomizer.nextInt(NeutralSize + 1) == NeutralSize) {
-                    AddVampire(i);
-                    return;
-                }
-                i++;
-            }
-        }
-        if (roleList.contains("Any")) {
-            i = roleList.indexOf("Any");
-            while (i != roleList.size() && roleList.get(i).equals("Any") ) {
-                System.out.println("Iteration");
-                if (randomizer.nextInt(AnySize + 1) == AnySize) {
-                    AddVampire(i);
-                    return;
-                }
-                i++;
-            }
-        }
-
-    }
-
-    private void AddVampire(int index) {
-
-        roleList.remove(index);
-        roleList.add(index, "Vampire");
-        VampPresent = true;
-        TownSize++;
-        AnySize++;
-        storage.TK.add(storage.TK.size(), "Vampire Hunter");
-
+        return result;
     }
 
 }
