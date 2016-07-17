@@ -22,6 +22,10 @@ public class Generator {
         Collections.sort(roleList);
         randomizer = new Random();
         VampPresent = false;
+        TownSize = storage.TI.size() + storage.TP.size() + storage.TK.size() + storage.TS.size();
+        NeutralSize = storage.NB.size() + storage.NE.size() + storage.NK.size();
+        MafiaSize = storage.MK.size() + storage.MS.size() + storage.MD.size();
+        AnySize = TownSize + NeutralSize + MafiaSize;
 
     }
 
@@ -34,10 +38,8 @@ public class Generator {
 
         ArrayList<String> FinalList = new ArrayList<>();
         ArrayList<String> GeneralRoles = new ArrayList<>();
-        TownSize = storage.TI.size() + storage.TP.size() + storage.TK.size() + storage.TS.size();
-        NeutralSize = storage.NB.size() + storage.NE.size() + storage.NK.size();
-        MafiaSize = storage.MK.size() + storage.MS.size() + storage.MD.size();
-        AnySize = TownSize + NeutralSize + MafiaSize;
+        Modifier.VampireChecker(this);
+        Modifier.MafiaChecker(this);
         for (String role : roleList) {
             if (storage.director.containsKey(role) || role.equals("Random Town")
                     || role.equals("Random Mafia") || role.equals("Random Neutral")
@@ -69,8 +71,8 @@ public class Generator {
                     break;
             }
         }
-        Collections.shuffle(roleList);
-        return roleList;
+        Collections.shuffle(FinalList);
+        return FinalList;
 
     }
 
