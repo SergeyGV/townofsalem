@@ -53,19 +53,19 @@ public class Generator {
         for (String genRole : GeneralRoles) {
             switch (genRole) {
                 case "Random Town":
-                    //FinalList.add(getRandomTown());
+                    getRandomTown();
                     break;
                 case "Random Mafia":
                     //FinalList.add(getRandomMafia());
                     break;
                 case "Random Neutral":
-                    //FinalList.add(getRandomNeutral());
+                    getRandomNeutral();
                     break;
                 case "Any":
                     //FinalList.add(getAny());
                     break;
                 default:
-                    getRoleCategory(genRole);
+                    getRoleCategory(storage.director.get(genRole));
                     break;
             }
         }
@@ -74,24 +74,39 @@ public class Generator {
 
     }
 
-    private String getTownRole() {
-        int totalSize = TownSize;
+    private void getRandomTown() {
+        int totalSize = TownSize - storage.TP.size();
         int chosen = randomizer.nextInt(totalSize);
-        System.out.println(chosen);
-        /*
         if (totalSize < chosen) {
-            return(getRole(TP));
+            getRoleCategory(storage.TP);
+            return;
         }
-        totalSize -= TS.size();
+        totalSize -= storage.TS.size();
         if (totalSize < chosen) {
-            return(getRole(TS));
+            getRoleCategory(storage.TS);
+            return;
         }
-        totalSize -= TI.size();
+        totalSize -= storage.TI.size();
         if (totalSize < chosen) {
-            return(getRole(TI));
+            getRoleCategory(storage.TI);
+            return;
         }
-        return(getRole(TK));*/
-        return "ayy";
+        getRoleCategory(storage.TK);
+    }
+
+    private void getRandomNeutral() {
+        int totalSize = TownSize - storage.NK.size();
+        int chosen = randomizer.nextInt(totalSize);
+        if (totalSize < chosen) {
+            getRoleCategory(storage.NK);
+            return;
+        }
+        totalSize -= storage.NB.size();
+        if (totalSize < chosen) {
+            getRoleCategory(storage.NB);
+            return;
+        }
+        getRoleCategory(storage.NE);
     }
 
     private void getRole(String role) {
@@ -102,8 +117,7 @@ public class Generator {
         FinalList.add(role);
     }
 
-    private void getRoleCategory(String category) {
-        ArrayList<String> catRoles = storage.director.get(category);
+    private void getRoleCategory(ArrayList<String> catRoles) {
         String result = catRoles.get(randomizer.nextInt(catRoles.size()));
         if (storage.Unique.contains(result)) {
             catRoles.remove(result);

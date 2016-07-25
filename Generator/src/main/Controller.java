@@ -90,11 +90,11 @@ public class Controller {
 		roles.add("Lookout");
 		roles.add("Mafia Support");
 		roles.add("Mafia Killing");
-		roles.add("Lookout");
-		roles.add("Lookout");
+		roles.add("Random Town");
+		roles.add("Random Town");
 		roles.add("Neutral Killing");
-		roles.add("Lookout");
-		roles.add("Lookout");
+		roles.add("Random Town");
+		roles.add("Random Neutral");
 		roles.add("Town Protective");
 		roles.add("Lookout");
 		roles.add("Lookout");
