@@ -15,8 +15,10 @@ public class Modifier {
 
         if (!gen.roleList.contains("Mafioso") && !gen.roleList.contains("Godfather")) {
             if (gen.roleList.contains("Mafia Killing")) {
-                gen.roleList.remove("Mafia Killing");
-                gen.roleList.add(gen.storage.MK.get(gen.randomizer.nextInt(gen.storage.MK.size())));
+                while (gen.roleList.contains("Mafia Killing")) {
+                    gen.roleList.remove("Mafia Killing");
+                    gen.roleList.add(gen.storage.MK.get(gen.randomizer.nextInt(gen.storage.MK.size())));
+                }
             } else if (gen.roleList.contains("Random Mafia")) {
                 gen.roleList.remove("Random Mafia");
                 gen.roleList.add(gen.storage.MK.get(gen.randomizer.nextInt(gen.storage.MK.size())));
@@ -47,7 +49,7 @@ public class Modifier {
         if (gen.roleList.contains("Random Neutral")) {
             i = gen.roleList.indexOf("Random Neutral");
             while (i != gen.roleList.size() && gen.roleList.get(i).equals("Random Neutral") ) {
-                if (gen.randomizer.nextInt(gen.NeutralSize + 1) == gen.NeutralSize) {
+                if (gen.randomizer.nextInt(gen.storage.getNeutralSize()+1) == gen.storage.getNeutralSize()) {
                     AddVampire(i, gen, true);
                     return;
                 }
@@ -58,7 +60,7 @@ public class Modifier {
             i = gen.roleList.indexOf("Any");
             while (i != gen.roleList.size() && gen.roleList.get(i).equals("Any") ) {
                 System.out.println("Iteration");
-                if (gen.randomizer.nextInt(gen.AnySize + 1) == gen.AnySize) {
+                if (gen.randomizer.nextInt(gen.storage.getAllSize() + 1) == gen.storage.getAllSize()) {
                     AddVampire(i, gen, true);
                     return;
                 }
@@ -75,8 +77,6 @@ public class Modifier {
             gen.roleList.add(index, "Vampire");
         }
         gen.VampPresent = true;
-        gen.TownSize++;
-        gen.AnySize++;
         gen.storage.TK.add(gen.storage.TK.size(), "Vampire Hunter");
 
     }

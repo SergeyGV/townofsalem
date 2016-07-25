@@ -10,10 +10,6 @@ public class Generator {
     ArrayList<String> roleList;
     ArrayList<String> FinalList;
     boolean VampPresent;
-    int AnySize;
-    int TownSize;
-    int MafiaSize;
-    int NeutralSize;
     Random randomizer;
 
     public Generator(RoleStorage info, ArrayList<String> roles) {
@@ -24,10 +20,6 @@ public class Generator {
         Collections.sort(roleList);
         randomizer = new Random();
         VampPresent = false;
-        TownSize = storage.TI.size() + storage.TP.size() + storage.TK.size() + storage.TS.size();
-        NeutralSize = storage.NB.size() + storage.NE.size() + storage.NK.size();
-        MafiaSize = storage.MK.size() + storage.MS.size() + storage.MD.size();
-        AnySize = TownSize + NeutralSize + MafiaSize;
 
     }
 
@@ -56,7 +48,7 @@ public class Generator {
                     getRandomTown();
                     break;
                 case "Random Mafia":
-                    //FinalList.add(getRandomMafia());
+                    getRandomMafia();
                     break;
                 case "Random Neutral":
                     getRandomNeutral();
@@ -75,8 +67,9 @@ public class Generator {
     }
 
     private void getRandomTown() {
-        int totalSize = TownSize - storage.TP.size();
+        int totalSize = storage.getTownSize();
         int chosen = randomizer.nextInt(totalSize);
+        totalSize -= storage.TP.size();
         if (totalSize < chosen) {
             getRoleCategory(storage.TP);
             return;
@@ -94,9 +87,26 @@ public class Generator {
         getRoleCategory(storage.TK);
     }
 
-    private void getRandomNeutral() {
-        int totalSize = TownSize - storage.NK.size();
+    private void getRandomMafia() {
+        int totalSize = storage.getMafiaSize();
         int chosen = randomizer.nextInt(totalSize);
+        totalSize -= storage.MK.size();
+        if (totalSize < chosen) {
+            getRoleCategory(storage.MK);
+            return;
+        }
+        totalSize -= storage.MD.size();
+        if (totalSize < chosen) {
+            getRoleCategory(storage.MD);
+            return;
+        }
+        getRoleCategory(storage.MS);
+    }
+
+    private void getRandomNeutral() {
+        int totalSize = storage.getNeutralSize();
+        int chosen = randomizer.nextInt(totalSize);
+        totalSize -= storage.NK.size();
         if (totalSize < chosen) {
             getRoleCategory(storage.NK);
             return;

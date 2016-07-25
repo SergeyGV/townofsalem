@@ -90,6 +90,22 @@ public class RoleStorage {
         director.put("Neutral Evil", NE);
     }
 
+    public int getTownSize() {
+        return TP.size() + TI.size() + TS.size() + TK.size();
+    }
+
+    public int getMafiaSize() {
+        return MK.size() + MS.size() + MD.size();
+    }
+
+    public int getNeutralSize() {
+        return NK.size() + NE.size() + NB.size();
+    }
+
+    public int getAllSize() {
+        return getMafiaSize() + getNeutralSize() + getTownSize();
+    }
+
     public ArrayList<String> findCategory(String role) {
         if (TK.contains(role)) {
             return TK;
