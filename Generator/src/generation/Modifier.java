@@ -43,25 +43,25 @@ public class Modifier {
 
         int i = 0;
         if (gen.roleList.contains("Vampire")) {
-            AddVampire(i, gen, false);
+            AddVampire("hello, is it me you're looking for?", gen, false);
             return;
         }
-        if (gen.roleList.contains("Random Neutral")) {
-            i = gen.roleList.indexOf("Random Neutral");
-            while (i != gen.roleList.size() && gen.roleList.get(i).equals("Random Neutral") ) {
+        if (gen.GeneralRoles.contains("Random Neutral")) {
+            i = gen.GeneralRoles.indexOf("Random Neutral");
+            while (i != gen.GeneralRoles.size() && gen.GeneralRoles.get(i).equals("Random Neutral") ) {
                 if (gen.randomizer.nextInt(gen.storage.getNeutralSize()+1) == gen.storage.getNeutralSize()) {
-                    AddVampire(i, gen, true);
+                    AddVampire("Random Neutral", gen, true);
                     return;
                 }
                 i++;
             }
         }
-        if (gen.roleList.contains("Any")) {
-            i = gen.roleList.indexOf("Any");
-            while (i != gen.roleList.size() && gen.roleList.get(i).equals("Any") ) {
+        if (gen.GeneralRoles.contains("Any")) {
+            i = gen.GeneralRoles.indexOf("Any");
+            while (i != gen.GeneralRoles.size() && gen.GeneralRoles.get(i).equals("Any") ) {
                 System.out.println("Iteration");
                 if (gen.randomizer.nextInt(gen.storage.getAllSize() + 1) == gen.storage.getAllSize()) {
-                    AddVampire(i, gen, true);
+                    AddVampire("Any", gen, true);
                     return;
                 }
                 i++;
@@ -70,11 +70,11 @@ public class Modifier {
 
     }
 
-    private static void AddVampire(int index, Generator gen, boolean Remove) {
+    private static void AddVampire(String text, Generator gen, boolean Remove) {
 
         if (Remove) {
-            gen.roleList.remove(index);
-            gen.roleList.add(index, "Vampire");
+            gen.GeneralRoles.remove(text);
+            gen.FinalList.add("Vampire");
         }
         gen.VampPresent = true;
         gen.storage.TK.add(gen.storage.TK.size(), "Vampire Hunter");

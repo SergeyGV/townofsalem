@@ -9,6 +9,7 @@ public class Generator {
     RoleStorage storage;
     ArrayList<String> roleList;
     ArrayList<String> FinalList;
+    ArrayList<String> GeneralRoles;
     boolean VampPresent;
     Random randomizer;
 
@@ -17,6 +18,7 @@ public class Generator {
         storage = info;
         roleList = roles;
         FinalList = new ArrayList<>();
+        GeneralRoles = new ArrayList<>();
         Collections.sort(roleList);
         randomizer = new Random();
         VampPresent = false;
@@ -30,8 +32,6 @@ public class Generator {
      */
     public ArrayList<String> Generate() {
 
-        ArrayList<String> GeneralRoles = new ArrayList<>();
-        Modifier.VampireChecker(this);
         Modifier.MafiaChecker(this);
         for (String role : roleList) {
             if (storage.director.containsKey(role) || role.equals("Random Town")
@@ -42,6 +42,7 @@ public class Generator {
                 getRole(role);
             }
         }
+        Modifier.VampireChecker(this);
         for (String genRole : GeneralRoles) {
             switch (genRole) {
                 case "Random Town":
