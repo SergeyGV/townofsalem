@@ -8,6 +8,7 @@ public class Generator {
 
     RoleStorage storage;
     ArrayList<String> roleList;
+    ArrayList<String> FinalList;
     boolean VampPresent;
     int AnySize;
     int TownSize;
@@ -19,6 +20,7 @@ public class Generator {
 
         storage = info;
         roleList = roles;
+        FinalList = new ArrayList<>();
         Collections.sort(roleList);
         randomizer = new Random();
         VampPresent = false;
@@ -36,7 +38,6 @@ public class Generator {
      */
     public ArrayList<String> Generate() {
 
-        ArrayList<String> FinalList = new ArrayList<>();
         ArrayList<String> GeneralRoles = new ArrayList<>();
         Modifier.VampireChecker(this);
         Modifier.MafiaChecker(this);
@@ -46,10 +47,7 @@ public class Generator {
                     || role.equals("Any")) {
                 GeneralRoles.add(role);
             } else {
-                if (storage.Unique.contains(role)) {
-                    storage.Unique.remove(role);
-                }
-                FinalList.add(role);
+                getRole(role);
             }
         }
         for (String genRole : GeneralRoles) {
@@ -67,7 +65,7 @@ public class Generator {
                     //FinalList.add(getAny());
                     break;
                 default:
-                    FinalList.add(getRoleCategory(storage.director.get(genRole)));
+                    getRoleCategory(genRole);
                     break;
             }
         }
@@ -76,12 +74,41 @@ public class Generator {
 
     }
 
-    private String getRoleCategory(ArrayList<String> category) {
-        String result = category.get(randomizer.nextInt(category.size()));
-        if (storage.Unique.contains(result)) {
-            storage.Unique.remove(result);
+    private String getTownRole() {
+        int totalSize = TownSize;
+        int chosen = randomizer.nextInt(totalSize);
+        System.out.println(chosen);
+        /*
+        if (totalSize < chosen) {
+            return(getRole(TP));
         }
-        return result;
+        totalSize -= TS.size();
+        if (totalSize < chosen) {
+            return(getRole(TS));
+        }
+        totalSize -= TI.size();
+        if (totalSize < chosen) {
+            return(getRole(TI));
+        }
+        return(getRole(TK));*/
+        return "ayy";
+    }
+
+    private void getRole(String role) {
+        if (!role.equals("Vampire") && storage.Unique.contains(role)) {
+            ArrayList<String> category = storage.findCategory(role);
+            category.remove(role);
+        }
+        FinalList.add(role);
+    }
+
+    private void getRoleCategory(String category) {
+        ArrayList<String> catRoles = storage.director.get(category);
+        String result = catRoles.get(randomizer.nextInt(catRoles.size()));
+        if (storage.Unique.contains(result)) {
+            catRoles.remove(result);
+        }
+        FinalList.add(result);
     }
 
 }

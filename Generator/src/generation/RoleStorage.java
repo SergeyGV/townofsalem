@@ -1,5 +1,6 @@
 package generation;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -87,6 +88,29 @@ public class RoleStorage {
         director.put("Neutral Killing", NK);
         director.put("Neutral Benign", NB);
         director.put("Neutral Evil", NE);
+    }
+
+    public ArrayList<String> findCategory(String role) {
+        if (TK.contains(role)) {
+            return TK;
+        } else if (TS.contains(role)) {
+            return TS;
+        } else if (TI.contains(role)) {
+            return TI;
+        } else if (TP.contains(role)) {
+            return TP;
+        } else if (MK.contains(role)) {
+            return MK;
+        } else if (MS.contains(role)) {
+            return MS;
+        } else if (MD.contains(role)) {
+            return MD;
+        } else if (NK.contains(role)) {
+            return NK;
+        } else if (NB.contains(role)) {
+            return NB;
+        }
+        return NE;
     }
 
 }
