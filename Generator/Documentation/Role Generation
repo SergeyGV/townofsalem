@@ -1,0 +1,30 @@
+Role Generation
+----------------------
+
+0. Terminology
+
+1. Requirements
+
+    1.1. Vampire and Vampire Hunter
+    1.2. Mafia
+    1.3. General factions
+
+2. The Issue of User Input
+
+3. Implementation
+
+4. Explanation
+
+----------------------
+
+0. Terminology
+
+Incomplete Role List - A role list with any number of elements in the list being a category of roles, and the role list potentially violating game rules(ex: it has more than five mafia roles).
+
+Complete Role List - A role list with every single element in the list being a specific role, and it abiding by game rules.
+
+1. Requirements
+
+    After the user passes in their incomplete role list, and the validator checks to make sure that it could be made into a complete role list, it is now time to generate such a list. When generating the complete role list however, not only does the generation have to generate the roles fairly, but it has to abide by the game rules.
+
+1.1. Vampire and Vampire Hunter
