@@ -59,7 +59,6 @@ public class Modifier {
         if (gen.GeneralRoles.contains("Any")) {
             i = gen.GeneralRoles.indexOf("Any");
             while (i != gen.GeneralRoles.size() && gen.GeneralRoles.get(i).equals("Any") ) {
-                System.out.println("Iteration");
                 if (gen.randomizer.nextInt(gen.storage.getAllSize() + 1) == gen.storage.getAllSize()) {
                     AddVampire("Any", gen, true);
                     return;

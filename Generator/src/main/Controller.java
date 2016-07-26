@@ -86,21 +86,21 @@ public class Controller {
 		// new Display(); // Display the screen
 		// WHILE GUI IS WORKED ON
 		ArrayList<String> roles = new ArrayList();
-		roles.add("Lookout");
-		roles.add("Lookout");
-		roles.add("Mafia Support");
-		roles.add("Mafia Killing");
-		roles.add("Random Town");
-		roles.add("Random Town");
-		roles.add("Lookout");
-		roles.add("Lookout");
-		roles.add("Random Neutral");
-		roles.add("Random Neutral");
-		roles.add("Random Neutral");
 		roles.add("Any");
 		roles.add("Any");
-		roles.add("Lookout");
-		roles.add("Lookout");
+		roles.add("Any");
+		roles.add("Any");
+		roles.add("Any");
+		roles.add("Any");
+		roles.add("Any");
+		roles.add("Any");
+		roles.add("Any");
+		roles.add("Any");
+		roles.add("Any");
+		roles.add("Any");
+		roles.add("Any");
+		roles.add("Any");
+		roles.add("Any");
 		Generator gen = new Generator(new RoleStorage(), roles);
 		for (String role: gen.Generate()) {
 			System.out.println(role);
