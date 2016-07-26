@@ -59,4 +59,15 @@ Complete Role List - A role list with every single element in the list being a s
 
 ----------------------
 
+2. The Issue of User Input
+
+    Giving the ability for the user to provide their own incomplete role list, and then having to generate a complete role list based off of the rules provided under section 1(assuming the validator sees that it is possible), opens up a wide variety of issues.
+
+    If a Vampire is not present in the role list directly, then it can only be generated from two categories. However, as the Vampire Hunter appears only if a Vampire is present, it has to generated in such a way that the Vampire Hunter has a fair chance of appearing. If it's done all at once, there may be several Town Killing roles at the start of the list, which cannot roll Vampire Hunter as there is no Vampire. At the end of the list would be the only Any, and if it happened to be a Vampire, then the role list had no chance to roll for a Vampire Hunter despite it having the possibility to appear.
+
+    With the mafia comes another problem, as the Mafia Killing roles open up a lot of issues. For example, a valid role list that can be passed in could contain four mafia categories/roles which are not Mafia Killing or the roles within, and an Any slot. In this situation, the Any would HAVE to be a random Mafia Killing role. Another example is having a role list with two Random Mafia, two Mafia Killing, and a bunch of any roles. Both of the mafia killing roles will appear, but both have to be under the Mafia Killing slots. Having one appear within the Random Mafia or the Any slot means there is only one Mafia Killing role left, but with two Mafia Killing role slots.
+
+    Possibly the biggest and most complicated user input that could be provided is a role list that is entirely composed of the Any role, which is the user's way of saying give me anything. Worst case scenario would be 15 Any slots, with which the program has to generate a Complete Role List that abides by the rules in 1. How could that be done while ensuring the fairness of the Vampire and Vampire Hunter appearing, the mafia having at least one killer, and seeing that there could even be a game off of the role list?
+
+----------------------
 
