@@ -6,8 +6,9 @@ Role Generation
 1. Requirements
 
     1.1. Vampire and Vampire Hunter
-    1.2. Mafia
-    1.3. General factions
+    1.2. Unique Roles
+    1.3. Mafia
+    1.4. General factions
 
 2. The Issue of User Input
 
@@ -23,8 +24,39 @@ Incomplete Role List - A role list with any number of elements in the list being
 
 Complete Role List - A role list with every single element in the list being a specific role, and it abiding by game rules.
 
+----------------------
+
 1. Requirements
 
-    After the user passes in their incomplete role list, and the validator checks to make sure that it could be made into a complete role list, it is now time to generate such a list. When generating the complete role list however, not only does the generation have to generate the roles fairly, but it has to abide by the game rules.
+    After the user passes in their incomplete role list, and the validator checks to make sure that it could be made into a complete role list, it is now time to generate such a list. When generating the complete role list however, not only does the generation have to generate the roles fairly, but it has to abide by the game rules. 
 
 1.1. Vampire and Vampire Hunter
+
+    The Vampire is a role in a very strange spot. It has a category that it belongs to, Neutral Chaos, but it is the only role in that category, and it cannot be selected normally. The only way for the Vampire to appear is to either list it directly in the role list, have a Random Neutral in the role list(it will roll against all the other Neutral Roles in the game to appear), or have an Any in the role list(where it rolls against every role in the game that can appear in that spot).
+
+    The Vampire Hunter is in an even stranger spot. It belongs to Town Killing, a regularly used category with roles already in it. But while the Vampire can appear in any of those cases listed above, the Vampire Hunter may only appear if there is a Vampire in the game. Having a Vampire Hunter in a role list where there is no Vampire is role list that breaks the games rules.
+
+1.2. Unique Roles
+
+    Unique roles are roles that can only appear once in the game, if at all. The biggest issue regarding this is that generation must account for this. If during generation it is called to get a random category, which all have weights based off of their sizes, their weights must be accurate. A unique role appearing on the field from one of the categories should reduce its weight.
+
+1.3. Mafia
+
+    The mafia have a variety of restrictions on them. For starters, if mafia is to appear in the complete role list, there must be at least one mafia killing role. A further catch is that both of the Mafia Killing roles are unique. Enforcing the appearence of at least one of those roles when they could appear in many different spots, while abiding by the unique rule, is a very problematic issue.
+
+    The mafia may also only have a maximum of five mafia members at the start of the game. If there are, as an example, five Random Mafia roles, then any Any roles in the game may NOT be a mafia role.
+
+1.4. General Factions
+
+    The game ends when a faction eliminates all of the others that oppose their faction. As such, in order for there to be a game, there must be different factions in the complete role list, even if the role list would be very heavily stacked against one faction. From the following list, any combination of at least two would satisfy this requirment:
+
+    - Town
+    - Mafia
+    - Any role belonging to the Neutral Killing category
+    - Vampire
+
+    There is also a special case, of the role Witch. If the role list contains a Witch with at least one Vigilante, then it also satisifes the faction requirement.
+
+----------------------
+
+
