@@ -71,3 +71,15 @@ Complete Role List - A role list with every single element in the list being a s
 
 ----------------------
 
+3. Implementation
+
+    Before we begin generating the Complete Role List, we first have to go through the Validator. The Validator's job is to not only to check if this role list could be made into a Complete Role List, but to note which parts of the Incomplete Role List pose problems if the role list can be made into a Complete Role List. Specifically, it will note the following points down:
+
+    - If we do not have two opposing factions in the role list(but have a category slot in which they can appear)
+    - One of the following statuses of the Mafia in the role list
+        - If there is a Mafia Killing in the role list
+        - If there is no Mafia Killing in the role list, but there is Random Mafia
+        - If there is no Mafia Killing or Random Mafia in the role list, but there is an Any
+        - If there is no Mafia in the list but there is an Any slot for them to appear in
+
+
