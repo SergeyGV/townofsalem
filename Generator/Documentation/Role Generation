@@ -89,6 +89,8 @@ Complete Role List - A role list with every single element in the list being a s
 
     If point 2 is raised, we look at the specific cases raised. If case 1 is raised, then we go along and with each Mafia Killing slot, we roll an appropriate killer. If there is already a role that is a mafia killer defined on the list, then that'll be noted and the(what should be the only in this case) Mafia Killer slot will be filled with the other mafia killer. If case 2 is raised, one of the Random Mafia roles will be rolled as if it was a Mafia Killer slot. If case 3 is raised, then for the amount of times an Any slot appears, we roll to see a role and its faction. If one of the rolls we get belongs to the Mafia, then a random Any slot becomes one of the Mafia Killers. If for the amount of Anys the role list has, no roles belong to the Mafia, then it is noted down, the list remains unmodified, and in the future when doing rolls, Mafia becomes impossible to roll.
 
+    The next thing done is regarding the Vampire. If there is a Vampire directly in the final list(as all defined roles were moved there), that gets noted down, and the Vampire Hunter is added to the Town Killing category. Otherwise, we look to see if there are any Random Neutral or Any categories in the role list. For every Random Neutral, we'll roll to see if the odds of a Vampire appearing match. Afterwards, we'll roll for every Any to see if the odds there match. If, for one of the rolls the odds to match, the rolled category will be replaced with a Vampire, it will be noted that there are Vampires, and the Vampire Hunter will be added to Town Killing. If these rolls fail, then there is no Vampire in the game, and will be ignored in all future rolls.
+
     
 
 
