@@ -6,24 +6,32 @@ import java.util.ArrayList;
 
 public class MainValidator {
 
-    private int mafiaCase;
-    private boolean vampPresent;
-    private ArrayList<String> factionsPresent;
+    int mafiaCase;
+    boolean vampPresent;
+    boolean vampHunterPresent;
+    ArrayList<String> factionsPresent;
     private ArrayList<String> infractions;
 
-    private RoleStorage storage;
+    RoleStorage storage;
+    ArrayList<String> roles;
 
-    public MainValidator(RoleStorage data) {
+    public MainValidator(RoleStorage data, ArrayList<String> roleList) {
         storage = data;
+        roles = roleList;
     }
 
-    public ArrayList<String> validate(ArrayList<String> roleList) {
+    public ArrayList<String> validate() {
         // Reset from previous runs
         mafiaCase = 0;
         vampPresent = false;
+        vampHunterPresent = false;
         factionsPresent = new ArrayList<String>();
         infractions = new ArrayList<String>();
-
+        // Step 1 - Scan
+        ListScanner roleScan = new ListScanner(this);
+        for (String inf: roleScan.scan()) {
+            infractions.add(inf);
+        }
         return infractions;
     }
 
