@@ -129,4 +129,15 @@ public class RoleStorage {
         return NE;
     }
 
+    public String findFaction(String role) {
+        if (TK.contains(role) || TS.contains(role) || TI.contains(role) || TP.contains(role)) {
+            return "Town";
+        } else if (MK.contains(role) || MS.contains(role) || MD.contains(role)) {
+            return "Mafia";
+        } else if (role.equals("Vampire")) {
+            return role;
+        }
+        return "Neutral";
+    }
+
 }
