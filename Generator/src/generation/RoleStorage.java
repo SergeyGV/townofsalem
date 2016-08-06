@@ -11,7 +11,7 @@ public class RoleStorage {
     ArrayList<String> TS = new ArrayList<>();
     ArrayList<String> TI = new ArrayList<>();
     ArrayList<String> TP = new ArrayList<>();
-    ArrayList<String> MK = new ArrayList<>();
+    public ArrayList<String> MK = new ArrayList<>(); // Accessed by MafiaValidator
     ArrayList<String> MD = new ArrayList<>();
     ArrayList<String> MS = new ArrayList<>();
     ArrayList<String> NK = new ArrayList<>();
