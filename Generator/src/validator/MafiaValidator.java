@@ -5,13 +5,12 @@ import java.util.ArrayList;
 
 public class MafiaValidator {
 
-    public static ArrayList<String> validate(MainValidator val) {
+    public static String validate(ArrayList<String> infractions, ArrayList<String> roles) {
 
-        ArrayList<String> infractions = new ArrayList<>();
-        for (String role: val.roles) {
+        for (String role: roles) {
 
         }
-        return infractions;
+        return "ayy lmao";
 
     }
 

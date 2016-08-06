@@ -6,11 +6,8 @@ import java.util.ArrayList;
 
 public class MainValidator {
 
-    int mafiaCase;
-    boolean vampPresent;
-    boolean vampHunterPresent;
-    ArrayList<String> factionsPresent;
-    private ArrayList<String> infractions;
+    String mafiaCase;
+    ArrayList<String> infractions;
 
     RoleStorage storage;
     ArrayList<String> roles;
@@ -21,17 +18,8 @@ public class MainValidator {
     }
 
     public ArrayList<String> validate() {
-        // Reset from previous runs
-        mafiaCase = 0;
-        vampPresent = false;
-        vampHunterPresent = false;
-        factionsPresent = new ArrayList<String>();
-        infractions = new ArrayList<String>();
-        // Step 1 - Scan
-        ListScanner roleScan = new ListScanner(this);
-        for (String inf: roleScan.scan()) {
-            infractions.add(inf);
-        }
+        infractions = new ArrayList<>();
+        MafiaValidator.validate(infractions, roles);
         return infractions;
     }
 
