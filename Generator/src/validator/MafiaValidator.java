@@ -24,7 +24,8 @@ public class MafiaValidator {
         }
         if (numMafia > 5) {
             infractions.add("Mafia Size Limit Exceeded");
-        } else if (numMafia != 0) {
+        }
+        if (numMafia != 0) {
             if (mafKillCat + mafKillRole > 2) {
                 infractions.add("Mafia Killing amount Exceeded");
             } else if (mafKillCat + mafKillRole == 0) {
