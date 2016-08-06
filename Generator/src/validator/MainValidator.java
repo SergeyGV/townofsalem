@@ -19,7 +19,7 @@ public class MainValidator {
 
     public ArrayList<String> validate() {
         infractions = new ArrayList<>();
-        MafiaValidator.validate(infractions, roles);
+        mafiaCase = MafiaValidator.validate(infractions, roles, storage);
         return infractions;
     }
 
