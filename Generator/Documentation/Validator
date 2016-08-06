@@ -3,31 +3,22 @@ Validator
 
 Note: The Validator runs fully each time, even if an infraction is raised. This is to collect all of them.
 
-Step 1: Scan the list, and collecting the following data
-    - Is there Mafia in the list
-    - Is there a Vampire in the list
-    - Is there a Vampire Hunter in the list
-    - All the factions present
+The Validator calls all the sub Validators, collects infractions, and a bit of data on the Mafia.
 
-In addition to that information, the list will check all of the roles for Uniqueness, and see if they appear more than once.
-A Unique role appearing more than once violates the game rules, and that gets noted as an infraction.
+Upon completion, it returns the infractions. If there are any, all data is considered corrupt. If none, data is good to go.
 
-Step 2: Process the data given.
+----------------------
+Mafia Validator
+----------------------
 
-If there is Mafia in the list, then we check for the following things:
-    - There is no more than five mafia
-    - The number of times Mafia Killing appears
-    - The number of times a role from Mafia Killing is listed directly
-    - The sum of those numbers is not 0, and is no more than 2
+Scan the role list and document the following things:
+    - Number of Mafia in the role list
+    - Number of Mafia Killing(category) in the role list
+    - Number of roles belonging to Mafia Killing in the role list
 
-Point one failing means that we raise the infraction of the size limit being exceeded. Point four failing is a case basis. If the sum is 0, then there is no killing role amongst the mafia, which is an infraction. If the sum is more than 2, then we have an impossible amount of killing roles(there are only two in the game and both are unique), which we raise as an infraction.
+Exceeding five mafia is not allowed and is an automatic infraction.
 
-If there is a Vampire in the list, we check to make sure that they don't appear more than four times. Exceeding that size limit is an infaction.
+If the sum of the second and third number collected is 0 while there is mafia in the list, and there is no Random Mafia in the list, we raise an infraction.
+If there does happen to be a Random Mafia in the list, then we will return that data once we finish the scan.
 
-If there is a Vampire Hunter in the list, we check to make sure that the scanner in step 1 found a Vampire somewhere. If they didn't, this is an infaction, as a Vampire Hunter cannot appear without a Vampire present.
-
-Lastly, factions. For this step, we check the size of the list that holds all the factions. If it is two or more, then everything is fine. If it is one, we check the list for either an Any slot, or if there is a Vigilante defined somewhere, with a Random Neutral somewhere(special case of Vigilante and Witch). If we do not find what we are looking for, then we raise an infraction of not enough factions. If the size of the factions is zero, we check to see to see how many times both Any and Random Neutral appear. If the number is at least two, we are fine. If not, we raise the same infaction of not enough factions.
-
-Now that the Validator has finished, it sends off all of infractions it has collected in the run. If the size is zero, then the Validator passed the role list, and the program can continue. If the size is not zero, then the role list is flawed and must be fixed.
-
-
+If the sum of those two numbers exceed 2, an infraction is raised of too many killing roles.
