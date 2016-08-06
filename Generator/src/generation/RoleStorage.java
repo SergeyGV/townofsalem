@@ -2,6 +2,7 @@ package generation;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 
 public class RoleStorage {
@@ -17,9 +18,17 @@ public class RoleStorage {
     ArrayList<String> NB = new ArrayList<>();
     ArrayList<String> NE = new ArrayList<>();
     ArrayList<String> Unique = new ArrayList<>();
+    ArrayList<String> TownCats = new ArrayList<>();
+    ArrayList<String> MafCats = new ArrayList<>();
+    ArrayList<String> NeutCats = new ArrayList<>();
     HashMap<String, ArrayList<String>> director = new HashMap<>();
 
     public RoleStorage() {
+        TownCats = new ArrayList<>(Arrays.asList("Random Town", "Town Investigative", "Town Support",
+                "Town Killing", "Town Protective"));
+        MafCats = new ArrayList<>(Arrays.asList("Random Mafia", "Mafia Killing", "Mafia Deception", "Mafia Support"));
+        NeutCats = new ArrayList<>(Arrays.asList("Random Neutral", "Neutral Killing", "Neutral Evil",
+                "Neutral Benign"));
         /*
          * Special note: The role of Vampire Hunter and Vampire are not
          * included here by default. Rather, they will be added to the
@@ -130,11 +139,12 @@ public class RoleStorage {
     }
 
     public String findFaction(String role) {
-        if (TK.contains(role) || TS.contains(role) || TI.contains(role) || TP.contains(role)) {
+        if (TK.contains(role) || TS.contains(role) || TI.contains(role) || TP.contains(role)
+                || TownCats.contains(role)) {
             return "Town";
-        } else if (MK.contains(role) || MS.contains(role) || MD.contains(role)) {
+        } else if (MK.contains(role) || MS.contains(role) || MD.contains(role) || MafCats.contains(role)) {
             return "Mafia";
-        } else if (role.equals("Vampire")) {
+        } else if (role.equals("Vampire") || role.equals("Any")) {
             return role;
         }
         return "Neutral";
