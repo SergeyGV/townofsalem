@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public class FactionValidator {
 
-    public static String validate(ArrayList<String> infractions, ArrayList<String> roles, RoleStorage storage) {
+    public static ArrayList<String> validate(ArrayList<String> infractions, ArrayList<String> roles, RoleStorage storage) {
 
         ArrayList<String> unqFactions = new ArrayList<>();
         int multiFactCats = 0;
@@ -27,7 +27,18 @@ public class FactionValidator {
                     break;
             }
         }
-        return "Temp";
+        if (unqFactions.size() > 1) {
+            return new ArrayList<String>(); // Return nothing more or less
+        } else if (unqFactions.size() == 1) {
+            if (multiFactCats == 0 && !(roles.contains("Vigilante")) && roles.contains("Witch")) {
+                infractions.add("Only 1 competing faction possible; Need at least 2");
+            }
+        } else {
+            if (multiFactCats < 2) {
+                infractions.add("No competing factions possible; Need at least 2");
+            }
+        }
+        return unqFactions;
 
     }
 
