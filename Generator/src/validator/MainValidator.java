@@ -9,6 +9,7 @@ public class MainValidator {
     String mafiaCase;
     ArrayList<String> factions;
     ArrayList<String> infractions;
+    ArrayList<String> uniqueDuplicates;
 
     RoleStorage storage;
     ArrayList<String> roles;
@@ -22,6 +23,8 @@ public class MainValidator {
         infractions = new ArrayList<>();
         mafiaCase = MafiaValidator.validate(infractions, roles, storage);
         factions = FactionValidator.validate(infractions, roles, storage);
+        uniqueDuplicates = UniqueValidator.validate(infractions, roles, storage);
+        VampireValidator.validate(infractions, roles);
         return infractions;
     }
 
