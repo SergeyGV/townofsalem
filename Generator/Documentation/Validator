@@ -39,3 +39,19 @@ If the amount of unique factions is zero, we check to see that the sum of the An
 If it is greater than or equal to two, the validation passes the list. Otherwise, we raise an infraction.
 
 Return the list of all the unique factions detected.
+
+----------------------
+Unique Validator
+----------------------
+
+Scans the list, and for each role, checks if they are Unique and appear multiple times. If yes, note that role down.
+
+In the end, return the list, as well as raise an infraction if the list of the duplicates has any elements in it.
+
+----------------------
+Vampire Validator
+----------------------
+
+Checks the size limit of the vampires(5), and raises an infraction if it is exceeded.
+
+Also raises an infraction if there is a Vampire Hunter present without any Vampires.
