@@ -18,7 +18,7 @@ public class MafiaValidator {
             }
             if (role.equals("Mafia Killing")) {
                 mafKillCat++;
-            } else if (storage.MK.contains(role)) {
+            } else if (storage.doesBelongGeneralCategory("Mafia Killing", role)) {
                 mafKillRole++;
             }
         }
