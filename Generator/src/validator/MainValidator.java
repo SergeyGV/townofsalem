@@ -7,6 +7,7 @@ import java.util.ArrayList;
 public class MainValidator {
 
     String mafiaCase;
+    ArrayList<String> factions;
     ArrayList<String> infractions;
 
     RoleStorage storage;
@@ -20,6 +21,7 @@ public class MainValidator {
     public ArrayList<String> validate() {
         infractions = new ArrayList<>();
         mafiaCase = MafiaValidator.validate(infractions, roles, storage);
+        factions = FactionValidator.validate(infractions, roles, storage);
         return infractions;
     }
 
