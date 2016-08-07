@@ -22,3 +22,20 @@ If the sum of the second and third number collected is 0 while there is mafia in
 If there does happen to be a Random Mafia in the list, then we will return that data once we finish the scan.
 
 If the sum of those two numbers exceed 2, an infraction is raised of too many killing roles.
+
+----------------------
+Faction Validator
+----------------------
+
+Scan the role list, document each unique faction that appears, as well as the frequency of the Any and Random Neutral categories.
+
+If the amount of unique factions is greater than or equal to 2, the validation has passed, and we can quit with returning an empty list.
+
+If the amount of unique factions is equal to 1, we look to see the number of Any's and Random Neutral's.
+If their sum is equal to or more than 1, the validation passes. If it isn't, we do one more check to see if there is a Vigilante and a Witch in the list.
+If there is, the validation passes. Failing that, however, means that we raise an infraction of too little factions.
+
+If the amount of unique factions is zero, we check to see that the sum of the Any and Random Neutral numbers.
+If it is greater than or equal to two, the validation passes the list. Otherwise, we raise an infraction.
+
+Return the list of all the unique factions detected.
