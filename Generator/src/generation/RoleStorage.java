@@ -11,7 +11,7 @@ public class RoleStorage {
     ArrayList<String> TS = new ArrayList<>();
     ArrayList<String> TI = new ArrayList<>();
     ArrayList<String> TP = new ArrayList<>();
-    public ArrayList<String> MK = new ArrayList<>(); // Accessed by MafiaValidator
+    ArrayList<String> MK = new ArrayList<>();
     ArrayList<String> MD = new ArrayList<>();
     ArrayList<String> MS = new ArrayList<>();
     ArrayList<String> NK = new ArrayList<>();
@@ -151,5 +151,14 @@ public class RoleStorage {
         }
         return "No faction";
     }
+
+    public boolean isUnique(String role) {
+        return (Unique.contains(role));
+    }
+
+    public boolean doesBelongGeneralCategory(String faction, String role) {
+        return (director.containsKey(faction) && director.get(faction).contains(role));
+    }
+
 
 }
