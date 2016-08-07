@@ -144,10 +144,12 @@ public class RoleStorage {
             return "Town";
         } else if (MK.contains(role) || MS.contains(role) || MD.contains(role) || MafCats.contains(role)) {
             return "Mafia";
-        } else if (role.equals("Vampire") || role.equals("Any")) {
+        } else if (role.equals("Vampire") || role.equals("Any") || role.equals("Random Neutral")) {
             return role;
+        } else if (NK.contains(role)) {
+            return "Neutral Killing";
         }
-        return "Neutral";
+        return "No faction";
     }
 
 }
