@@ -34,15 +34,18 @@ public class Controller {
 		roles.add("Any");
 		roles.add("Any");
 		RoleStorage storage = new RoleStorage();
-		Generator gen = new Generator(storage, roles);
 		MainValidator val = new MainValidator(storage, roles);
-		for (String inf: val.validate()) {
-			System.out.println(inf);
+		Generator gen = new Generator(storage, roles);
+		ArrayList<String> infractions = val.validate();
+		if (infractions.size() != 0) {
+			for (String inf: val.validate()) {
+				System.out.println(inf);
+			}
+		} else {
+			for (String role: gen.Generate()) {
+				System.out.println(role);
+			}
 		}
-		/*
-		for (String role: gen.Generate()) {
-			System.out.println(role);
-		} */
 		//new RoleInfo(); // Generate investigative results
 		//Actions test = new Actions();
 		//test.generate(gen.Generate());
