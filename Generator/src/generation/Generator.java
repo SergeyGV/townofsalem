@@ -1,5 +1,7 @@
 package generation;
 
+import validator.MainValidator;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Random;
@@ -7,14 +9,16 @@ import java.util.Random;
 public class Generator {
 
     RoleStorage storage;
+    MainValidator validator;
     ArrayList<String> roleList;
     ArrayList<String> FinalList;
     ArrayList<String> GeneralRoles;
     boolean VampPresent;
     Random randomizer;
 
-    public Generator(RoleStorage info, ArrayList<String> roles) {
+    public Generator(RoleStorage info, ArrayList<String> roles, MainValidator val) {
 
+        validator = val;
         storage = info;
         roleList = roles;
         FinalList = new ArrayList<>();
@@ -32,7 +36,11 @@ public class Generator {
      */
     public ArrayList<String> Generate() {
 
-        Modifier.MafiaChecker(this);
+        MafiaModifier.modify(roleList, validator.getMafiaCase(), storage);
+        // ADD THE UNIQUE STUFF HERE FIRST
+        VampireModifier.modify(this);
+        //Modifier.MafiaChecker(this);
+        /*
         for (String role : roleList) {
             if (storage.director.containsKey(role) || role.equals("Random Town")
                     || role.equals("Random Mafia") || role.equals("Random Neutral")
@@ -63,7 +71,8 @@ public class Generator {
             }
         }
         Collections.shuffle(FinalList);
-        return FinalList;
+        */
+        return roleList;
 
     }
 
