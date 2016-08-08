@@ -71,6 +71,26 @@ Complete Role List - A role list with every single element in the list being a s
 
 3. Implementation
 
+    Before handing it over to the raw generator, we must prep the list by altering roles in order for the list to be considered valid.
+
+    Mafia:
+    
+    Check what the validator is saying. If it indicates we have to replace a Random Mafia with a Mafia Killing, we do so.
+    Once we finish that, for every Mafia Killing present in the role list(max 2), we roll that category. This is to prevent further logic errors in future role generation.
+
+    Faction:
+
+    If the size of the Unique Faction is two or more, don't do anything.
+    If the size is 1, jot down 1. If 0, jot down 2.
+    For the number jotted down, roll(in order of priority) an Any and then Random Neutral for a faction which is not already in the unique faction list. Add rolled factions to that list.
+
+    Vampire:
+
+    If there is a Vampire directly in the final list(as all defined roles were moved there), that gets noted down, and the Vampire Hunter is added to the Town Killing category. Otherwise, we look to see if there are any Random Neutral or Any categories in the role list. For every Random Neutral, we'll roll to see if the odds of a Vampire appearing match. Afterwards, we'll roll for every Any to see if the odds there match. If, for one of the rolls the odds to match, the rolled category will be replaced with a Vampire, it will be noted that there are Vampires, and the Vampire Hunter will be added to Town Killing. If these rolls fail, then there is no Vampire in the game, and will be ignored in all future rolls.
+
+OLD
+----------------------
+
     For reference, when the Any is being rolled, every role that has a possibly of appearing in that Any slot has an equal chance to appear. If there are 20 viable roles, each one has a 1/20 chance of appearing.
 
     Before we begin generating the Complete Role List, we first have to go through the Validator. The Validator's job is to not only to check if this role list could be made into a Complete Role List, but to note which parts of the Incomplete Role List pose problems if the role list can be made into a Complete Role List. Specifically, it will note the following points down:
@@ -86,7 +106,5 @@ Complete Role List - A role list with every single element in the list being a s
     The next thing we do is look at the points that it raised. If point 1 is raised, that means that we either have multiple Any slots with no factions listed in 1.4 present, or an Any slot present alongside a faction listed in 1.4. In the first scenario, one of the Any slots will be taken and rolled into a faction present in 1.4. Afterwards, a second Any slot will be rolled, and if needed, rerolled, until there is a second faction present from 1.4. In the second scenario, the Any slot will be rolled until it is of a different faction(that is in 1.4) than the one currently inside the role list. In both scenarios, if there is a Mafia role rolled when no Mafia are on the field, that role automatically becomes one of the Mafia Killing roles. If that happens, Case 3 from point 2 is dropped(as it is now false, and it must have been raised in this situation).
 
     If point 2 is raised, we look at the specific cases raised. If case 1 is raised, then we go along and with each Mafia Killing slot, we roll an appropriate killer. If there is already a role that is a mafia killer defined on the list, then that'll be noted and the(what should be the only in this case) Mafia Killer slot will be filled with the other mafia killer. If case 2 is raised, one of the Random Mafia roles will be rolled as if it was a Mafia Killer slot. If case 3 is raised, then for the amount of times an Any slot appears, we roll to see a role and its faction. If one of the rolls we get belongs to the Mafia, then a random Any slot becomes one of the Mafia Killers. If for the amount of Anys the role list has, no roles belong to the Mafia, then it is noted down, the list remains unmodified, and in the future when doing rolls, Mafia becomes impossible to roll.
-
-    The next thing done is regarding the Vampire. If there is a Vampire directly in the final list(as all defined roles were moved there), that gets noted down, and the Vampire Hunter is added to the Town Killing category. Otherwise, we look to see if there are any Random Neutral or Any categories in the role list. For every Random Neutral, we'll roll to see if the odds of a Vampire appearing match. Afterwards, we'll roll for every Any to see if the odds there match. If, for one of the rolls the odds to match, the rolled category will be replaced with a Vampire, it will be noted that there are Vampires, and the Vampire Hunter will be added to Town Killing. If these rolls fail, then there is no Vampire in the game, and will be ignored in all future rolls.
 
     Now that all the special cases have been taken care of, it comes time for the general generation. At this point, the categorical generation has no special rules in mind, barring two, which is the size limit for the mafia and the vampires. Outside of a simple counter to keep track of that, and to nullify their weight in generation once the limit is reached, generation can now be done hands free.
