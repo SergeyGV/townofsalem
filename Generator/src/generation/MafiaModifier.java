@@ -9,14 +9,22 @@ public class MafiaModifier {
 
         if (toDo.equals("Replace RM with MK")) {
             roleList.remove("Random Mafia");
-            roleList.add(storage.findCategory("Mafia Killing").get(
-                    new Random().nextInt(storage.director.get("Mafia Killing").size())));
+            addRole(roleList, storage);
+
         }
         while (roleList.contains("Mafia Killing")) {
             roleList.remove("Mafia Killing");
-            roleList.add(storage.findCategory("Mafia Killing").get(
-                    new Random().nextInt(storage.director.get("Mafia Killing").size())));
+            addRole(roleList, storage);
         }
+
+    }
+
+    private static void addRole(ArrayList<String> roleList, RoleStorage storage) {
+
+        ArrayList<String> MafKill = storage.director.get("Mafia Killing");
+        String chosenRole = MafKill.get(new Random().nextInt(MafKill.size()));
+        roleList.add(chosenRole);
+        MafKill.remove(chosenRole);
 
     }
 
