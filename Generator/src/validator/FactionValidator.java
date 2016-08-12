@@ -27,13 +27,11 @@ public class FactionValidator {
                     break;
             }
         }
-        if (unqFactions.size() > 1) {
-            return new ArrayList<String>(); // Return nothing more or less
-        } else if (unqFactions.size() == 1) {
+        if (unqFactions.size() == 1) {
             if (multiFactCats == 0 && !(roles.contains("Vigilante")) && roles.contains("Witch")) {
                 infractions.add("Only 1 competing faction possible; Need at least 2");
             }
-        } else {
+        } else if (unqFactions.size() == 0){
             if (multiFactCats < 2) {
                 infractions.add("No competing factions possible; Need at least 2");
             }
