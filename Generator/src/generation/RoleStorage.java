@@ -174,9 +174,9 @@ public class RoleStorage {
         }
         totalSize -= getTownSize();
         if (totalSize < rolledNum) {
-            return "Random Town";
+            return "Town";
         }
-        return "Random Mafia";
+        return "Mafia";
 
     }
 
