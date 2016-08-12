@@ -24,7 +24,6 @@ public class MafiaModifier {
         ArrayList<String> MafKill = storage.director.get("Mafia Killing");
         String chosenRole = MafKill.get(new Random().nextInt(MafKill.size()));
         roleList.add(chosenRole);
-        MafKill.remove(chosenRole);
 
     }
 
