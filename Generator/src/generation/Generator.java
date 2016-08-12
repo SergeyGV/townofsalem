@@ -14,6 +14,7 @@ public class Generator {
     ArrayList<String> FinalList;
     ArrayList<String> GeneralRoles;
     boolean VampPresent;
+    boolean MafPresent;
     Random randomizer;
 
     public Generator(RoleStorage info, ArrayList<String> roles, MainValidator val) {
@@ -26,6 +27,7 @@ public class Generator {
         Collections.sort(roleList);
         randomizer = new Random();
         VampPresent = false;
+        MafPresent = false;
 
     }
 
@@ -36,8 +38,22 @@ public class Generator {
      */
     public ArrayList<String> Generate() {
 
-        MafiaModifier.modify(roleList, validator.getMafiaCase(), storage);
         // ADD THE UNIQUE STUFF HERE FIRST
+        FactionModifier.modify(this);
+        MafiaModifier.modify(roleList, validator.getMafiaCase(), storage);
+        ArrayList<String> toRemove = new ArrayList<>();
+        for (String role: roleList) {
+            if (storage.findFaction(role).equals("Mafia")) {
+                MafPresent = true;
+            }
+            if (storage.isUnique(role)) {
+                toRemove.add(role);
+                getRole(role);
+            }
+        }
+        for (String role: toRemove) {
+            roleList.remove(role);
+        }
         VampireModifier.modify(this);
         //Modifier.MafiaChecker(this);
         /*

@@ -32,7 +32,6 @@ public class FactionModifier {
                 } else if (newFaction.equals("Town")) {
                     newFaction = "Random Town";
                 }
-                System.out.println(newFaction);
                 gen.roleList.remove(toReplace);
                 gen.roleList.add(newFaction);
             }
