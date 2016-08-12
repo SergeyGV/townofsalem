@@ -14,7 +14,7 @@ public class Generator {
     ArrayList<String> FinalList;
     ArrayList<String> GeneralRoles;
     boolean VampPresent;
-    boolean MafPresent;
+    int MafPresent;
     Random randomizer;
 
     public Generator(RoleStorage info, ArrayList<String> roles, MainValidator val) {
@@ -27,7 +27,7 @@ public class Generator {
         Collections.sort(roleList);
         randomizer = new Random();
         VampPresent = false;
-        MafPresent = false;
+        MafPresent = 0;
 
     }
 
@@ -38,13 +38,12 @@ public class Generator {
      */
     public ArrayList<String> Generate() {
 
-        // ADD THE UNIQUE STUFF HERE FIRST
         FactionModifier.modify(this);
         MafiaModifier.modify(roleList, validator.getMafiaCase(), storage);
         ArrayList<String> toRemove = new ArrayList<>();
         for (String role: roleList) {
             if (storage.findFaction(role).equals("Mafia")) {
-                MafPresent = true;
+                MafPresent++;
             }
             if (storage.isUnique(role)) {
                 toRemove.add(role);
@@ -55,8 +54,6 @@ public class Generator {
             roleList.remove(role);
         }
         VampireModifier.modify(this);
-        //Modifier.MafiaChecker(this);
-        /*
         for (String role : roleList) {
             if (storage.director.containsKey(role) || role.equals("Random Town")
                     || role.equals("Random Mafia") || role.equals("Random Neutral")
@@ -66,7 +63,6 @@ public class Generator {
                 getRole(role);
             }
         }
-        Modifier.VampireChecker(this);
         for (String genRole : GeneralRoles) {
             switch (genRole) {
                 case "Random Town":
@@ -87,15 +83,14 @@ public class Generator {
             }
         }
         Collections.shuffle(FinalList);
-        */
-        return roleList;
+        return FinalList;
 
     }
 
     private void getRandomTown() {
         int totalSize = storage.getTownSize();
         int chosen = randomizer.nextInt(totalSize);
-        totalSize -= storage.TP.size();
+        totalSize -= (storage.TP.size() + 1);
         if (totalSize < chosen) {
             getRoleCategory(storage.TP);
             return;
@@ -114,12 +109,15 @@ public class Generator {
     }
 
     private void getAnyRole() {
-        int totalSize = storage.getAllSize();
+        int totalSize = storage.getTownSize() + storage.getNeutralSize();
+        if (MafPresent < 5) {
+            totalSize += storage.getMafiaSize();
+        }
         int chosen = randomizer.nextInt(totalSize);
         if (VampPresent) {
             totalSize++;
         }
-        totalSize -= storage.getMafiaSize();
+        totalSize -= (storage.getMafiaSize() + 1);
         if (totalSize < chosen) {
             getRandomMafia();
             return;
@@ -133,9 +131,14 @@ public class Generator {
     }
 
     private void getRandomMafia() {
+        if (MafPresent == 0) {
+            MafPresent++;
+            getRoleCategory(storage.MK);
+            return;
+        }
         int totalSize = storage.getMafiaSize();
         int chosen = randomizer.nextInt(totalSize);
-        totalSize -= storage.MK.size();
+        totalSize -= (storage.MK.size() + 1);
         if (totalSize < chosen) {
             getRoleCategory(storage.MK);
             return;
@@ -155,7 +158,7 @@ public class Generator {
             return;
         }
         int chosen = randomizer.nextInt(totalSize);
-        totalSize -= storage.NK.size();
+        totalSize -= (storage.NK.size() + 1);
         if (totalSize < chosen) {
             getRoleCategory(storage.NK);
             return;
