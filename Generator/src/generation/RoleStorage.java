@@ -147,7 +147,7 @@ public class RoleStorage {
             return "Mafia";
         } else if (role.equals("Vampire") || role.equals("Any") || role.equals("Random Neutral")) {
             return role;
-        } else if (NK.contains(role)) {
+        } else if (NK.contains(role) || role.equals("Neutral Killing")) {
             return "Neutral Killing";
         }
         return "No faction";
@@ -164,11 +164,11 @@ public class RoleStorage {
     public String getRandomFaction() {
 
         int totalSize = getTownSize() + getMafiaSize() + NK.size();
-        int rolledNum = new Random().nextInt(totalSize); // +1 for Vamp
-        if (rolledNum == totalSize) {
+        if (new Random().nextInt(totalSize + 1) == totalSize) {
             return "Vampire";
         }
-        totalSize -= NK.size();
+        int rolledNum = new Random().nextInt(totalSize);
+        totalSize -= (NK.size() + 1);
         if (totalSize < rolledNum) {
             return "Neutral Killing";
         }
