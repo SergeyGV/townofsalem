@@ -4,6 +4,7 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.Random;
 
 public class RoleStorage {
 
@@ -158,6 +159,25 @@ public class RoleStorage {
 
     public boolean doesBelongGeneralCategory(String faction, String role) {
         return (director.containsKey(faction) && director.get(faction).contains(role));
+    }
+
+    public String getRandomFaction() {
+
+        int totalSize = getTownSize() + getMafiaSize() + NK.size();
+        int rolledNum = new Random().nextInt(totalSize); // +1 for Vamp
+        if (rolledNum == totalSize) {
+            return "Vampire";
+        }
+        totalSize -= NK.size();
+        if (totalSize < rolledNum) {
+            return "Neutral Killing";
+        }
+        totalSize -= getTownSize();
+        if (totalSize < rolledNum) {
+            return "Random Town";
+        }
+        return "Random Mafia";
+
     }
 
 
