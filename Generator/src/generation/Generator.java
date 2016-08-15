@@ -110,14 +110,20 @@ public class Generator {
 
     private void getAnyRole() {
         int totalSize = storage.getTownSize() + storage.getNeutralSize();
+        int mafToAdd;
         if (MafPresent < 5) {
-            totalSize += storage.getMafiaSize();
+            mafToAdd = storage.getMafiaSize();
+        } else {
+            mafToAdd = 0;
         }
         int chosen = randomizer.nextInt(totalSize);
-        if (VampPresent) {
+        if (VampPresent && Collections.frequency(FinalList, "Vampire") < 4) {
             totalSize++;
         }
-        totalSize -= (storage.getMafiaSize() + 1);
+        System.out.println(storage.getMafiaSize());
+        System.out.println(storage.getNeutralSize());
+        System.out.println(storage.getTownSize());
+        totalSize -= (mafToAdd + 1);
         if (totalSize < chosen) {
             getRandomMafia();
             return;
@@ -131,8 +137,8 @@ public class Generator {
     }
 
     private void getRandomMafia() {
+        MafPresent++;
         if (MafPresent == 0) {
-            MafPresent++;
             getRoleCategory(storage.MK);
             return;
         }
@@ -153,7 +159,8 @@ public class Generator {
 
     private void getRandomNeutral() {
         int totalSize = storage.getNeutralSize();
-        if (VampPresent && randomizer.nextInt(totalSize + 1) == totalSize) {
+        if (VampPresent && Collections.frequency(FinalList, "Vampire") < 4 &&
+                randomizer.nextInt(totalSize + 1) == totalSize) {
             getRole("Vampire");
             return;
         }
