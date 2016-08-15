@@ -1,8 +1,12 @@
 package actions;
 
-import java.util.HashMap;
+import roles.RoleControl;
 
-class RoleComparator {
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.Objects;
+
+class RoleComparator implements Comparator<RoleControl> {
 
     private HashMap<String, Integer> tiers;
 
@@ -44,6 +48,16 @@ class RoleComparator {
         tiers.put("Werewolf", 1);
         tiers.put("Amnesiac", 1);
 
+    }
+
+    public int compare(RoleControl roleOne, RoleControl roleTwo) {
+        int result = tiers.get(roleOne) - tiers.get(roleTwo);
+        if (result > 0) {
+            return 1;
+        } else if (result < 0) {
+            return -1;
+        }
+        return 0;
     }
 
 }
