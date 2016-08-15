@@ -120,9 +120,6 @@ public class Generator {
         if (VampPresent && Collections.frequency(FinalList, "Vampire") < 4) {
             totalSize++;
         }
-        System.out.println(storage.getMafiaSize());
-        System.out.println(storage.getNeutralSize());
-        System.out.println(storage.getTownSize());
         totalSize -= (mafToAdd + 1);
         if (totalSize < chosen) {
             getRandomMafia();
