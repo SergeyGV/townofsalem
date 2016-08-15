@@ -215,4 +215,5 @@ Neutral Chaos:
 Vampire
 Desc: May choose to bite a player during the night, transforming them into a vampire.
 Immunities: None
-Influence: If the target is not bite-immune, strip them of their powers and make them a vampire.
+Influence: Players not immune to vampire bites will become a Vampire.
+Players immune to vampire bites will be attacked by the Vampire instead.
