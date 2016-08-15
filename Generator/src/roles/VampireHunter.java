@@ -3,7 +3,7 @@ package roles;
 import static actions.Actions.AllVisits;
 import static actions.Actions.Players;
 
-public class VampireHunter extends Data{
+public class VampireHunter extends RoleControl {
 
     public void Process(int VampireHunter) {
 

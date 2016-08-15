@@ -4,7 +4,7 @@ import static actions.Actions.AllVisits;
 import static actions.Actions.MafiaVisits;
 import static actions.Actions.Players;
 
-public class Janitor extends Data {
+public class Janitor extends RoleControl {
 
     public void Process(int Janitor) {
 

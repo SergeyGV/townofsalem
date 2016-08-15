@@ -5,7 +5,7 @@ import static actions.Actions.AllVisits;
 import static actions.Actions.Players;
 
 
-public class Transporter extends Data {
+public class Transporter extends RoleControl {
 
     public void Process(int Transporter) {
 

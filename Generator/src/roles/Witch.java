@@ -5,7 +5,7 @@ import actions.RoleInfo;
 import static actions.Actions.AllVisits;
 import static actions.Actions.Players;
 
-public class Witch extends Data {
+public class Witch extends RoleControl {
 
     public void Process(int Witch) {
 

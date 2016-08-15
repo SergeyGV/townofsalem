@@ -3,7 +3,7 @@ package roles;
 import static actions.Actions.AllVisits;
 import static actions.Actions.Players;
 
-public class Sheriff extends Data {
+public class Sheriff extends RoleControl {
 
     public void Process(int Sheriff) {
 

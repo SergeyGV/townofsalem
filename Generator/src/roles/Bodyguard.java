@@ -4,7 +4,7 @@ import static actions.Actions.AllVisits;
 import static actions.Actions.PlayerData;
 import static actions.Actions.Players;
 
-public class Bodyguard extends Data {
+public class Bodyguard extends RoleControl {
 
     public void Process(int Bodyguard) {
 

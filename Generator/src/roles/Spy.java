@@ -2,7 +2,7 @@ package roles;
 
 import static actions.Actions.Players;
 
-public class Spy extends Data {
+public class Spy extends RoleControl {
 
     public void Process(int Spy) {
 

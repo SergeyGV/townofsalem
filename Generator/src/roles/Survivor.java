@@ -2,7 +2,7 @@ package roles;
 
 import static actions.Actions.Players;
 
-public class Survivor extends Data {
+public class Survivor extends RoleControl {
 
     public void Process(int Survivor) {
 

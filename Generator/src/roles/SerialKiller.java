@@ -3,7 +3,7 @@ package roles;
 import static actions.Actions.AllVisits;
 import static actions.Actions.Players;
 
-public class SerialKiller extends Data {
+public class SerialKiller extends RoleControl {
 
     public void Process(int SK) {
 

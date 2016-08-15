@@ -6,7 +6,7 @@ import static actions.Actions.AllVisits;
 import static actions.Actions.MafiaVisits;
 import static actions.Actions.Players;
 
-public class Consort extends Data {
+public class Consort extends RoleControl {
 
     public void Process(int Consort) {
 

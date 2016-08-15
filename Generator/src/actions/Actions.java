@@ -4,9 +4,7 @@ import printer.ActivityPrint;
 import roles.*;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashMap;
-import java.util.Random;
 
 /**
  * Actions - The main processor of the night activity
@@ -15,10 +13,10 @@ import java.util.Random;
 public class Actions {
 
     public static HashMap<Integer, Actions.Role> Players; // Reference to all the players Role classes
-    public static HashMap<Integer, Data> PlayerData; // Reference to all the players Data classes
+    public static HashMap<Integer, RoleControl> PlayerData; // Reference to all the players RoleControl classes
 
     /**
-     * Role - Data class for each individual player in the game
+     * Role - RoleControl class for each individual player in the game
      */
 
     public class Role {
@@ -91,7 +89,7 @@ public class Actions {
             Players.put(i, new Role(playerlist.get(i-1)));
             AllVisits.put(i, new ArrayList<>());
         }
-        Data temp;
+        RoleControl temp;
         for (int i = 1; i < 16; i++) {
             if (!PlayerData.containsKey(i)) {
                 temp = new ShellRoles();
@@ -100,9 +98,9 @@ public class Actions {
             }
         }
         new TierDistributor(playerlist); // Set up the tiers and the list of mafia
-        Data dataclass;
+        RoleControl dataclass;
         dataclass = new roles.Jailor();
-        Data.MafTarget = dataclass.validMafTarget();
+        RoleControl.MafTarget = dataclass.validMafTarget();
         dataclass.Process(Jailor);
         PlayerData.put(Jailor, dataclass);
         if (Veteran != 0) {

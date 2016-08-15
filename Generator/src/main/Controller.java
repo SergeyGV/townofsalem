@@ -35,10 +35,10 @@ public class Controller {
 		roles.add("Any");
 		RoleStorage storage = new RoleStorage();
 		MainValidator val = new MainValidator(storage, roles);
-		Generator gen = new Generator(storage, roles);
-		ArrayList<String> infractions = val.validate();
-		if (infractions.size() != 0) {
-			for (String inf: val.validate()) {
+		Generator gen = new Generator(storage, roles, val);
+		val.validate();
+		if (val.getInfractions().size() != 0) {
+			for (String inf: val.getInfractions()) {
 				System.out.println(inf);
 			}
 		} else {
@@ -46,6 +46,7 @@ public class Controller {
 				System.out.println(role);
 			}
 		}
+		//TODO: Factor the witch in generation(ex: two Any, no faction, Vig and Witch can roll)
 		//new RoleInfo(); // Generate investigative results
 		//Actions test = new Actions();
 		//test.generate(gen.Generate());

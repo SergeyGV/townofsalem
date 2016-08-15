@@ -3,7 +3,7 @@ package roles;
 import static actions.Actions.AllVisits;
 import static actions.Actions.Players;
 
-public class Jailor extends Data {
+public class Jailor extends RoleControl {
 
     public void Process(int Jailor) {
 

@@ -11,7 +11,7 @@ import java.util.Random;
 import static actions.Actions.PlayerData;
 import static actions.Actions.Players;
 
-public abstract class Data {
+public abstract class RoleControl {
 
     Actions.Role player; // Used to keep track of the current player when needed
     boolean immune; // Used to keep track of if people vested/self-healed

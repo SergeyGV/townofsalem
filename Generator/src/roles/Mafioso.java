@@ -4,7 +4,7 @@ import static actions.Actions.AllVisits;
 import static actions.Actions.MafiaVisits;
 import static actions.Actions.Players;
 
-public class Mafioso extends Data {
+public class Mafioso extends RoleControl {
 
     public void Process(int Mafioso) {
 

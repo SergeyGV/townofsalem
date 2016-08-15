@@ -3,7 +3,7 @@ package roles;
 import static actions.Actions.AllVisits;
 import static actions.Actions.Players;
 
-public class Lookout extends Data {
+public class Lookout extends RoleControl {
 
     public void Process(int Lookout) {
 

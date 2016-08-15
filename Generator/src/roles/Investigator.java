@@ -3,7 +3,7 @@ package roles;
 import static actions.Actions.AllVisits;
 import static actions.Actions.Players;
 
-public class Investigator extends Data {
+public class Investigator extends RoleControl {
 
     public void Process(int Investigator) {
 

@@ -4,9 +4,8 @@ import actions.RoleInfo;
 
 import static actions.Actions.AllVisits;
 import static actions.Actions.Players;
-import static roles.Data.*;
 
-public class Escort extends Data {
+public class Escort extends RoleControl {
 
     public void Process(int Escort) {
 

@@ -1,6 +1,6 @@
 package actions;
 
-import roles.Data;
+import roles.RoleControl;
 
 import java.util.ArrayList;
 
@@ -29,22 +29,22 @@ public class TierDistributor {
                     break;
                 case "Consort":
                     Actions.RoleBlockers.add(i);
-                    Data.Mafia.add(i);
+                    RoleControl.Mafia.add(i);
                     break;
                 case "Escort":
                     Actions.RoleBlockers.add(i);
                     break;
                 case "Consigliere":
                     Actions.MafiaInvest.add(i);
-                    Data.Mafia.add(i);
+                    RoleControl.Mafia.add(i);
                     break;
                 case "Framer":
                     Actions.MafiaInvest.add(i);
-                    Data.Mafia.add(i);
+                    RoleControl.Mafia.add(i);
                     break;
                 case "Blackmailer":
                     Actions.MafiaInvest.add(i);
-                    Data.Mafia.add(i);
+                    RoleControl.Mafia.add(i);
                     break;
                 case "Investigator":
                     Actions.TownInvest.add(i);
@@ -63,11 +63,11 @@ public class TierDistributor {
                     break;
                 case "Mafioso":
                     Actions.Mafioso = i;
-                    Data.Mafia.add(i);
+                    RoleControl.Mafia.add(i);
                     break;
                 case "Godfather":
                     Actions.Godfather = i;
-                    Data.Mafia.add(i);
+                    RoleControl.Mafia.add(i);
                     break;
                 case "Vampire Hunter":
                     Actions.Attackers.add(i);
@@ -86,15 +86,15 @@ public class TierDistributor {
                     break;
                 case "Disguisor":
                     Actions.DeadActors.add(i);
-                    Data.Mafia.add(i);
+                    RoleControl.Mafia.add(i);
                     break;
                 case "Forger":
                     Actions.DeadActors.add(i);
-                    Data.Mafia.add(i);
+                    RoleControl.Mafia.add(i);
                     break;
                 case "Janitor":
                     Actions.DeadActors.add(i);
-                    Data.Mafia.add(i);
+                    RoleControl.Mafia.add(i);
                     break;
                 case "Spy":
                     Actions.ActivityInvest.add(i);

@@ -4,7 +4,7 @@ import static actions.Actions.AllVisits;
 import static actions.Actions.PlayerData;
 import static actions.Actions.Players;
 
-public class Arsonist extends Data {
+public class Arsonist extends RoleControl {
 
     public void Process(int Arsonist) {
 

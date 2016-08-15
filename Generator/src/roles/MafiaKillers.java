@@ -6,7 +6,7 @@ import static actions.Actions.Godfather;
 import static actions.Actions.Mafioso;
 import static actions.Actions.Players;
 
-public class MafiaKillers extends Data {
+public class MafiaKillers extends RoleControl {
 
     public void Process(int INeedMyOwnMethodInActionsPlease) {
 

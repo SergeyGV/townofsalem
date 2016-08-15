@@ -4,7 +4,7 @@ import static actions.Actions.AllVisits;
 import static actions.Actions.PlayerData;
 import static actions.Actions.Players;
 
-public class Doctor extends Data {
+public class Doctor extends RoleControl {
 
     public void Process(int Doctor) {
 
