@@ -51,7 +51,7 @@ class RoleComparator implements Comparator<RoleControl> {
     }
 
     public int compare(RoleControl roleOne, RoleControl roleTwo) {
-        int result = tiers.get(roleOne) - tiers.get(roleTwo);
+        int result = tiers.get(roleOne.roleName) - tiers.get(roleTwo.roleName);
         if (result > 0) {
             return 1;
         } else if (result < 0) {
