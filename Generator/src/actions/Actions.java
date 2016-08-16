@@ -3,8 +3,10 @@ package actions;
 import printer.ActivityPrint;
 import roles.*;
 
+import java.lang.reflect.Constructor;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.PriorityQueue;
 
 /**
  * Actions - The main processor of the night activity
@@ -83,6 +85,25 @@ public class Actions {
      */
     public void generate(ArrayList<String> playerlist) {
 
+        PriorityQueue<RoleControl> allRoles = new PriorityQueue<>(new RoleComparator());
+        for (int i = 0; i < 15; i++) {
+            try {
+                Class<?> gottenRole = Class.forName("roles." + playerlist.get(i).replaceAll(" ", ""));
+                Constructor<?> cons = gottenRole.getConstructor(String.class, Integer.TYPE);
+                cons.newInstance(playerlist.get(i), i);
+                Object ins = cons.newInstance(playerlist.get(i), i + 1);
+                RoleControl theRole = (RoleControl) ins;
+                allRoles.add(theRole);
+            } catch (Exception e) {
+                System.out.println("Something broke!");
+            }
+        }
+
+        while (!allRoles.isEmpty()) {
+            System.out.println(allRoles.remove().roleName);
+        }
+
+        /*
         Players = new HashMap<>();
         PlayerData = new HashMap<>();
         for (int i = 1; i < 16; i++) { // Set up a role class for each player, and the visits
@@ -227,7 +248,7 @@ public class Actions {
         }
         //Collections.shuffle(Attackers);
 
-        new ActivityPrint(Players); // Report results to terminal
+        new ActivityPrint(Players); // Report results to terminal */
 
     }
 
