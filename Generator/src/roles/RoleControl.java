@@ -13,6 +13,8 @@ import static actions.Actions.Players;
 
 public abstract class RoleControl {
 
+    public String roleName;
+    int playerNum;
     Actions.Role player; // Used to keep track of the current player when needed
     boolean immune; // Used to keep track of if people vested/self-healed
     public int target; // Used to keep track of player targets
@@ -25,6 +27,11 @@ public abstract class RoleControl {
     static HashMap<Integer, Integer> switches = new HashMap<>(); // Tracks which targets were transported
     ArrayList<Integer> DocSubs = new ArrayList<>(); // Tracks Doctor subscribers
     ArrayList<Integer> BGSubs = new ArrayList<>(); // Tracks Bodyguard subscribers
+
+    public RoleControl(String name, int num) {
+        roleName = name;
+        playerNum = num;
+    }
 
     /**
      * Returns a valid target for a town member. A valid target is everyone in the town

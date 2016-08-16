@@ -5,6 +5,10 @@ import static actions.Actions.Players;
 
 public class VampireHunter extends RoleControl {
 
+    public VampireHunter(String name, int num) {
+        super(name, num);
+    }
+
     public void Process(int VampireHunter) {
 
         player = Players.get(VampireHunter);

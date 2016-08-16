@@ -6,6 +6,10 @@ import static actions.Actions.Players;
 
 public class Blackmailer extends RoleControl {
 
+    public Blackmailer(String name, int num) {
+        super(name, num);
+    }
+
     public void Process(int Blackmailer) {
 
         player = Players.get(Blackmailer);

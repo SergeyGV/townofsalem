@@ -6,6 +6,10 @@ import static actions.Actions.Players;
 
 public class Janitor extends RoleControl {
 
+    public Janitor(String name, int num) {
+        super(name, num);
+    }
+
     public void Process(int Janitor) {
 
         player = Players.get(Janitor);

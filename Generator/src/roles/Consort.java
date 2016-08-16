@@ -8,6 +8,10 @@ import static actions.Actions.Players;
 
 public class Consort extends RoleControl {
 
+    public Consort(String name, int num) {
+        super(name, num);
+    }
+
     public void Process(int Consort) {
 
         player = Players.get(Consort);

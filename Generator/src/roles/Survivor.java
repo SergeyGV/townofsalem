@@ -4,6 +4,10 @@ import static actions.Actions.Players;
 
 public class Survivor extends RoleControl {
 
+    public Survivor(String name, int num) {
+        super(name, num);
+    }
+
     public void Process(int Survivor) {
 
         player = Players.get(Survivor);

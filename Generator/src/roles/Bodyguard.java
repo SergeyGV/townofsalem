@@ -6,6 +6,10 @@ import static actions.Actions.Players;
 
 public class Bodyguard extends RoleControl {
 
+    public Bodyguard(String name, int num) {
+        super(name, num);
+    }
+
     public void Process(int Bodyguard) {
 
         player = Players.get(Bodyguard);

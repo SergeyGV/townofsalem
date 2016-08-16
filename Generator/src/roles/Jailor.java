@@ -5,6 +5,10 @@ import static actions.Actions.Players;
 
 public class Jailor extends RoleControl {
 
+    public Jailor(String name, int num) {
+        super(name, num);
+    }
+
     public void Process(int Jailor) {
 
         player = Players.get(Jailor); // Get jailor profile

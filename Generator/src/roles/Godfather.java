@@ -6,6 +6,10 @@ import static actions.Actions.Players;
 
 public class Godfather extends RoleControl {
 
+    public Godfather(String name, int num) {
+        super(name, num);
+    }
+
     public void Process(int Godfather) {
 
         player = Players.get(Godfather);

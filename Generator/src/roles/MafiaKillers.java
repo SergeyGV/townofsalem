@@ -8,6 +8,11 @@ import static actions.Actions.Players;
 
 public class MafiaKillers extends RoleControl {
 
+    // TODO: Filler information, constructor is practically useless. Maybe own method at start?
+    public MafiaKillers(String name, int num) {
+        super(name, num);
+    }
+
     public void Process(int INeedMyOwnMethodInActionsPlease) {
 
         if (Players.get(Godfather).witched != 0) {

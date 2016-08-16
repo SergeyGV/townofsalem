@@ -6,6 +6,10 @@ import static actions.Actions.Players;
 
 public class Framer extends RoleControl {
 
+    public Framer(String name, int num) {
+        super(name, num);
+    }
+
     public void Process(int Framer) {
 
         player = Players.get(Framer);

@@ -7,6 +7,10 @@ import static actions.Actions.Players;
 
 public class Witch extends RoleControl {
 
+    public Witch(String name, int num) {
+        super(name, num);
+    }
+
     public void Process(int Witch) {
 
         player = Players.get(Witch);

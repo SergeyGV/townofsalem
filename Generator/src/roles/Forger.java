@@ -6,6 +6,10 @@ import static actions.Actions.Players;
 
 public class Forger extends RoleControl {
 
+    public Forger(String name, int num) {
+        super(name, num);
+    }
+
     public void Process(int Forger) {
 
         player = Players.get(Forger);

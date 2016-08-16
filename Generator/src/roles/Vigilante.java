@@ -5,6 +5,10 @@ import static actions.Actions.Players;
 
 public class Vigilante extends RoleControl {
 
+    public Vigilante(String name, int num) {
+        super(name, num);
+    }
+
     public void Process(int Vigilante) {
 
         player = Players.get(Vigilante);

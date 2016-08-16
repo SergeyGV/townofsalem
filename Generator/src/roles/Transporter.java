@@ -7,6 +7,10 @@ import static actions.Actions.Players;
 
 public class Transporter extends RoleControl {
 
+    public Transporter(String name, int num) {
+        super(name, num);
+    }
+
     public void Process(int Transporter) {
 
         player = Players.get(Transporter);

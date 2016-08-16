@@ -6,6 +6,10 @@ import static actions.Actions.Players;
 
 public class Consigliere extends RoleControl {
 
+    public Consigliere(String name, int num) {
+        super(name, num);
+    }
+
     public void Process(int Consigliere) {
 
         player = Players.get(Consigliere);

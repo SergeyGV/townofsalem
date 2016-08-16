@@ -6,6 +6,10 @@ import static actions.Actions.Players;
 
 public class Arsonist extends RoleControl {
 
+    public Arsonist(String name, int num) {
+        super(name, num);
+    }
+
     public void Process(int Arsonist) {
 
         player = Players.get(Arsonist);

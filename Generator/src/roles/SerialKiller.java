@@ -5,6 +5,10 @@ import static actions.Actions.Players;
 
 public class SerialKiller extends RoleControl {
 
+    public SerialKiller(String name, int num) {
+        super(name, num);
+    }
+
     public void Process(int SK) {
 
         player = Players.get(SK);

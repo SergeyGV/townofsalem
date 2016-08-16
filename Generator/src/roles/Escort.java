@@ -7,6 +7,10 @@ import static actions.Actions.Players;
 
 public class Escort extends RoleControl {
 
+    public Escort(String name, int num) {
+        super(name, num);
+    }
+
     public void Process(int Escort) {
 
         player = Players.get(Escort);

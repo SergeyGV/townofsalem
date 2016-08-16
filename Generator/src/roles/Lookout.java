@@ -5,6 +5,10 @@ import static actions.Actions.Players;
 
 public class Lookout extends RoleControl {
 
+    public Lookout(String name, int num) {
+        super(name, num);
+    }
+
     public void Process(int Lookout) {
 
         player = Players.get(Lookout);

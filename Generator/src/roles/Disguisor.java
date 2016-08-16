@@ -6,6 +6,10 @@ import static actions.Actions.Players;
 
 public class Disguisor extends RoleControl {
 
+    public Disguisor(String name, int num) {
+        super(name, num);
+    }
+
     public void Process(int Disguisor) {
 
         player = Players.get(Disguisor);

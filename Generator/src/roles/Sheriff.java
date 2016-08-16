@@ -5,6 +5,10 @@ import static actions.Actions.Players;
 
 public class Sheriff extends RoleControl {
 
+    public Sheriff(String name, int num) {
+        super(name, num);
+    }
+
     public void Process(int Sheriff) {
 
         player = Players.get(Sheriff);
