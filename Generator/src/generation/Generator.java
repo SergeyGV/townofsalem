@@ -136,6 +136,7 @@ public class Generator {
     private void getRandomMafia() {
         if (MafPresent == 0) {
             getRoleCategory(storage.MK);
+            MafPresent++;
             return;
         }
         MafPresent++;
