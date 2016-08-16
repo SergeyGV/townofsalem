@@ -134,11 +134,11 @@ public class Generator {
     }
 
     private void getRandomMafia() {
-        MafPresent++;
         if (MafPresent == 0) {
             getRoleCategory(storage.MK);
             return;
         }
+        MafPresent++;
         int totalSize = storage.getMafiaSize();
         int chosen = randomizer.nextInt(totalSize);
         totalSize -= (storage.MK.size() + 1);
