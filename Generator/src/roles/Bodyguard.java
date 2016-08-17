@@ -10,7 +10,7 @@ public class Bodyguard extends RoleControl {
         super(name, num);
     }
 
-    public void Process(int Bodyguard) {
+    public void Process(int Bodyguard) { /*
 
         player = Players.get(Bodyguard);
         if (!player.jailed) {
@@ -32,7 +32,7 @@ public class Bodyguard extends RoleControl {
                     }
                 }
             }
-        }
+        } */
 
     }
 

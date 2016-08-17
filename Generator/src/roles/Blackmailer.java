@@ -10,7 +10,7 @@ public class Blackmailer extends RoleControl {
         super(name, num);
     }
 
-    public void Process(int Blackmailer) {
+    public void Process(int Blackmailer) { /*
 
         player = Players.get(Blackmailer);
         target = validMafTarget();
@@ -32,7 +32,7 @@ public class Blackmailer extends RoleControl {
                 }
             }
 
-        }
+        } */
     }
 
 }

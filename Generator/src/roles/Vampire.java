@@ -11,7 +11,7 @@ public class Vampire extends RoleControl {
         super(name, num);
     }
 
-    public void Process(int Vampire) {
+    public void Process(int Vampire) { /*
 
         player = Players.get(Vampire);
         if (!player.jailed) {
@@ -36,7 +36,7 @@ public class Vampire extends RoleControl {
                     Players.get(target).bitten = true;
                 }
             }
-        }
+        } */
 
     }
 

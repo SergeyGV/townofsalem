@@ -9,7 +9,7 @@ public class VampireHunter extends RoleControl {
         super(name, num);
     }
 
-    public void Process(int VampireHunter) {
+    public void Process(int VampireHunter) { /*
 
         player = Players.get(VampireHunter);
         if (!player.jailed) {
@@ -23,7 +23,7 @@ public class VampireHunter extends RoleControl {
                     lethalAttack(target, "Vampire Hunter");
                }
             }
-        }
+        } */
 
     }
 

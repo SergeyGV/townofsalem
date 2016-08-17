@@ -11,7 +11,7 @@ public class Witch extends RoleControl {
         super(name, num);
     }
 
-    public void Process(int Witch) {
+    public void Process(int Witch) { /*
 
         player = Players.get(Witch);
         if (!player.jailed) {
@@ -36,7 +36,7 @@ public class Witch extends RoleControl {
                 }
             }
             AllVisits.get(target).add(Witch);
-        }
+        } */
 
     }
 

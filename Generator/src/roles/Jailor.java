@@ -9,7 +9,7 @@ public class Jailor extends RoleControl {
         super(name, num);
     }
 
-    public void Process(int Jailor) {
+    public void Process(int Jailor) { /*
 
         player = Players.get(Jailor); // Get jailor profile
         target = validTownTarget(Jailor);
@@ -24,6 +24,7 @@ public class Jailor extends RoleControl {
         }
         Players.get(target).jailed = true;
         Players.get(target).blocked = true; // For mafia killing if statement simplification
+        */
 
     }
 

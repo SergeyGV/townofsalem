@@ -9,7 +9,7 @@ public class Vigilante extends RoleControl {
         super(name, num);
     }
 
-    public void Process(int Vigilante) {
+    public void Process(int Vigilante) { /*
 
         player = Players.get(Vigilante);
         if (!player.jailed) {
@@ -19,7 +19,7 @@ public class Vigilante extends RoleControl {
                 lethalAttack(target, "Vigilante");
                 AllVisits.get(target).add(Vigilante);
             }
-        }
+        } */
 
     }
 

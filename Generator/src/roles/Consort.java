@@ -12,7 +12,7 @@ public class Consort extends RoleControl {
         super(name, num);
     }
 
-    public void Process(int Consort) {
+    public void Process(int Consort) { /*
 
         player = Players.get(Consort);
         if (!player.jailed) {
@@ -35,7 +35,7 @@ public class Consort extends RoleControl {
                 Players.get(target).blocked = true;
             }
             AllVisits.get(target).add(Consort);
-        }
+        } */
 
     }
 

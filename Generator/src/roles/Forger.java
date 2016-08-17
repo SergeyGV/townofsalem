@@ -10,7 +10,7 @@ public class Forger extends RoleControl {
         super(name, num);
     }
 
-    public void Process(int Forger) {
+    public void Process(int Forger) { /*
 
         player = Players.get(Forger);
         if (!player.jailed) {
@@ -23,7 +23,7 @@ public class Forger extends RoleControl {
                 checkLateVetVisit(target);
                 AllVisits.get(target).add(Forger);
             }
-        }
+        } */
 
     }
 

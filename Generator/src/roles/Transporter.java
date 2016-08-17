@@ -11,7 +11,7 @@ public class Transporter extends RoleControl {
         super(name, num);
     }
 
-    public void Process(int Transporter) {
+    public void Process(int Transporter) { /*
 
         player = Players.get(Transporter);
         if (!player.jailed) {
@@ -40,7 +40,7 @@ public class Transporter extends RoleControl {
             } else {
                 player.NightResult = "You could not transport as one of your targets was jailed!";
             }
-        }
+        } */
 
     }
 

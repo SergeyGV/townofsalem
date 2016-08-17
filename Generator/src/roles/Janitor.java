@@ -10,7 +10,7 @@ public class Janitor extends RoleControl {
         super(name, num);
     }
 
-    public void Process(int Janitor) {
+    public void Process(int Janitor) { /*
 
         player = Players.get(Janitor);
         if (!player.jailed) {
@@ -23,7 +23,7 @@ public class Janitor extends RoleControl {
                 MafiaVisits.add(target);
                 AllVisits.get(target).add(Janitor);
             }
-        }
+        } */
 
     }
 

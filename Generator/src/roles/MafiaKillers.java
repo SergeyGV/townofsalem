@@ -13,7 +13,7 @@ public class MafiaKillers extends RoleControl {
         super(name, num);
     }
 
-    public void Process(int INeedMyOwnMethodInActionsPlease) {
+    public void Process(int INeedMyOwnMethodInActionsPlease) { /*
 
         if (Players.get(Godfather).witched != 0) {
             player = Players.get(Godfather);
@@ -39,7 +39,7 @@ public class MafiaKillers extends RoleControl {
         } else if (!Players.get(Godfather).blocked) {
             player = Players.get(Godfather);
             Actions.Attackers.add(Godfather);
-        }
+        } */
 
     }
 

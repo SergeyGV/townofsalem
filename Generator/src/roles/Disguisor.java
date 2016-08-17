@@ -10,7 +10,7 @@ public class Disguisor extends RoleControl {
         super(name, num);
     }
 
-    public void Process(int Disguisor) {
+    public void Process(int Disguisor) { /*
 
         player = Players.get(Disguisor);
         if (!player.jailed && !player.blocked) {
@@ -25,7 +25,7 @@ public class Disguisor extends RoleControl {
                     MafiaVisits.add(target);
                 }
             }
-        }
+        } */
 
     }
 

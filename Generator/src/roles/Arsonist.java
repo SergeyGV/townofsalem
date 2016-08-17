@@ -12,6 +12,8 @@ public class Arsonist extends RoleControl {
 
     public void Process(int Arsonist) {
 
+        /*
+
         player = Players.get(Arsonist);
         if (!player.jailed) {
             target = validTownTarget(Arsonist);
@@ -37,6 +39,8 @@ public class Arsonist extends RoleControl {
                 AllVisits.get(target).add(Arsonist);
             }
         }
+
+        */
 
     }
 

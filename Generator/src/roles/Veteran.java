@@ -8,7 +8,7 @@ public class Veteran extends RoleControl {
         super(name, num);
     }
 
-    public void Process(int Veteran) {
+    public void Process(int Veteran) { /*
 
         player = Players.get(Veteran);
         if (!player.jailed) {
@@ -19,7 +19,7 @@ public class Veteran extends RoleControl {
                 player.NightAction = "You have not went on alert this night.";
                 player.NightResult = "You did not perform your night ability.";
             }
-        }
+        } */
 
     }
 

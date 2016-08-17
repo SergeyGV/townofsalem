@@ -8,7 +8,7 @@ public class Survivor extends RoleControl {
         super(name, num);
     }
 
-    public void Process(int Survivor) {
+    public void Process(int Survivor) { /*
 
         player = Players.get(Survivor);
         if (!player.jailed) {
@@ -27,7 +27,7 @@ public class Survivor extends RoleControl {
                     player.NightResult = "You did not perform your night action.";
                 }
             }
-        }
+        } */
 
     }
 

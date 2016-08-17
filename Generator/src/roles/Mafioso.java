@@ -10,12 +10,13 @@ public class Mafioso extends RoleControl {
         super(name, num);
     }
 
-    public void Process(int Mafioso) {
+    public void Process(int Mafioso) { /*
 
         player = Players.get(Mafioso);
         lethalAttack(FinMafTarget, "Mafia");
         MafiaVisits.add(FinMafTarget);
         AllVisits.get(FinMafTarget).add(Mafioso);
+        */
 
     }
 

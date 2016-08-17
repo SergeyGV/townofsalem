@@ -10,7 +10,7 @@ public class Doctor extends RoleControl {
         super(name, num);
     }
 
-    public void Process(int Doctor) {
+    public void Process(int Doctor) { /*
 
         player = Players.get(Doctor);
         if (!player.jailed) {
@@ -36,7 +36,7 @@ public class Doctor extends RoleControl {
                     Players.get(target).attackers.remove(0);
                 }
             }
-        }
+        } */
 
     }
 

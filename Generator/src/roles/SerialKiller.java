@@ -9,7 +9,7 @@ public class SerialKiller extends RoleControl {
         super(name, num);
     }
 
-    public void Process(int SK) {
+    public void Process(int SK) { /*
 
         player = Players.get(SK);
         target = validTownTarget(SK);
@@ -21,7 +21,7 @@ public class SerialKiller extends RoleControl {
             target = checkTargetSwitch(target);
             AllVisits.get(target).add(SK);
             lethalAttack(target, "Serial Killer");
-        }
+        } */
 
     }
 

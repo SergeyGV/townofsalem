@@ -10,13 +10,13 @@ public class Godfather extends RoleControl {
         super(name, num);
     }
 
-    public void Process(int Godfather) {
+    public void Process(int Godfather) { /*
 
         player = Players.get(Godfather);
         lethalAttack(FinMafTarget, "Mafia");
         MafiaVisits.add(FinMafTarget);
         AllVisits.get(FinMafTarget).add(Godfather);
-
+        */
     }
 
 }

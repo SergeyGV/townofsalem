@@ -9,7 +9,7 @@ public class Lookout extends RoleControl {
         super(name, num);
     }
 
-    public void Process(int Lookout) {
+    public void Process(int Lookout) { /*
 
         player = Players.get(Lookout);
         if (!player.jailed) {
@@ -23,7 +23,7 @@ public class Lookout extends RoleControl {
                 AllVisits.get(target).add(Lookout);
                 checkLateVetVisit(target);
             }
-        }
+        } */
 
     }
 

@@ -11,7 +11,7 @@ public class Escort extends RoleControl {
         super(name, num);
     }
 
-    public void Process(int Escort) {
+    public void Process(int Escort) { /*
 
         player = Players.get(Escort);
         if (!player.jailed) {
@@ -33,7 +33,7 @@ public class Escort extends RoleControl {
                 Players.get(target).blocked = true;
             }
             AllVisits.get(target).add(Escort);
-        }
+        } */
 
     }
 

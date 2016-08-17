@@ -10,7 +10,7 @@ public class Framer extends RoleControl {
         super(name, num);
     }
 
-    public void Process(int Framer) {
+    public void Process(int Framer) { /*
 
         player = Players.get(Framer);
         target = validMafTarget();
@@ -29,7 +29,8 @@ public class Framer extends RoleControl {
                 Players.get(target).InvResult = "Framer/Forger";
             }
 
-        }
+        } */
+
     }
 
 }

@@ -9,7 +9,7 @@ public class Investigator extends RoleControl {
         super(name, num);
     }
 
-    public void Process(int Investigator) {
+    public void Process(int Investigator) { /*
 
         player = Players.get(Investigator);
         if (!player.jailed) {
@@ -23,7 +23,7 @@ public class Investigator extends RoleControl {
                 player.NightResult = "Your target must be a " + Players.get(target).InvResult;
             }
         }
-
+        */
     }
 
 }

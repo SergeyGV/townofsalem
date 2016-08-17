@@ -9,7 +9,7 @@ public class Sheriff extends RoleControl {
         super(name, num);
     }
 
-    public void Process(int Sheriff) {
+    public void Process(int Sheriff) { /*
 
         player = Players.get(Sheriff);
         if (!player.jailed) {
@@ -22,7 +22,7 @@ public class Sheriff extends RoleControl {
                 player.NightResult = "Your target is" + Players.get(target).ShrResult;
                 checkVetVisit(target);
             }
-        }
+        } */
 
     }
 

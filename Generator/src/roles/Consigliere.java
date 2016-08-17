@@ -10,7 +10,7 @@ public class Consigliere extends RoleControl {
         super(name, num);
     }
 
-    public void Process(int Consigliere) {
+    public void Process(int Consigliere) { /*
 
         player = Players.get(Consigliere);
         target = validMafTarget();
@@ -29,7 +29,7 @@ public class Consigliere extends RoleControl {
             }
 
         }
-        // TODO: Spy visits here
+        // TODO: Spy visits here */
 
     }
 
