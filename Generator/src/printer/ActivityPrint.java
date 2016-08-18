@@ -1,16 +1,17 @@
 package printer;
 
+import actions.Actions;
 import roles.RoleControl;
 
 import java.util.HashMap;
 
 public class ActivityPrint {
 
-    public ActivityPrint(HashMap<Integer, RoleControl> Players) {
+    public ActivityPrint() {
 
         RoleControl player;
         for (int i = 1; i < 16; i++) {
-            player = Players.get(i);
+            player = Actions.PlayerData.get(i);
             System.out.println(String.valueOf(i) + "(" + player.roleName + ")");
             // Night action printing
             if (!player.nightAction.equals("")) {
