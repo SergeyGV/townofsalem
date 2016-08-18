@@ -14,66 +14,28 @@ import java.util.PriorityQueue;
 
 public class Actions {
 
-    public static HashMap<Integer, Actions.Role> Players; // Reference to all the players Role classes
-    public static HashMap<Integer, RoleControl> PlayerData; // Reference to all the players RoleControl classes
-
-    /**
-     * Role - RoleControl class for each individual player in the game
-     */
-
-    public class Role {
-
-        public String name; // The name of their role
-        public String InvResult; // Investigator results
-        public String ShrResult; // Sheriff results
-        public String NightAction = ""; // What the player has decided to do
-        public String NightResult = ""; // What the player has obtained as their result
-        public boolean jailed = false; // Indication if the player has been jailed or not
-        public int witched = 0; // Indication if the player was witched or not(and on who)
-        public int watching = 0; // Indication as to who the Lookout is watching
-        public boolean blocked = false; // Indication if the player was roleblocked or not
-        public boolean bitten = false; // Indication if the player was bitten by a vampire or not
-        public boolean disguised = false; // Indication if the player was disguised or not
-        public boolean forged = false; // Indication if the player was forged or not
-        public boolean cleaned = false; // Indication if the player was cleaned or not
-        public ArrayList<String> activity = new ArrayList<>(); // Other players influences on this player
-        public ArrayList<String> attackers = new ArrayList<>(); // Which attackers are targeting the player
-
-        public Role(String role) {
-
-            name = role;
-            InvResult = RoleInfo.InvestResults.get(role);
-            if (role.equals("Serial Killer")) {
-                ShrResult = " a Serial Killer!";
-            } else if (RoleInfo.SheriffResults.contains(role)) {
-                ShrResult = " a member of the Mafia!";
-            } else {
-                ShrResult = " not suspicious";
-            }
-        }
-
-    }
+    public static HashMap<Integer, RoleControl> PlayerData;
 
     /**
      * The main generation method of the night activity
      * @param playerlist The rolelist
      */
     /*
-     * TODO:
-     * Account for Multi arsos and possible targeting of oneself
-     * Account for Multi forgers/janitors and stop them from targeting the same target
-     * Stop vampires from biting targets protected
-     * Begin preparations for any role list generation?
+     * TODO: Oh my GOD, WHAT ISN'T THERE TO DO
+     * TODO: KEEP ON CHUGGING, KEEP ON GUTTING
+     * TODO: GOING BACK TO THE STONE AGE TO RESTART THE NUCLEAR AGE
      */
     public void generate(ArrayList<String> playerlist) {
 
         PriorityQueue<RoleControl> allRoles = new PriorityQueue<>(new RoleComparator());
+        PlayerData = new HashMap<>();
         for (int i = 0; i < 15; i++) {
             try {
                 Class<?> gottenRole = Class.forName("roles." + playerlist.get(i).replaceAll(" ", ""));
                 Constructor<?> cons = gottenRole.getConstructor(String.class, Integer.TYPE);
                 Object ins = cons.newInstance(playerlist.get(i), i + 1);
                 RoleControl theRole = (RoleControl) ins;
+                PlayerData.put(i + 1, theRole);
                 allRoles.add(theRole);
             } catch (Exception e) {
                 System.out.println("Something broke!");
@@ -81,27 +43,10 @@ public class Actions {
         }
 
         while (!allRoles.isEmpty()) {
-            System.out.println(allRoles.remove().roleName);
+            allRoles.remove().Process();
         }
 
-        /*
-        Players = new HashMap<>();
-        PlayerData = new HashMap<>();
-        for (int i = 1; i < 16; i++) { // Set up a role class for each player, and the visits
-            Players.put(i, new Role(playerlist.get(i-1)));
-            AllVisits.put(i, new ArrayList<>());
-        }
-        RoleControl temp;
-        for (int i = 1; i < 16; i++) {
-            if (!PlayerData.containsKey(i)) {
-                temp = new ShellRoles();
-                temp.Process(i);
-                PlayerData.put(i, temp);
-            }
-        }
-        new TierDistributor(playerlist); // Set up the tiers and the list of mafia
-
-        new ActivityPrint(Players); // Report results to terminal */
+        new ActivityPrint(); // Report results to terminal */
 
     }
 
