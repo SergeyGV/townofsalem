@@ -1,17 +1,12 @@
 package roles;
 
-import actions.RoleInfo;
-
-import static actions.Actions.AllVisits;
-import static actions.Actions.Players;
-
 public class Witch extends RoleControl {
 
     public Witch(String name, int num) {
         super(name, num);
     }
 
-    public void Process(int Witch) { /*
+    public void Process() { /*
 
         player = Players.get(Witch);
         if (!player.jailed) {

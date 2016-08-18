@@ -1,15 +1,12 @@
 package roles;
 
-import static actions.Actions.AllVisits;
-import static actions.Actions.Players;
-
 public class Investigator extends RoleControl {
 
     public Investigator(String name, int num) {
         super(name, num);
     }
 
-    public void Process(int Investigator) { /*
+    public void Process() { /*
 
         player = Players.get(Investigator);
         if (!player.jailed) {

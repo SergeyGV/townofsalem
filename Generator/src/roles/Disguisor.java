@@ -1,16 +1,12 @@
 package roles;
 
-import static actions.Actions.AllVisits;
-import static actions.Actions.MafiaVisits;
-import static actions.Actions.Players;
-
 public class Disguisor extends RoleControl {
 
     public Disguisor(String name, int num) {
         super(name, num);
     }
 
-    public void Process(int Disguisor) { /*
+    public void Process() { /*
 
         player = Players.get(Disguisor);
         if (!player.jailed && !player.blocked) {

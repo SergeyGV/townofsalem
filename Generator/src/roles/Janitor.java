@@ -1,16 +1,12 @@
 package roles;
 
-import static actions.Actions.AllVisits;
-import static actions.Actions.MafiaVisits;
-import static actions.Actions.Players;
-
 public class Janitor extends RoleControl {
 
     public Janitor(String name, int num) {
         super(name, num);
     }
 
-    public void Process(int Janitor) { /*
+    public void Process() { /*
 
         player = Players.get(Janitor);
         if (!player.jailed) {

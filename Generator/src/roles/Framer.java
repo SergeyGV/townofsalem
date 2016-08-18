@@ -1,16 +1,12 @@
 package roles;
 
-import static actions.Actions.AllVisits;
-import static actions.Actions.MafiaVisits;
-import static actions.Actions.Players;
-
 public class Framer extends RoleControl {
 
     public Framer(String name, int num) {
         super(name, num);
     }
 
-    public void Process(int Framer) { /*
+    public void Process() { /*
 
         player = Players.get(Framer);
         target = validMafTarget();

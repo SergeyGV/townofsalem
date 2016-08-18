@@ -1,15 +1,12 @@
 package roles;
 
-import static actions.Actions.AllVisits;
-import static actions.Actions.Players;
-
 public class Sheriff extends RoleControl {
 
     public Sheriff(String name, int num) {
         super(name, num);
     }
 
-    public void Process(int Sheriff) { /*
+    public void Process() { /*
 
         player = Players.get(Sheriff);
         if (!player.jailed) {

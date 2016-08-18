@@ -1,16 +1,12 @@
 package roles;
 
-import static actions.Actions.AllVisits;
-import static actions.Actions.PlayerData;
-import static actions.Actions.Players;
-
 public class Bodyguard extends RoleControl {
 
     public Bodyguard(String name, int num) {
         super(name, num);
     }
 
-    public void Process(int Bodyguard) { /*
+    public void Process() { /*
 
         player = Players.get(Bodyguard);
         if (!player.jailed) {

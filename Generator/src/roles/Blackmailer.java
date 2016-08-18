@@ -1,16 +1,12 @@
 package roles;
 
-import static actions.Actions.AllVisits;
-import static actions.Actions.MafiaVisits;
-import static actions.Actions.Players;
-
 public class Blackmailer extends RoleControl {
 
     public Blackmailer(String name, int num) {
         super(name, num);
     }
 
-    public void Process(int Blackmailer) { /*
+    public void Process() { /*
 
         player = Players.get(Blackmailer);
         target = validMafTarget();

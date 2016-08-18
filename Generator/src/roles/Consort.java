@@ -1,18 +1,12 @@
 package roles;
 
-import actions.RoleInfo;
-
-import static actions.Actions.AllVisits;
-import static actions.Actions.MafiaVisits;
-import static actions.Actions.Players;
-
 public class Consort extends RoleControl {
 
     public Consort(String name, int num) {
         super(name, num);
     }
 
-    public void Process(int Consort) { /*
+    public void Process() { /*
 
         player = Players.get(Consort);
         if (!player.jailed) {

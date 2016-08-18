@@ -1,11 +1,5 @@
 package roles;
 
-import actions.Actions;
-
-import static actions.Actions.Godfather;
-import static actions.Actions.Mafioso;
-import static actions.Actions.Players;
-
 public class MafiaKillers extends RoleControl {
 
     // TODO: Filler information, constructor is practically useless. Maybe own method at start?
@@ -13,7 +7,7 @@ public class MafiaKillers extends RoleControl {
         super(name, num);
     }
 
-    public void Process(int INeedMyOwnMethodInActionsPlease) { /*
+    public void Process() { /*
 
         if (Players.get(Godfather).witched != 0) {
             player = Players.get(Godfather);

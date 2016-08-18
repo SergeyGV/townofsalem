@@ -6,7 +6,7 @@ public class Amnesiac extends RoleControl {
         super(name, num);
     }
 
-    public void Process(int num) {
+    public void Process() {
         // Do nothing
     }
 

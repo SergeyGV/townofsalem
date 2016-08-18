@@ -6,7 +6,7 @@ public class Retributionist extends RoleControl {
         super(name, num);
     }
 
-    public void Process(int num) {
+    public void Process() {
         // Do nothing
     }
 

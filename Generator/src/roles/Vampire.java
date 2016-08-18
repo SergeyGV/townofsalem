@@ -1,17 +1,12 @@
 package roles;
 
-import actions.RoleInfo;
-
-import static actions.Actions.AllVisits;
-import static actions.Actions.Players;
-
 public class Vampire extends RoleControl {
 
     public Vampire(String name, int num) {
         super(name, num);
     }
 
-    public void Process(int Vampire) { /*
+    public void Process() { /*
 
         player = Players.get(Vampire);
         if (!player.jailed) {

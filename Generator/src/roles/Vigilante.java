@@ -1,15 +1,12 @@
 package roles;
 
-import static actions.Actions.AllVisits;
-import static actions.Actions.Players;
-
 public class Vigilante extends RoleControl {
 
     public Vigilante(String name, int num) {
         super(name, num);
     }
 
-    public void Process(int Vigilante) { /*
+    public void Process() { /*
 
         player = Players.get(Vigilante);
         if (!player.jailed) {

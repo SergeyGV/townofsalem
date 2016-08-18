@@ -1,17 +1,12 @@
 package roles;
 
-import actions.RoleInfo;
-
-import static actions.Actions.AllVisits;
-import static actions.Actions.Players;
-
 public class Escort extends RoleControl {
 
     public Escort(String name, int num) {
         super(name, num);
     }
 
-    public void Process(int Escort) { /*
+    public void Process() { /*
 
         player = Players.get(Escort);
         if (!player.jailed) {

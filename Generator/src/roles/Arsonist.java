@@ -1,16 +1,12 @@
 package roles;
 
-import static actions.Actions.AllVisits;
-import static actions.Actions.PlayerData;
-import static actions.Actions.Players;
-
 public class Arsonist extends RoleControl {
 
     public Arsonist(String name, int num) {
         super(name, num);
     }
 
-    public void Process(int Arsonist) {
+    public void Process() {
 
         /*
 

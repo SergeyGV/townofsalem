@@ -1,16 +1,12 @@
 package roles;
 
-import static actions.Actions.AllVisits;
-import static actions.Actions.MafiaVisits;
-import static actions.Actions.Players;
-
 public class Mafioso extends RoleControl {
 
     public Mafioso(String name, int num) {
         super(name, num);
     }
 
-    public void Process(int Mafioso) { /*
+    public void Process() { /*
 
         player = Players.get(Mafioso);
         lethalAttack(FinMafTarget, "Mafia");

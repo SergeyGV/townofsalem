@@ -1,21 +1,18 @@
 package roles;
 
-
-import actions.Actions;
-import actions.RoleInfo;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
 
 import static actions.Actions.PlayerData;
-import static actions.Actions.Players;
 
 public abstract class RoleControl {
 
     public String roleName;
     int playerNum;
-    Actions.Role player; // Used to keep track of the current player when needed
+    public String nightAction;
+    public String nightResult;
+    public ArrayList<String> activity;
     boolean immune; // Used to keep track of if people vested/self-healed
     public int target; // Used to keep track of player targets
     int target2; // Used for the transporters second target
@@ -31,6 +28,9 @@ public abstract class RoleControl {
     public RoleControl(String name, int num) {
         roleName = name;
         playerNum = num;
+        nightAction = "";
+        nightResult = "";
+        activity = new ArrayList<>();
     }
 
     /**
@@ -77,20 +77,21 @@ public abstract class RoleControl {
      */
     public boolean checkVetVisit(int num) {
 
+        /*
         if (num == Actions.Veteran && alert) {
             player.attackers.add("Veteran");
             Actions.Players.get(Actions.Veteran).activity.add("VetShot");
             return true;
         }
-        return false;
-
+        return false; */
+        return true;
     }
 
     /**
      * Same as checkVetVisit, but is only used AFTER attackers have done their moves
      * @param num The visited player's number
      */
-    public void checkLateVetVisit(int num) {
+    public void checkLateVetVisit(int num) { /*
 
         if (checkVetVisit(num)) {
             if (DocSubs.size() != 0) {
@@ -98,7 +99,7 @@ public abstract class RoleControl {
                 player.activity.add("DocSave");
                 player.attackers.remove("Veteran");
             }
-        }
+        } */
 
     }
 
@@ -112,7 +113,7 @@ public abstract class RoleControl {
      * @param num The target that the visitor wants to visit
      * @return The actual target that will be visited
      */
-    public int checkTargetSwitch(int num) {
+    public int checkTargetSwitch(int num) { /*
 
         int target = num;
         if (player.witched != 0) {
@@ -121,7 +122,8 @@ public abstract class RoleControl {
         if (switches.containsKey(target)) {
             return (switches.get(target));
         }
-        return(target);
+        return(target); */
+        return 1337;
 
     }
 
@@ -135,12 +137,13 @@ public abstract class RoleControl {
      * @param num The player number
      * @return Either the player that num was transported with, or num
      */
-    public int checkTransporter(int num) {
+    public int checkTransporter(int num) { /*
 
         if (switches.containsKey(num)) {
             return(switches.get(num));
         }
-        return(num);
+        return(num); */
+        return 1337;
 
     }
 
@@ -165,11 +168,11 @@ public abstract class RoleControl {
     /**
      * Notify all Doctors subscribed to this player that he was attacked
      */
-    public void notifyDoctors() {
+    public void notifyDoctors() { /*
         for (int Doctor: DocSubs) {
             Players.get(Doctor).activity.add("DocAtt");
             //PlayerData.get(Doctor).updateDoctor();
-        }
+        } */
     }
 
     /**
@@ -187,26 +190,26 @@ public abstract class RoleControl {
      * Update the Doctor that his target was attacked
      */
     public void updateDoctor() {
-        player.activity.add("DocAtt");
+        //player.activity.add("DocAtt");
     }
 
     /**
      * Update the Bodyguard that his target was targeted, and process his fate
      * accordingly
      */
-    public void updateBG() {
+    public void updateBG() { /*
         if (this.DocSubs.size() != 0) {
             notifyDoctors();
             player.activity.add("DocSave");
         } else {
             player.attackers.add("BGAttack");
-        }
+        } */
     }
 
     /**
      * General attack method for killing roles.
      */
-    public void lethalAttack(int num, String AttackerName) {
+    public void lethalAttack(int num, String AttackerName) { /*
 
         boolean dead = true;
         if (Players.get(num).jailed) {
@@ -257,14 +260,14 @@ public abstract class RoleControl {
         }
         if (dead) {
             Players.get(num).attackers.add(AttackerName);
-        }
+        } */
+
     }
 
     /**
      * Processes the main function of the role
      *
-     * @param num
      */
-    abstract public void Process(int num);
+    abstract public void Process();
 
 }

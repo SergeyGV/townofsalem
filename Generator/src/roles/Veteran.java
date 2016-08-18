@@ -1,14 +1,12 @@
 package roles;
 
-import static actions.Actions.Players;
-
 public class Veteran extends RoleControl {
 
     public Veteran(String name, int num) {
         super(name, num);
     }
 
-    public void Process(int Veteran) { /*
+    public void Process() { /*
 
         player = Players.get(Veteran);
         if (!player.jailed) {

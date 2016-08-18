@@ -1,16 +1,12 @@
 package roles;
 
-import static actions.Actions.AllVisits;
-import static actions.Actions.MafiaVisits;
-import static actions.Actions.Players;
-
 public class Forger extends RoleControl {
 
     public Forger(String name, int num) {
         super(name, num);
     }
 
-    public void Process(int Forger) { /*
+    public void Process() { /*
 
         player = Players.get(Forger);
         if (!player.jailed) {

@@ -1,15 +1,12 @@
 package roles;
 
-import static actions.Actions.AllVisits;
-import static actions.Actions.Players;
-
 public class SerialKiller extends RoleControl {
 
     public SerialKiller(String name, int num) {
         super(name, num);
     }
 
-    public void Process(int SK) { /*
+    public void Process() { /*
 
         player = Players.get(SK);
         target = validTownTarget(SK);

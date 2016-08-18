@@ -1,16 +1,12 @@
 package roles;
 
-import static actions.Actions.AllVisits;
-import static actions.Actions.PlayerData;
-import static actions.Actions.Players;
-
 public class Doctor extends RoleControl {
 
     public Doctor(String name, int num) {
         super(name, num);
     }
 
-    public void Process(int Doctor) { /*
+    public void Process() { /*
 
         player = Players.get(Doctor);
         if (!player.jailed) {

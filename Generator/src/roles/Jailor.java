@@ -1,15 +1,12 @@
 package roles;
 
-import static actions.Actions.AllVisits;
-import static actions.Actions.Players;
-
 public class Jailor extends RoleControl {
 
     public Jailor(String name, int num) {
         super(name, num);
     }
 
-    public void Process(int Jailor) { /*
+    public void Process() { /*
 
         player = Players.get(Jailor); // Get jailor profile
         target = validTownTarget(Jailor);
