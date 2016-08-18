@@ -54,24 +54,6 @@ public class Actions {
 
     }
 
-    // Tiers are discussed in the text file Role Tiers
-    public static int Jailor; // Tier 1
-    public static int Veteran = 0; // Tier 2(initialized because may not exist)
-    public static ArrayList<Integer> Transporters = new ArrayList<>(); // Tier 3
-    public static ArrayList<Integer> Witches = new ArrayList<>(); // Tier 4
-    public static ArrayList<Integer> RoleBlockers = new ArrayList<>(); // Tier 5
-    public static ArrayList<Integer> MafiaInvest = new ArrayList<>(); // Tier 6
-    public static ArrayList<Integer> TownInvest = new ArrayList<>(); // Tier 7
-    public static ArrayList<Integer> Protectives = new ArrayList<>(); // Tier 8
-    public static int Mafioso; // Tier 9a
-    public static int Godfather; // Tier 9b
-    public static ArrayList<Integer> Attackers = new ArrayList<>(); // Tier 9c
-    public static ArrayList<Integer> DeadActors = new ArrayList<>(); // Tier 10
-    public static ArrayList<Integer> ActivityInvest = new ArrayList<>(); // Tier 11
-    public static ArrayList<Integer> NoImpact = new ArrayList<>(); // Tier 12
-    public static ArrayList<Integer> MafiaVisits = new ArrayList<>(); // Targets of the Mafia
-    public static HashMap<Integer, ArrayList<Integer>> AllVisits = new HashMap<>(); // ALL visits in the game
-
     /**
      * The main generation method of the night activity
      * @param playerlist The rolelist
