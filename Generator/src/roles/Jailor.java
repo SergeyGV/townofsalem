@@ -6,22 +6,19 @@ public class Jailor extends RoleControl {
         super(name, num);
     }
 
-    public void Process() { /*
+    public void Process() {
 
-        player = Players.get(Jailor); // Get jailor profile
-        target = validTownTarget(Jailor);
-        AllVisits.get(target).add(Jailor);
-        player.NightAction = "You hauled player " + String.valueOf(target) + " off to jail!";
-        Players.get(target).NightAction = "You were hauled off to jail!";
-        if (Players.get(target).name.equals("Serial Killer")) {
-            player.attackers.add("JailedSK");
-            Players.get(target).activity.add("SKJail");
-        } else {
-            Players.get(target).NightResult = "You did not perform any possible action due to jail.";
-        }
-        Players.get(target).jailed = true;
-        Players.get(target).blocked = true; // For mafia killing if statement simplification
-        */
+        target = validTownTarget(playerNum);
+        nightAction = "You hauled player " + String.valueOf(target) + " off to jail!";
+        players.get(target).nightAction = "You were hauled off to jail!"; /*
+        if (players.get(target).name.equals("Serial Killer")) {
+            players.attackers.add("JailedSK");
+            players.get(target).activity.add("SKJail");
+        } else { */
+            players.get(target).nightResult = "You did not perform any possible action due to jail.";
+        //}
+        players.get(target).jailed = true;
+        players.get(target).blocked = true; // For mafia killing if statement simplification
 
     }
 
