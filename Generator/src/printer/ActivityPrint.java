@@ -1,28 +1,24 @@
 package printer;
 
-import actions.Actions;
+import roles.RoleControl;
 
 import java.util.HashMap;
 
-import static actions.Actions.AllVisits;
-import static actions.Actions.MafiaVisits;
-import static actions.Actions.PlayerData;
-
 public class ActivityPrint {
 
-    public ActivityPrint(HashMap<Integer, Actions.Role> Players) {
+    public ActivityPrint(HashMap<Integer, RoleControl> Players) {
 
-        Actions.Role player;
+        RoleControl player;
         for (int i = 1; i < 16; i++) {
             player = Players.get(i);
-            System.out.println(String.valueOf(i) + "(" + player.name + ")");
+            System.out.println(String.valueOf(i) + "(" + player.roleName + ")");
             // Night action printing
-            if (!player.NightAction.equals("")) {
-                System.out.println(player.NightAction);
+            if (!player.nightAction.equals("")) {
+                System.out.println(player.nightAction);
             }
             // Night result printing
-            if (!player.NightResult.equals("")) {
-                System.out.println(player.NightResult);
+            if (!player.nightResult.equals("")) {
+                System.out.println(player.nightResult);
             }
             for (String action: player.activity) {
                 switch(action) {
@@ -101,25 +97,25 @@ public class ActivityPrint {
                     case "Doused":
                         System.out.println("You were doused in gas!");
                         break;
-                    case "SpyVisits":
+                    case "SpyVisits": /*
                         for (int Visit: MafiaVisits) {
                             System.out.println("A member of the mafia had visited " +
                                     String.valueOf(Visit) + "(" + Players.get(Visit).name + ") last night!");
-                        }
+                        } */
                         break;
-                    case "LKVisits":
+                    case "LKVisits": /*
                         for (int Visit: AllVisits.get(player.watching)) {
                             if (Players.get(i).witched != 0 || i != Visit) {
                                 System.out.println("Player " + String.valueOf(Visit) + "(" +
                                         Players.get(Visit).name + ") visited your target last night!");
                             }
-                        }
+                        } */
                         break;
                     default:
                         System.out.println("You shouldn't be here. Offender:" + action);
                         break;
                 }
-            }
+            } /*
             if (player.attackers.size() != 0) {
                 for (String attack: player.attackers) {
                     switch (attack) {
@@ -172,7 +168,7 @@ public class ActivityPrint {
                 if (player.bitten) {
                     System.out.println("You were bit by a Vampire!");
                 }
-            }
+            } */
         }
 
     }
