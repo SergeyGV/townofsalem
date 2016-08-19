@@ -15,12 +15,12 @@ public abstract class RoleControl {
     int target; // Used to keep track of player targets
     int target2; // Used for the transporters second target
     boolean jailed = false;
+    boolean blocked = false;
     public ArrayList<String> activity;
     private Random randomizer = new Random(); // Used for random generation of numbers
     static HashMap<Integer, Integer> switches; // Tracks which targets were transported
     HashMap<Integer, RoleControl> players;
     //boolean immune; // Used to keep track of if people vested/self-healed
-    //boolean blocked = false;
     //static public int MafTarget; // Mafia initial killing target
     //static int FinMafTarget; // Mafia final killing target
     //static public ArrayList<Integer> Mafia = new ArrayList<>(); // Used to keep track of mafia members
@@ -119,17 +119,17 @@ public abstract class RoleControl {
      * @param num The target that the visitor wants to visit
      * @return The actual target that will be visited
      */
-    public int checkTargetSwitch(int num) { /*
+    public int checkTargetSwitch(int num) {
 
         int target = num;
+        /*
         if (player.witched != 0) {
             target = player.witched;
-        }
+        }*/
         if (switches.containsKey(target)) {
             return (switches.get(target));
         }
-        return(target); */
-        return 1337;
+        return(target);
 
     }
 
