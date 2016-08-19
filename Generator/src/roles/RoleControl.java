@@ -1,5 +1,7 @@
 package roles;
 
+import actions.Actions;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
@@ -13,17 +15,23 @@ public abstract class RoleControl {
     public String nightAction;
     public String nightResult;
     public ArrayList<String> activity;
-    boolean immune; // Used to keep track of if people vested/self-healed
+    // boolean immune; // Used to keep track of if people vested/self-healed
+    boolean jailed = false;
+    // boolean blocked = false;
     public int target; // Used to keep track of player targets
+    /*
     int target2; // Used for the transporters second target
     static public int MafTarget; // Mafia initial killing target
-    static int FinMafTarget; // Mafia final killing target
+    static int FinMafTarget; // Mafia final killing target */
     Random randomizer = new Random(); // Used for random generation of numbers
+    /*
     static public ArrayList<Integer> Mafia = new ArrayList<>(); // Used to keep track of mafia members
     static boolean alert = false; // Indication if the Veteran has gone on alert
     static HashMap<Integer, Integer> switches = new HashMap<>(); // Tracks which targets were transported
     ArrayList<Integer> DocSubs = new ArrayList<>(); // Tracks Doctor subscribers
     ArrayList<Integer> BGSubs = new ArrayList<>(); // Tracks Bodyguard subscribers
+    */
+    HashMap<Integer, RoleControl> players;
 
     public RoleControl(String name, int num) {
         roleName = name;
@@ -31,6 +39,7 @@ public abstract class RoleControl {
         nightAction = "";
         nightResult = "";
         activity = new ArrayList<>();
+        players = Actions.PlayerData;
     }
 
     /**
@@ -57,13 +66,14 @@ public abstract class RoleControl {
      *
      * @return The target number
      */
-    public int validMafTarget() {
+    public int validMafTarget() { /*
 
         int target = randomizer.nextInt(15) + 1;
         while (Mafia.contains(target)) {
             target = randomizer.nextInt(15) + 1;
         }
-        return(target);
+        return(target); */
+        return 1337;
 
     }
 
@@ -153,7 +163,7 @@ public abstract class RoleControl {
      * @param Doctor The Doctor's player number
      */
     public void subscribeDoctor(int Doctor) {
-        DocSubs.add(Doctor);
+        //DocSubs.add(Doctor);
     }
 
     /**
@@ -162,7 +172,7 @@ public abstract class RoleControl {
      * @param Bodyguard The Bodyguard's player number
      */
     public void subscribeBG(int Bodyguard) {
-        BGSubs.add(Bodyguard);
+        //BGSubs.add(Bodyguard);
     }
 
     /**
@@ -179,11 +189,11 @@ public abstract class RoleControl {
      * Notify one of the Bodyguards subscribed to this player that he is being attacked,
      * and then remove that Bodyguard from the subscribers list as he had fulfilled his duty
      */
-    public void notifyBG() {
+    public void notifyBG() { /*
         if (BGSubs.size() != 0) {
             PlayerData.get(BGSubs.get(0)).updateBG();
             BGSubs.remove(0);
-        }
+        } */
     }
 
     /**
