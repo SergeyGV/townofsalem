@@ -24,6 +24,10 @@ public class Actions {
      * TODO: Oh my GOD, WHAT ISN'T THERE TO DO
      * TODO: KEEP ON CHUGGING, KEEP ON GUTTING
      * TODO: GOING BACK TO THE STONE AGE TO RESTART THE NUCLEAR AGE
+     * TODO: Consort(and other maf) - Update getValidMafTarget in RoleControl
+     * TODO: Jailor - Jailing the Serial Killer
+     * TODO: Escort, Consort - Escorting the Serial Killer
+     * TODO: Veteran - Once killing stage reached: update Vet class and add Vet visit checks for visitors
      */
     public void generate(ArrayList<String> playerlist) {
 
