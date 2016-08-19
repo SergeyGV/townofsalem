@@ -18,7 +18,6 @@ public class Jailor extends RoleControl {
             players.get(target).nightResult = "You did not perform any possible action due to jail.";
         //}
         players.get(target).jailed = true;
-        players.get(target).blocked = true; // For mafia killing if statement simplification
 
     }
 
