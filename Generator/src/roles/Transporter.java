@@ -6,36 +6,34 @@ public class Transporter extends RoleControl {
         super(name, num);
     }
 
-    public void Process() { /*
+    public void Process() {
 
-        player = Players.get(Transporter);
-        if (!player.jailed) {
-            target = validTownTarget(Transporter);
-            target2 = validTownTarget(Transporter);
-            AllVisits.get(target).add(Transporter);
-            AllVisits.get(target2).add(Transporter);
-            player.NightAction = "You have decided to swap " + String.valueOf(target) + "(" +
-                    Players.get(target).name + ") with " + String.valueOf(target2) + "(" +
-                    Players.get(target2).name + ") tonight.";
+        if (!jailed) {
+            target = validTownTarget(playerNum);
+            target2 = validTownTarget(playerNum);
+            nightAction = "You have decided to swap " + String.valueOf(target) + "(" +
+                    players.get(target).roleName + ") with " + String.valueOf(target2) + "(" +
+                    players.get(target2).roleName + ") tonight.";
             // Cannot transport if one of the targets is jailed
-            if (!Players.get(target).jailed && !Players.get(target2).jailed) {
+            if (!players.get(target).jailed && !players.get(target2).jailed) {
                 // If one target has already been transported then the current transporter has no effect
                 if (!switches.containsKey(target) && !switches.containsKey(target2)) {
                     switches.put(target, target2);
                     switches.put(target2, target);
                 } else {
-                    player.NightResult = "Another transporter chose your target first, so you had no effect!";
+                    nightResult = "Another transporter chose your target first, so you had no effect!";
                 }
-                Players.get(target).activity.add("Transported");
-                Players.get(target2).activity.add("Transported");
+                players.get(target).activity.add("Transported");
+                players.get(target2).activity.add("Transported");
+                /* Vet stuff
                 checkVetVisit(target);
                 if (target != target2) {
                     checkVetVisit(target2);
-                }
+                } */
             } else {
-                player.NightResult = "You could not transport as one of your targets was jailed!";
+                nightResult = "You could not transport as one of your targets was jailed!";
             }
-        } */
+        }
 
     }
 
