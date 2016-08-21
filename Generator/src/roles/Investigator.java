@@ -1,26 +1,25 @@
 package roles;
 
+import actions.RoleInfo;
+
 public class Investigator extends RoleControl {
 
     public Investigator(String name, int num) {
         super(name, num);
     }
 
-    public void Process() { /*
+    public void Process() {
 
-        player = Players.get(Investigator);
-        if (!player.jailed) {
-            target = validTownTarget(Investigator);
-            player.NightAction = "You have decided to investigate " + String.valueOf(target) +
-                    "(" + Players.get(target).name + ") tonight.";
+        if (!jailed) {
+            target = validTownTarget(playerNum);
+            nightAction = "You have decided to investigate " + String.valueOf(target) +
+                    "(" + players.get(target).roleName + ") tonight.";
             target = checkTargetSwitch(target);
-            if (!player.blocked) {
-                AllVisits.get(target).add(Investigator);
-                checkVetVisit(target);
-                player.NightResult = "Your target must be a " + Players.get(target).InvResult;
+            if (!blocked) {
+                nightResult = "Your target must be a " + RoleInfo.InvestResults.get(players.get(target).roleName);
             }
         }
-        */
+
     }
 
 }

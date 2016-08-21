@@ -1,25 +1,30 @@
 package roles;
 
+import actions.RoleInfo;
+
 public class Sheriff extends RoleControl {
 
     public Sheriff(String name, int num) {
         super(name, num);
     }
 
-    public void Process() { /*
+    public void Process() {
 
-        player = Players.get(Sheriff);
-        if (!player.jailed) {
-            target = validTownTarget(Sheriff);
-            player.NightAction = "You have decided to interrogate " + String.valueOf(target) +
-                    "(" + Players.get(target).name + ") tonight.";
+        if (!jailed) {
+            target = validTownTarget(playerNum);
+            nightAction = "You have decided to interrogate " + String.valueOf(target) +
+                    "(" + players.get(target).roleName + ") tonight.";
             target = checkTargetSwitch(target);
-            if (!player.blocked) {
-                AllVisits.get(target).add(Sheriff);
-                player.NightResult = "Your target is" + Players.get(target).ShrResult;
-                checkVetVisit(target);
+            if (!blocked) {
+                if (players.get(target).roleName.equals("Serial Killer")) {
+                    nightResult = "Your target is";
+                } else if (RoleInfo.SheriffResults.contains(players.get(target).roleName)) {
+                    nightResult = "Your target is a member of the Mafia!";
+                } else {
+                    nightResult = "Your target is not suspicious.";
+                }
             }
-        } */
+        }
 
     }
 
