@@ -12,8 +12,7 @@ public class Consort extends RoleControl {
 
         if (!jailed) {
             target = validTownTarget(playerNum);
-            // !!!TEMPORARY!!! Implement validMafTarget, delete above line, uncomment below line
-            //target = validMafTarget();
+            target = validMafTarget();
             nightAction = "You have decided to roleblock " + String.valueOf(target) + "(" +
                     players.get(target).roleName + ") tonight.";
             target = checkTargetSwitch(target); // Process both witching and transporting

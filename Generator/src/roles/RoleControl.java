@@ -1,7 +1,5 @@
 package roles;
 
-import actions.Actions;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
@@ -11,6 +9,8 @@ public abstract class RoleControl {
     public String roleName; // The player's role name
     public String nightAction; // What the player chooses to be their night action
     public String nightResult; // What the player sees as the result for their night action(if it worked)
+    static String mafKiller = "No one"; // The name of the Mafia Killer that will go out to kill
+    static int mafTarget; // The target of the Mafia that is marked for death
     int playerNum; // The number of the player
     int target; // Used to keep track of player targets
     int target2; // Used for multi target roles
@@ -18,16 +18,22 @@ public abstract class RoleControl {
     boolean jailed = false; // If the player is Jailed
     boolean blocked = false; // If the player is roleblocked
     public ArrayList<String> activity; // Influence from other roles that they are notified of(non-lethal)
+    public static ArrayList<Integer> mafia; // Indicator for all the mafia in the role list
     private Random randomizer = new Random(); // Used for random generation of numbers
     static HashMap<Integer, Integer> switches; // Tracks which targets were transported
     public static HashMap<Integer, RoleControl> players; // Tracker for all the players
     //boolean immune; // Used to keep track of if people vested/self-healed
-    //static public int MafTarget; // Mafia initial killing target
-    //static int FinMafTarget; // Mafia final killing target
     //static public ArrayList<Integer> Mafia = new ArrayList<>(); // Used to keep track of mafia members
     //static boolean alert = false; // Indication if the Veteran has gone on alert
     //ArrayList<Integer> DocSubs = new ArrayList<>(); // Tracks Doctor subscribers
     //ArrayList<Integer> BGSubs = new ArrayList<>(); // Tracks Bodyguard subscribers
+
+    /**
+     * Used only by MafiaKillers
+     */
+    public RoleControl(String name) {
+        roleName = name;
+    }
 
     public RoleControl(String name, int num) {
         roleName = name;
@@ -62,14 +68,13 @@ public abstract class RoleControl {
      *
      * @return The target number
      */
-    public int validMafTarget() { /*
+    public int validMafTarget() {
 
         int target = randomizer.nextInt(players.size()) + 1;
-        while (Mafia.contains(target)) {
+        while (mafia.contains(target)) {
             target = randomizer.nextInt(players.size()) + 1;
         }
-        return(target); */
-        return 1337;
+        return(target);
 
     }
 

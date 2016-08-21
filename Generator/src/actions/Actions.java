@@ -1,5 +1,6 @@
 package actions;
 
+import generation.RoleStorage;
 import printer.ActivityPrint;
 import roles.*;
 
@@ -34,6 +35,7 @@ public class Actions {
 
         PriorityQueue<RoleControl> allRoles = new PriorityQueue<>(new RoleComparator());
         PlayerData = new HashMap<>();
+        mafiaList = new ArrayList<>();
         for (int i = 0; i < playerlist.size(); i++) {
             try {
                 Class<?> gottenRole = Class.forName("roles." + playerlist.get(i).replaceAll(" ", ""));
@@ -42,16 +44,21 @@ public class Actions {
                 RoleControl theRole = (RoleControl) ins;
                 PlayerData.put(i + 1, theRole);
                 allRoles.add(theRole);
+                if (RoleInfo.allMafia.contains(playerlist.get(i))) {
+                    mafiaList.add(i+1);
+                }
             } catch (Exception e) {
                 System.out.println("Something broke!");
             }
         }
+        allRoles.add(new MafiaKillers("MafTarget"));
         RoleControl.players = PlayerData;
+        RoleControl.mafia = mafiaList;
         while (!allRoles.isEmpty()) {
             allRoles.remove().Process();
         }
 
-        new ActivityPrint(PlayerData); // Report results to terminal */
+        new ActivityPrint(PlayerData); // Report results to terminal
 
     }
 

@@ -24,6 +24,8 @@ public class RoleInfo {
 	public static ArrayList<String> ControlImmune;
 
 	public static ArrayList<String> BiteImmune;
+
+	public static ArrayList<String> allMafia;
 	
 	public RoleInfo() {
 		NightImmune = new ArrayList<>(Arrays.asList(
@@ -38,6 +40,8 @@ public class RoleInfo {
 		SheriffResults = new ArrayList<>(Arrays.asList(
 				"Mafioso", "Disguisor", "Janitor", "Framer",
 				"Forger", "Consigliere", "Consort", "Blackmailer"));
+		allMafia = new ArrayList<>(Arrays.asList("Mafioso", "Godfather", "Disguisor", "Janitor",
+				"Framer", "Forger", "Consigliere", "Consort", "Blackmailer"));
 		InvestResults.put("Investigator", "Investigator/Consigliere");
 		InvestResults.put("Consigliere", "Investigator/Consigliere");
 		InvestResults.put("Spy", "Spy/Blackmailer");

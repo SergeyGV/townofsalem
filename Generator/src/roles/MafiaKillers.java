@@ -2,38 +2,28 @@ package roles;
 
 public class MafiaKillers extends RoleControl {
 
-    // TODO: Filler information, constructor is practically useless. Maybe own method at start?
-    public MafiaKillers(String name, int num) {
-        super(name, num);
+    public MafiaKillers(String name) {
+        super(name);
     }
 
-    public void Process() { /*
+    public void Process() {
 
-        if (Players.get(Godfather).witched != 0) {
-            player = Players.get(Godfather);
-            FinMafTarget = checkTargetSwitch(MafTarget);
-        } else {
-            player = Players.get(Mafioso);
-            FinMafTarget = checkTargetSwitch(MafTarget);
-        }
-        if (!Players.get(Godfather).jailed) {
-            Players.get(Godfather).NightAction = "You have decided to kill " + String.valueOf(MafTarget) + "(" +
-                    Players.get(MafTarget).name + ") tonight.";
-        }
-        if (!Players.get(Mafioso).jailed) {
-            Players.get(Mafioso).NightAction = "You have voted to kill " + String.valueOf(MafTarget) + "(" +
-                    Players.get(MafTarget).name + ") tonight.";
-        }
-        if (!Players.get(Mafioso).blocked) {
-            player = Players.get(Mafioso);
-            if (player.witched == 0 && !Players.get(Godfather).jailed) {
-                player.NightResult = "The godfather has ordered you to kill his target.";
+        boolean gfBlock = true;
+        boolean mfBlock = true;
+        mafTarget = validMafTarget();
+        for (RoleControl player: players.values()) {
+            if (player.roleName.equals("Mafioso")) {
+                mfBlock = player.jailed || player.blocked;
             }
-            Actions.Attackers.add(Mafioso);
-        } else if (!Players.get(Godfather).blocked) {
-            player = Players.get(Godfather);
-            Actions.Attackers.add(Godfather);
-        } */
+            if (player.roleName.equals("Godfather")) {
+                gfBlock = player.jailed || player.blocked;
+            }
+        }
+        if (!mfBlock) {
+            mafKiller = "Mafioso";
+        } else if (!gfBlock) {
+            mafKiller = "Godfather";
+        }
 
     }
 
