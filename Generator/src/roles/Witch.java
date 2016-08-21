@@ -1,37 +1,37 @@
 package roles;
 
+import actions.RoleInfo;
+
 public class Witch extends RoleControl {
 
     public Witch(String name, int num) {
         super(name, num);
     }
 
-    public void Process() { /*
+    public void Process() {
 
-        player = Players.get(Witch);
-        if (!player.jailed) {
-            target = validTownTarget(Witch); // Source target
-            target2 = validTownTarget(Witch); // Destination target
-            player.NightAction = "You have decided to control " + String.valueOf(target) + "(" +
-                    Players.get(target).name + ") to " + String.valueOf(target2) + "(" +
-                    Players.get(target2).name + ").";
-            target = checkTransporter(target);
-            target2 = checkTransporter(target2);
-            if (Players.get(target).jailed) {
-                Players.get(target).activity.add("WitchJail");
-            } else if (RoleInfo.ControlImmune.contains(Players.get(target).name)) {
-                Players.get(target).activity.add("WitchImmune");
+        if (!jailed) {
+            target = validTownTarget(playerNum); // Source target
+            target2 = validTownTarget(playerNum); // Destination target
+            nightAction = "You have decided to control " + String.valueOf(target) + "(" +
+                    players.get(target).roleName + ") to " + String.valueOf(target2) + "(" +
+                    players.get(target2).roleName + ").";
+            target = checkTargetSwitch(target);
+            target2 = checkTargetSwitch(target2);
+            if (players.get(target).jailed) {
+                players.get(target).activity.add("WitchJail");
+            } else if (RoleInfo.ControlImmune.contains(players.get(target).roleName)) {
+                players.get(target).activity.add("WitchImmune");
                 checkVetVisit(target); // Only check vet visits here because he is immune
             } else {
-                Players.get(target).activity.add("Witched");
-                if (Players.get(target).witched != 0) {
-                    player.NightResult = "Another witch has controlled your target first!";
+                players.get(target).activity.add("Witched");
+                if (players.get(target).witched != 0) {
+                    nightResult = "Another witch has controlled your target first!";
                 } else {
-                    Players.get(target).witched = target2;
+                    players.get(target).witched = target2;
                 }
             }
-            AllVisits.get(target).add(Witch);
-        } */
+        }
 
     }
 
