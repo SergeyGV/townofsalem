@@ -17,7 +17,7 @@ public class Framer extends RoleControl {
             target = checkTargetSwitch(target);
             if (!blocked) {
                 RoleInfo.SheriffResults.add(players.get(target).roleName);
-                RoleInfo.InvestResults.replace(players.get(target).roleName, "Framer/Forger");
+                RoleInfo.InvestResults.replace(players.get(target).roleName, "a Framer/Vampire/Jester!");
             }
 
         }
