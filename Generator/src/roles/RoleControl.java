@@ -8,18 +8,19 @@ import java.util.Random;
 
 public abstract class RoleControl {
 
-    public String roleName;
-    public String nightAction;
-    public String nightResult;
-    int playerNum;
+    public String roleName; // The player's role name
+    public String nightAction; // What the player chooses to be their night action
+    public String nightResult; // What the player sees as the result for their night action(if it worked)
+    int playerNum; // The number of the player
     int target; // Used to keep track of player targets
-    int target2; // Used for the transporters second target
-    boolean jailed = false;
-    boolean blocked = false;
-    public ArrayList<String> activity;
+    int target2; // Used for multi target roles
+    int witched = 0; // Indicator for which target is the player forced to visit(if Witched)
+    boolean jailed = false; // If the player is Jailed
+    boolean blocked = false; // If the player is roleblocked
+    public ArrayList<String> activity; // Influence from other roles that they are notified of(non-lethal)
     private Random randomizer = new Random(); // Used for random generation of numbers
     static HashMap<Integer, Integer> switches; // Tracks which targets were transported
-    HashMap<Integer, RoleControl> players;
+    public static HashMap<Integer, RoleControl> players; // Tracker for all the players
     //boolean immune; // Used to keep track of if people vested/self-healed
     //static public int MafTarget; // Mafia initial killing target
     //static int FinMafTarget; // Mafia final killing target
@@ -34,7 +35,6 @@ public abstract class RoleControl {
         nightAction = "";
         nightResult = "";
         activity = new ArrayList<>();
-        players = Actions.PlayerData;
         switches = new HashMap<>();
     }
 
@@ -48,9 +48,9 @@ public abstract class RoleControl {
      */
     public int validTownTarget(int player) {
 
-        int target = randomizer.nextInt(15) + 1;
+        int target = randomizer.nextInt(players.size()) + 1;
         while (player == target) {
-            target = randomizer.nextInt(15) + 1;
+            target = randomizer.nextInt(players.size()) + 1;
         }
         return(target);
 
@@ -64,9 +64,9 @@ public abstract class RoleControl {
      */
     public int validMafTarget() { /*
 
-        int target = randomizer.nextInt(15) + 1;
+        int target = randomizer.nextInt(players.size()) + 1;
         while (Mafia.contains(target)) {
-            target = randomizer.nextInt(15) + 1;
+            target = randomizer.nextInt(players.size()) + 1;
         }
         return(target); */
         return 1337;
@@ -122,10 +122,9 @@ public abstract class RoleControl {
     public int checkTargetSwitch(int num) {
 
         int target = num;
-        /*
-        if (player.witched != 0) {
-            target = player.witched;
-        }*/
+        if (witched != 0) {
+            target = witched;
+        }
         if (switches.containsKey(target)) {
             return (switches.get(target));
         }
@@ -133,25 +132,6 @@ public abstract class RoleControl {
 
     }
 
-    /**
-     * Given a number, it will check if that target was transported or not.
-     * If it was, we will return the number that it was transported with,
-     * otherwise, we'll return the same number that was passed in.
-     *
-     * Used by the Witch.
-     *
-     * @param num The player number
-     * @return Either the player that num was transported with, or num
-     */
-    public int checkTransporter(int num) { /*
-
-        if (switches.containsKey(num)) {
-            return(switches.get(num));
-        }
-        return(num); */
-        return 1337;
-
-    }
 
     /**
      * Subscribe a player(who is a Doctor) to the player of this class

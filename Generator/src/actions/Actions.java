@@ -14,7 +14,8 @@ import java.util.PriorityQueue;
 
 public class Actions {
 
-    public static HashMap<Integer, RoleControl> PlayerData;
+    private HashMap<Integer, RoleControl> PlayerData;
+    private ArrayList<Integer> mafiaList;
 
     /**
      * The main generation method of the night activity
@@ -45,12 +46,12 @@ public class Actions {
                 System.out.println("Something broke!");
             }
         }
-
+        RoleControl.players = PlayerData;
         while (!allRoles.isEmpty()) {
             allRoles.remove().Process();
         }
 
-        new ActivityPrint(); // Report results to terminal */
+        new ActivityPrint(PlayerData); // Report results to terminal */
 
     }
 
