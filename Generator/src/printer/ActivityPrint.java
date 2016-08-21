@@ -10,7 +10,7 @@ public class ActivityPrint {
     public ActivityPrint() {
 
         RoleControl player;
-        for (int i = 1; i < 16; i++) {
+        for (int i = 1; i < Actions.PlayerData.size() + 1; i++) {
             player = Actions.PlayerData.get(i);
             System.out.println(String.valueOf(i) + "(" + player.roleName + ")");
             // Night action printing

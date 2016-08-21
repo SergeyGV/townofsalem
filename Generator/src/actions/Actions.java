@@ -33,7 +33,7 @@ public class Actions {
 
         PriorityQueue<RoleControl> allRoles = new PriorityQueue<>(new RoleComparator());
         PlayerData = new HashMap<>();
-        for (int i = 0; i < 15; i++) {
+        for (int i = 0; i < playerlist.size(); i++) {
             try {
                 Class<?> gottenRole = Class.forName("roles." + playerlist.get(i).replaceAll(" ", ""));
                 Constructor<?> cons = gottenRole.getConstructor(String.class, Integer.TYPE);
