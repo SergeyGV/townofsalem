@@ -13,9 +13,9 @@ import java.util.HashMap;
 
 public class RoleInfo {
 
-	static HashMap<String, String> InvestResults = new HashMap<>();
+	public static HashMap<String, String> InvestResults;
 	
-	static ArrayList<String> SheriffResults;
+	public static ArrayList<String> SheriffResults;
 
 	public static ArrayList<String> NightImmune;
 
@@ -27,7 +27,7 @@ public class RoleInfo {
 
 	public static ArrayList<String> allMafia;
 	
-	public RoleInfo() {
+	public static void populate() {
 		NightImmune = new ArrayList<>(Arrays.asList(
 				"Godfather", "Serial Killer", "Arsonist", "Werewolf", "Executioner"));
 		RoleBlockImmune = new ArrayList<>(Arrays.asList("Transporter", "Veteran", "Witch",
@@ -42,6 +42,7 @@ public class RoleInfo {
 				"Forger", "Consigliere", "Consort", "Blackmailer"));
 		allMafia = new ArrayList<>(Arrays.asList("Mafioso", "Godfather", "Disguisor", "Janitor",
 				"Framer", "Forger", "Consigliere", "Consort", "Blackmailer"));
+		InvestResults = new HashMap<>();
 		InvestResults.put("Investigator", "Investigator/Consigliere");
 		InvestResults.put("Consigliere", "Investigator/Consigliere");
 		InvestResults.put("Spy", "Spy/Blackmailer");

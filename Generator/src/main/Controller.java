@@ -42,14 +42,12 @@ public class Controller {
 				System.out.println(inf);
 			}
 		} else {
-			for (String role: gen.Generate()) {
-				System.out.println(role);
-			}
+			ArrayList<String> result = gen.Generate();
+			RoleInfo.populate(); // Generate investigative results
+			Actions test = new Actions();
+			test.generate(result);
 		}
 		//TODO: Factor the witch in generation(ex: two Any, no faction, Vig and Witch can roll)
-		//new RoleInfo(); // Generate investigative results
-		//Actions test = new Actions();
-		//test.generate(gen.Generate());
 
 	}
 
