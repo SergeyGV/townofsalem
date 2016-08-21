@@ -10,10 +10,7 @@ public class Framer extends RoleControl {
 
     public void Process() {
 
-        target = validMafTarget();
-        while (target == mafTarget) {
-            target = validMafTarget();
-        }
+        target = validNonDeathMafTarget();
         if (!jailed) {
             nightAction = "You have decided to frame " + String.valueOf(target) +
                     "(" + players.get(target).roleName + ") tonight.";

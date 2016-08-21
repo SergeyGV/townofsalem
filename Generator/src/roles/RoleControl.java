@@ -79,6 +79,29 @@ public abstract class RoleControl {
     }
 
     /**
+     * Returns a valid target for the mafia that is not marked for death by the mafia.
+     * A valid mafia target is everyone in the town that does not happen to be a member of the mafia.
+     * This method should only be called once MafiaKillers has been processed
+     *
+     * @return The target number
+     */
+    public int validNonDeathMafTarget() {
+        target = validMafTarget();
+        /*
+         * Special case: Role list is only 6 players, with 5 mafia. Attempting to run the while loop
+         * at the bottom of the function will cause an infinite loop. Following if prevents this,
+         * and forces the role to simply visit the target marked for death instead.
+         */
+        if (mafia.size() == 5 && players.size() == 6) {
+            return target;
+        }
+        while (target == mafTarget) {
+            target = validMafTarget();
+        }
+        return target;
+    }
+
+    /**
      * Process if the player being visited is a Veteran on alert.
      * If it is, send the appropriate data to the visitor and the Veteran.
      * The function assumes that the role class currently in the player variable

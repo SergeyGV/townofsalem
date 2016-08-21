@@ -6,26 +6,18 @@ public class Consigliere extends RoleControl {
         super(name, num);
     }
 
-    public void Process() { /*
+    public void Process() {
 
-        player = Players.get(Consigliere);
-        target = validMafTarget();
-        while (target == MafTarget) {
-            target = validMafTarget();
-        }
-        if (!player.jailed) {
-            player.NightAction = "You have decided to investigate " + String.valueOf(target) +
-                    "(" + Players.get(target).name + ") tonight.";
+        target = validNonDeathMafTarget();
+        if (!jailed) {
+            nightAction = "You have decided to investigate " + String.valueOf(target) +
+                    "(" + players.get(target).roleName + ") tonight.";
             target = checkTargetSwitch(target);
-            MafiaVisits.add(target);
-            if (!player.blocked) {
-                player.NightResult = "Your target is a " + Players.get(target).name + "!";
-                checkVetVisit(target);
-                AllVisits.get(target).add(Consigliere);
+            if (!blocked) {
+                nightResult = "Your target is a " + players.get(target).roleName + "!";
             }
 
         }
-        // TODO: Spy visits here */
 
     }
 
