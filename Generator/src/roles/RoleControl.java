@@ -17,16 +17,15 @@ public abstract class RoleControl {
     int witched = 0; // Indicator for which target is the player forced to visit(if Witched)
     boolean jailed = false; // If the player is Jailed
     boolean blocked = false; // If the player is roleblocked
+    boolean immune; // Used to keep track of if people vested/self-healed
     public ArrayList<String> activity; // Influence from other roles that they are notified of(non-lethal)
+    ArrayList<Integer> DocSubs = new ArrayList<>(); // Tracks Doctor subscribers
+    ArrayList<Integer> BGSubs = new ArrayList<>(); // Tracks Bodyguard subscribers
     public static ArrayList<Integer> mafia; // Indicator for all the mafia in the role list
     private Random randomizer = new Random(); // Used for random generation of numbers
     static HashMap<Integer, Integer> switches; // Tracks which targets were transported
     public static HashMap<Integer, RoleControl> players; // Tracker for all the players
-    //boolean immune; // Used to keep track of if people vested/self-healed
-    //static public ArrayList<Integer> Mafia = new ArrayList<>(); // Used to keep track of mafia members
     //static boolean alert = false; // Indication if the Veteran has gone on alert
-    //ArrayList<Integer> DocSubs = new ArrayList<>(); // Tracks Doctor subscribers
-    //ArrayList<Integer> BGSubs = new ArrayList<>(); // Tracks Bodyguard subscribers
 
     /**
      * Used only by MafiaKillers
@@ -167,7 +166,7 @@ public abstract class RoleControl {
      * @param Doctor The Doctor's player number
      */
     public void subscribeDoctor(int Doctor) {
-        //DocSubs.add(Doctor);
+        DocSubs.add(Doctor);
     }
 
     /**
@@ -176,7 +175,7 @@ public abstract class RoleControl {
      * @param Bodyguard The Bodyguard's player number
      */
     public void subscribeBG(int Bodyguard) {
-        //BGSubs.add(Bodyguard);
+        BGSubs.add(Bodyguard);
     }
 
     /**

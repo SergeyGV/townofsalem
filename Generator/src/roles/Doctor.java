@@ -6,33 +6,31 @@ public class Doctor extends RoleControl {
         super(name, num);
     }
 
-    public void Process() { /*
+    public void Process() {
 
-        player = Players.get(Doctor);
-        if (!player.jailed) {
+        if (!jailed) {
             target = validTownTarget(-1); // Pick anything
-            if (target != Doctor) {
-                player.NightAction = "You have decided to heal " + String.valueOf(target) +
-                        "(" + Players.get(target).name + ") tonight.";
+            if (target != playerNum) {
+                nightAction = "You have decided to heal " + String.valueOf(target) +
+                        "(" + players.get(target).roleName + ") tonight.";
             } else {
-                player.NightAction = "You have decided to heal yourself this night.";
+                nightAction = "You have decided to heal yourself this night.";
             }
             target = checkTargetSwitch(target);
-            if (!player.blocked) {
-                checkVetVisit(target);
-                AllVisits.get(target).add(Doctor);
-                if (target == Doctor) {
+            if (!blocked) {
+                if (target == playerNum) {
                     immune = true;
                 }
-                PlayerData.get(target).subscribeDoctor(Doctor);
+                players.get(target).subscribeDoctor(playerNum);
                 // Processing special cases that happened before the Doctor
+                /*
                 while (Players.get(target).attackers.size() != 0) {
-                    player.activity.add("DocAtt");
+                    n.activity.add("DocAtt");
                     Players.get(target).activity.add("DocSave");
                     Players.get(target).attackers.remove(0);
-                }
+                }*/
             }
-        } */
+        }
 
     }
 
