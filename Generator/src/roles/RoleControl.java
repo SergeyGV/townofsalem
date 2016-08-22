@@ -1,5 +1,7 @@
 package roles;
 
+import actions.RoleInfo;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
@@ -19,6 +21,7 @@ public abstract class RoleControl {
     boolean blocked = false; // If the player is roleblocked
     boolean immune; // Used to keep track of if people vested/self-healed
     public ArrayList<String> activity; // Influence from other roles that they are notified of(non-lethal)
+    public ArrayList<String> attackers; // Players that attacked and killed the player
     ArrayList<Integer> DocSubs = new ArrayList<>(); // Tracks Doctor subscribers
     ArrayList<Integer> BGSubs = new ArrayList<>(); // Tracks Bodyguard subscribers
     public static ArrayList<Integer> mafia; // Indicator for all the mafia in the role list
@@ -40,6 +43,7 @@ public abstract class RoleControl {
         nightAction = "";
         nightResult = "";
         activity = new ArrayList<>();
+        attackers = new ArrayList<>();
         switches = new HashMap<>();
     }
 
@@ -117,7 +121,7 @@ public abstract class RoleControl {
             return true;
         }
         return false; */
-        return true;
+        return false;
     }
 
     /**
@@ -181,72 +185,72 @@ public abstract class RoleControl {
     /**
      * Notify all Doctors subscribed to this player that he was attacked
      */
-    public void notifyDoctors() { /*
+    public void notifyDoctors() {
         for (int Doctor: DocSubs) {
-            Players.get(Doctor).activity.add("DocAtt");
-            //PlayerData.get(Doctor).updateDoctor();
-        } */
+            players.get(Doctor).updateDoctor();
+        }
     }
 
     /**
      * Notify one of the Bodyguards subscribed to this player that he is being attacked,
      * and then remove that Bodyguard from the subscribers list as he had fulfilled his duty
      */
-    public void notifyBG() { /*
+    public void notifyBG() {
         if (BGSubs.size() != 0) {
-            PlayerData.get(BGSubs.get(0)).updateBG();
+            players.get(BGSubs.get(0)).updateBG();
             BGSubs.remove(0);
-        } */
+        }
     }
 
     /**
      * Update the Doctor that his target was attacked
      */
     public void updateDoctor() {
-        //player.activity.add("DocAtt");
+        activity.add("DocAtt");
     }
 
     /**
      * Update the Bodyguard that his target was targeted, and process his fate
      * accordingly
      */
-    public void updateBG() { /*
+    public void updateBG() {
         if (this.DocSubs.size() != 0) {
             notifyDoctors();
-            player.activity.add("DocSave");
+            activity.add("DocSave");
         } else {
-            player.attackers.add("BGAttack");
-        } */
+            attackers.add("BGAttack");
+        }
     }
 
     /**
      * General attack method for killing roles.
      */
-    public void lethalAttack(int num, String AttackerName) { /*
+    public void lethalAttack(int num, String AttackerName) {
 
         boolean dead = true;
-        if (Players.get(num).jailed) {
-            Players.get(num).activity.add("JailSave");
-            player.activity.add("NightImmune");
+        if (players.get(num).jailed) {
+            players.get(num).activity.add("JailSave");
+            activity.add("NightImmune");
             return;
         }
-        if (RoleInfo.NightImmune.contains(Players.get(num).name)) {
-            Players.get(num).activity.add("ImmuneSave");
-            player.activity.add("NightImmune");
+        if (RoleInfo.NightImmune.contains(players.get(num).roleName)) {
+            players.get(num).activity.add("ImmuneSave");
+            activity.add("NightImmune");
             dead = false;
         }
-        if (PlayerData.get(num).immune) {
-            if (Players.get(num).name.equals("Doctor")) {
-                Players.get(num).activity.add("DocSave");
-                Players.get(num).activity.add("ImmuneSave");
+        if (players.get(num).immune) {
+            if (players.get(num).roleName.equals("Doctor")) {
+                players.get(num).activity.add("DocSave");
+                players.get(num).activity.add("ImmuneSave");
             } else {
-                Players.get(num).activity.add("VestSave");
+                players.get(num).activity.add("VestSave");
             }
-            player.activity.add("NightImmune");
+            activity.add("NightImmune");
             return;
         }
-        if (Players.get(num).name.equals("Veteran") && alert) {
-            Players.get(num).activity.add("VetAtt");
+        /*
+        if (players.get(num).roleName.equals("Veteran") && alert) {
+            players.get(num).activity.add("VetAtt");
             if (DocSubs.size() != 0) {
                 notifyDoctors();
                 player.activity.add("DocSave");
@@ -255,25 +259,26 @@ public abstract class RoleControl {
             }
             return;
         }
-        if (PlayerData.get(num).DocSubs.size() != 0) {
+        */
+        if (players.get(num).DocSubs.size() != 0) {
             dead = false;
-            Players.get(num).activity.add("DocSave");
-            PlayerData.get(num).notifyDoctors();
+            players.get(num).activity.add("DocSave");
+            players.get(num).notifyDoctors();
         }
-        if (PlayerData.get(num).BGSubs.size() != 0) {
+        if (players.get(num).BGSubs.size() != 0) {
             dead = false;
-            Players.get(num).activity.add("BGSave");
-            PlayerData.get(num).notifyBG();
+            players.get(num).activity.add("BGSave");
+            players.get(num).notifyBG();
             if (DocSubs.size() != 0) {
-                player.activity.add("DocvsBG");
+                activity.add("DocvsBG");
                 notifyDoctors();
             } else {
-                player.attackers.add("Bodyguard");
+                attackers.add("Bodyguard");
             }
         }
         if (dead) {
-            Players.get(num).attackers.add(AttackerName);
-        } */
+            players.get(num).attackers.add(AttackerName);
+        }
 
     }
 

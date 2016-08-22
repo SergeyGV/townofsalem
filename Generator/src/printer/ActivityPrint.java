@@ -115,7 +115,7 @@ public class ActivityPrint {
                         System.out.println("You shouldn't be here. Offender:" + action);
                         break;
                 }
-            } /*
+            }
             if (player.attackers.size() != 0) {
                 for (String attack: player.attackers) {
                     switch (attack) {
@@ -154,7 +154,7 @@ public class ActivityPrint {
                             break;
                     }
                 }
-                System.out.println("You have died!");
+                System.out.println("You have died!"); /*
                 if (player.disguised) {
                     System.out.println("Someone stole your identity!");
                 }
@@ -167,8 +167,8 @@ public class ActivityPrint {
             } else {
                 if (player.bitten) {
                     System.out.println("You were bit by a Vampire!");
-                }
-            } */
+                } */
+            }
         }
 
     }
