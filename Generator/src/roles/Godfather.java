@@ -6,13 +6,21 @@ public class Godfather extends RoleControl {
         super(name, num);
     }
 
-    public void Process() { /*
+    public void Process() {
 
-        player = Players.get(Godfather);
-        lethalAttack(FinMafTarget, "Mafia");
-        MafiaVisits.add(FinMafTarget);
-        AllVisits.get(FinMafTarget).add(Godfather);
-        */
+        if (!jailed) {
+            nightAction = "You have decided to kill " + String.valueOf(mafTarget) +
+                    "(" + players.get(mafTarget).roleName + ") tonight.";
+            // Also used by the Mafioso if this class doesn't kill
+            if (!blocked) {
+                finMafTarget = checkTargetSwitch(mafTarget);
+            }
+            // Don't need to check for role blocking as MafiaKillers does it
+            if (mafKiller.equals("Godfather")) {
+                lethalAttack(finMafTarget, "Mafia");
+            }
+        }
+
     }
 
 }

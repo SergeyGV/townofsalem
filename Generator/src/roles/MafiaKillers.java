@@ -11,11 +11,13 @@ public class MafiaKillers extends RoleControl {
         boolean gfBlock = true;
         boolean mfBlock = true;
         mafTarget = validMafTarget();
+        finMafTarget = 0;
         for (RoleControl player: players.values()) {
             if (player.roleName.equals("Mafioso")) {
                 mfBlock = player.jailed || player.blocked;
             }
             if (player.roleName.equals("Godfather")) {
+                gfControl = player.jailed;
                 gfBlock = player.jailed || player.blocked;
             }
         }

@@ -12,11 +12,13 @@ public abstract class RoleControl {
     public String nightAction; // What the player chooses to be their night action
     public String nightResult; // What the player sees as the result for their night action(if it worked)
     static String mafKiller = "No one"; // The name of the Mafia Killer that will go out to kill
-    static int mafTarget; // The target of the Mafia that is marked for death
+    static int mafTarget; // The chosen target of the Mafia that is marked for death
+    static int finMafTarget; // The actual target of the Mafia that will be attacked
     int playerNum; // The number of the player
     int target; // Used to keep track of player targets
     int target2; // Used for multi target roles
     int witched = 0; // Indicator for which target is the player forced to visit(if Witched)
+    boolean gfControl; // Indicator for the Mafioso if the GF is present(and not jailed)
     boolean jailed = false; // If the player is Jailed
     boolean blocked = false; // If the player is roleblocked
     boolean immune; // Used to keep track of if people vested/self-healed
@@ -25,7 +27,7 @@ public abstract class RoleControl {
     ArrayList<Integer> DocSubs = new ArrayList<>(); // Tracks Doctor subscribers
     ArrayList<Integer> BGSubs = new ArrayList<>(); // Tracks Bodyguard subscribers
     public static ArrayList<Integer> mafia; // Indicator for all the mafia in the role list
-    Random randomizer = new Random(); // Used for random generation of numbers
+    static Random randomizer = new Random(); // Used for random generation of numbers
     static HashMap<Integer, Integer> switches; // Tracks which targets were transported
     public static HashMap<Integer, RoleControl> players; // Tracker for all the players
     //static boolean alert = false; // Indication if the Veteran has gone on alert

@@ -28,25 +28,25 @@ class RoleComparator implements Comparator<RoleControl> {
         tiers.put("Doctor", 5);
         tiers.put("Bodyguard", 5);
         tiers.put("Survivor", 5);
-        tiers.put("Mafioso", 4);
         tiers.put("Godfather", 4);
-        tiers.put("Serial Killer", 4);
-        tiers.put("Vigilante", 4);
-        tiers.put("Vampire Hunter", 4);
-        tiers.put("Vampire", 4);
-        tiers.put("Arsonist", 4);
-        tiers.put("Forger", 3);
-        tiers.put("Janitor", 3);
-        tiers.put("Disguisor", 3);
-        tiers.put("Spy", 2);
-        tiers.put("Lookout", 2);
-        tiers.put("Medium", 1);
-        tiers.put("Mayor", 1);
-        tiers.put("Retributionist", 1);
-        tiers.put("Jester", 1);
-        tiers.put("Executioner", 1);
-        tiers.put("Werewolf", 1);
-        tiers.put("Amnesiac", 1);
+        tiers.put("Mafioso", 3);
+        tiers.put("Serial Killer", 3);
+        tiers.put("Vigilante", 3);
+        tiers.put("Vampire Hunter", 3);
+        tiers.put("Vampire", 3);
+        tiers.put("Arsonist", 3);
+        tiers.put("Forger", 2);
+        tiers.put("Janitor", 2);
+        tiers.put("Disguisor", 2);
+        tiers.put("Spy", 1);
+        tiers.put("Lookout", 1);
+        tiers.put("Medium", 0);
+        tiers.put("Mayor", 0);
+        tiers.put("Retributionist", 0);
+        tiers.put("Jester", 0);
+        tiers.put("Executioner", 0);
+        tiers.put("Werewolf", 0);
+        tiers.put("Amnesiac", 0);
 
     }
 
