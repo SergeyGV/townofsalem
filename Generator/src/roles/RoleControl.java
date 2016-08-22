@@ -22,7 +22,7 @@ public abstract class RoleControl {
     ArrayList<Integer> DocSubs = new ArrayList<>(); // Tracks Doctor subscribers
     ArrayList<Integer> BGSubs = new ArrayList<>(); // Tracks Bodyguard subscribers
     public static ArrayList<Integer> mafia; // Indicator for all the mafia in the role list
-    private Random randomizer = new Random(); // Used for random generation of numbers
+    Random randomizer = new Random(); // Used for random generation of numbers
     static HashMap<Integer, Integer> switches; // Tracks which targets were transported
     public static HashMap<Integer, RoleControl> players; // Tracker for all the players
     //static boolean alert = false; // Indication if the Veteran has gone on alert
