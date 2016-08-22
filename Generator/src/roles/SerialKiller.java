@@ -6,19 +6,17 @@ public class SerialKiller extends RoleControl {
         super(name, num);
     }
 
-    public void Process() { /*
+    public void Process() {
 
-        player = Players.get(SK);
-        target = validTownTarget(SK);
-        if (!player.jailed) {
-            player.NightAction = "You have decided to kill " + String.valueOf(target) + "(" +
-                    Players.get(target).name + ") tonight.";
+        target = validTownTarget(playerNum);
+        if (!jailed) {
+            nightAction = "You have decided to kill " + String.valueOf(target) + "(" +
+                    players.get(target).roleName + ") tonight.";
         }
-        if (!player.blocked) {
+        if (!blocked) {
             target = checkTargetSwitch(target);
-            AllVisits.get(target).add(SK);
             lethalAttack(target, "Serial Killer");
-        } */
+        }
 
     }
 

@@ -8,35 +8,28 @@ public class Arsonist extends RoleControl {
 
     public void Process() {
 
-        /*
-
-        player = Players.get(Arsonist);
-        if (!player.jailed) {
-            target = validTownTarget(Arsonist);
-            player.NightAction = "You have decided to douse " + String.valueOf(target) + "(" +
-                    Players.get(target).name + ") tonight.";
+        if (!jailed) {
+            target = validTownTarget(playerNum);
+            nightAction = "You have decided to douse " + String.valueOf(target) + "(" +
+                    players.get(target).roleName + ") tonight.";
             target = checkTargetSwitch(target);
-            if (!player.blocked) {
-                if (Players.get(target).jailed) {
-                    Players.get(target).activity.add("DousedJail");
-                } else if (PlayerData.get(target).BGSubs.size() != 0) {
-                    PlayerData.get(target).notifyBG();
-                    Players.get(target).activity.add("BGArsoSave");
+            if (!blocked) {
+                if (players.get(target).jailed) {
+                    players.get(target).activity.add("DousedJail");
+                } else if (players.get(target).BGSubs.size() != 0) {
+                    players.get(target).notifyBG();
+                    players.get(target).activity.add("BGArsoSave");
                     if (DocSubs.size() != 0) {
                         notifyDoctors();
-                        player.activity.add("DocvsBG");
+                        activity.add("DocvsBG");
                     } else {
-                        player.attackers.add("Bodyguard");
+                        attackers.add("Bodyguard");
                     }
                 } else {
-                    Players.get(target).activity.add("Doused");
-                    checkLateVetVisit(target);
+                    players.get(target).activity.add("Doused");
                 }
-                AllVisits.get(target).add(Arsonist);
             }
         }
-
-        */
 
     }
 
