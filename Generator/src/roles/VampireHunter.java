@@ -6,21 +6,19 @@ public class VampireHunter extends RoleControl {
         super(name, num);
     }
 
-    public void Process() { /*
+    public void Process() {
 
-        player = Players.get(VampireHunter);
-        if (!player.jailed) {
-            target = validTownTarget(VampireHunter);
-            player.NightAction = "You have decided to check " + String.valueOf(target) + "(" +
-                    Players.get(target).name + ") tonight.";
+        if (!jailed) {
+            target = validTownTarget(playerNum);
+            nightAction = "You have decided to check " + String.valueOf(target) + "(" +
+                    players.get(target).roleName + ") tonight.";
             target = checkTargetSwitch(target);
-            if (!player.blocked) {
-                AllVisits.get(target).add(VampireHunter);
-                if (Players.get(target).name.equals("Vampire")) {
+            if (!blocked) {
+                if (players.get(target).roleName.equals("Vampire")) {
                     lethalAttack(target, "Vampire Hunter");
                }
             }
-        } */
+        }
 
     }
 
