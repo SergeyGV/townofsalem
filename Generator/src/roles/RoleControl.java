@@ -18,9 +18,11 @@ public abstract class RoleControl {
     int target; // Used to keep track of player targets
     int target2; // Used for multi target roles
     int witched = 0; // Indicator for which target is the player forced to visit(if Witched)
+    static int vetNum = 0; // Indicator for the Veteran's player number(if he exists)
     boolean jailed = false; // If the player is Jailed
     boolean blocked = false; // If the player is roleblocked
     boolean immune; // Used to keep track of if people vested/self-healed
+    static boolean alert = false; // Used to keep track if the Veteran alerted or not
     static boolean gfBlock = true; // Indicator if the godfather is restricted or not
     static boolean mfBlock = true; // Indicator if the mafioso is restricted or not
     public ArrayList<String> activity; // Influence from other roles that they are notified of(non-lethal)
@@ -31,7 +33,6 @@ public abstract class RoleControl {
     static Random randomizer = new Random(); // Used for random generation of numbers
     static HashMap<Integer, Integer> switches; // Tracks which targets were transported
     public static HashMap<Integer, RoleControl> players; // Tracker for all the players
-    //static boolean alert = false; // Indication if the Veteran has gone on alert
 
     /**
      * Used only by MafiaKillers
@@ -114,17 +115,22 @@ public abstract class RoleControl {
      * is the visiting player
      *
      * @param num The number of the person being visited
+     * @return If the target was shot(and killed) by the Veteran
      */
     public boolean checkVetVisit(int num) {
 
-        /*
-        if (num == Actions.Veteran && alert) {
-            player.attackers.add("Veteran");
-            Actions.Players.get(Actions.Veteran).activity.add("VetShot");
-            return true;
+        if (num == vetNum && alert) {
+            if (DocSubs.size() == 0) {
+                attackers.add("Veteran");
+                players.get(vetNum).activity.add("VetShot");
+                return true;
+            } else {
+                activity.add("DocSave");
+                notifyDoctors();
+            }
         }
-        return false; */
         return false;
+
     }
 
     /**
@@ -246,18 +252,16 @@ public abstract class RoleControl {
             activity.add("NightImmune");
             return;
         }
-        /*
         if (players.get(num).roleName.equals("Veteran") && alert) {
             players.get(num).activity.add("VetAtt");
             if (DocSubs.size() != 0) {
                 notifyDoctors();
-                player.activity.add("DocSave");
+                activity.add("DocSave");
             } else {
-                player.attackers.add("Veteran");
+                attackers.add("Veteran");
             }
             return;
         }
-        */
         if (players.get(num).DocSubs.size() != 0) {
             dead = false;
             players.get(num).activity.add("DocSave");

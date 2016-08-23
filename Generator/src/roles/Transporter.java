@@ -25,11 +25,10 @@ public class Transporter extends RoleControl {
                 }
                 players.get(target).activity.add("Transported");
                 players.get(target2).activity.add("Transported");
-                /* Vet stuff
                 checkVetVisit(target);
                 if (target != target2) {
                     checkVetVisit(target2);
-                } */
+                }
             } else {
                 nightResult = "You could not transport as one of your targets was jailed!";
             }

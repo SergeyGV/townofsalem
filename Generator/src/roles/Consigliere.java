@@ -15,6 +15,7 @@ public class Consigliere extends RoleControl {
             target = checkTargetSwitch(target);
             if (!blocked) {
                 nightResult = "Your target is a " + players.get(target).roleName + "!";
+                checkVetVisit(target);
             }
 
         }

@@ -17,6 +17,7 @@ public class Investigator extends RoleControl {
             target = checkTargetSwitch(target);
             if (!blocked) {
                 nightResult = "Your target must be " + RoleInfo.InvestResults.get(players.get(target).roleName);
+                checkVetVisit(target);
             }
         }
 

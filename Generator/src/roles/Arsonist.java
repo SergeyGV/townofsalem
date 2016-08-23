@@ -14,6 +14,7 @@ public class Arsonist extends RoleControl {
                     players.get(target).roleName + ") tonight.";
             target = checkTargetSwitch(target);
             if (!blocked) {
+                checkVetVisit(target);
                 if (players.get(target).jailed) {
                     players.get(target).activity.add("DousedJail");
                 } else if (players.get(target).BGSubs.size() != 0) {

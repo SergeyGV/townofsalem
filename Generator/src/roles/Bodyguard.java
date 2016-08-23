@@ -17,7 +17,8 @@ public class Bodyguard extends RoleControl {
                 nightAction = "You have decided to use a vest this night.";
             }
             target = checkTargetSwitch(target);
-            if (!blocked) {
+            // If dead to Veteran, he does not protect him
+            if (!blocked && !checkVetVisit(target)) {
                 if (target == playerNum) {
                     immune = true;
                 } else {

@@ -14,6 +14,7 @@ public class VampireHunter extends RoleControl {
                     players.get(target).roleName + ") tonight.";
             target = checkTargetSwitch(target);
             if (!blocked) {
+                checkVetVisit(target);
                 if (players.get(target).roleName.equals("Vampire")) {
                     lethalAttack(target, "Vampire Hunter");
                }

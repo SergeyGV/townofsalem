@@ -17,6 +17,7 @@ public class Blackmailer extends RoleControl {
                 if (players.get(target).jailed) {
                     players.get(target).activity.add("BMJail");
                 } else {
+                    checkVetVisit(target);
                     players.get(target).activity.add("BM");
                 }
             }

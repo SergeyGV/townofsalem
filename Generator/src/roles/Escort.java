@@ -24,6 +24,7 @@ public class Escort extends RoleControl {
                     players.get(target).activity.add("RBJail");
                 } else if (RoleInfo.RoleBlockImmune.contains(players.get(target).roleName)) {
                     players.get(target).activity.add("RBImmune");
+                    checkVetVisit(target); // Only check vet visits here because he is immune
                 } else {
                     players.get(target).activity.add("RB");
                     players.get(target).blocked = true;

@@ -2,22 +2,24 @@ package roles;
 
 public class Veteran extends RoleControl {
 
+    private int alertChance = 100; // Chance of alerting
+
     public Veteran(String name, int num) {
         super(name, num);
     }
 
-    public void Process() { /*
-
-        player = Players.get(Veteran);
-        if (!player.jailed) {
-            if ((randomizer.nextInt(10) + 1) % 2 == 0) { // Odds of alerting: 50%
-                player.NightAction = "You have decided to go on alert.";
+    public void Process() {
+        vetNum = playerNum;
+        if (!jailed) {
+            if (randomizer.nextInt(100) + 1 <= alertChance) {
+                nightAction = "You have decided to go on alert.";
                 alert = true;
             } else {
-                player.NightAction = "You have not went on alert this night.";
-                player.NightResult = "You did not perform your night ability.";
+                nightAction = "You have not went on alert this night.";
+                // Vet cannot be forced to alert if he doesn't choose to do it
+                nightResult = "You did not perform your night ability.";
             }
-        } */
+        }
 
     }
 
