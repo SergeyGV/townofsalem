@@ -18,10 +18,11 @@ public abstract class RoleControl {
     int target; // Used to keep track of player targets
     int target2; // Used for multi target roles
     int witched = 0; // Indicator for which target is the player forced to visit(if Witched)
-    boolean gfControl; // Indicator for the Mafioso if the GF is present(and not jailed)
     boolean jailed = false; // If the player is Jailed
     boolean blocked = false; // If the player is roleblocked
     boolean immune; // Used to keep track of if people vested/self-healed
+    static boolean gfBlock = true; // Indicator if the godfather is restricted or not
+    static boolean mfBlock = true; // Indicator if the mafioso is restricted or not
     public ArrayList<String> activity; // Influence from other roles that they are notified of(non-lethal)
     public ArrayList<String> attackers; // Players that attacked and killed the player
     ArrayList<Integer> DocSubs = new ArrayList<>(); // Tracks Doctor subscribers
@@ -235,11 +236,6 @@ public abstract class RoleControl {
             activity.add("NightImmune");
             return;
         }
-        if (RoleInfo.NightImmune.contains(players.get(num).roleName)) {
-            players.get(num).activity.add("ImmuneSave");
-            activity.add("NightImmune");
-            dead = false;
-        }
         if (players.get(num).immune) {
             if (players.get(num).roleName.equals("Doctor")) {
                 players.get(num).activity.add("DocSave");
@@ -268,7 +264,6 @@ public abstract class RoleControl {
             players.get(num).notifyDoctors();
         }
         if (players.get(num).BGSubs.size() != 0) {
-            dead = false;
             players.get(num).activity.add("BGSave");
             players.get(num).notifyBG();
             if (DocSubs.size() != 0) {
@@ -277,6 +272,12 @@ public abstract class RoleControl {
             } else {
                 attackers.add("Bodyguard");
             }
+            return;
+        }
+        if (RoleInfo.NightImmune.contains(players.get(num).roleName)) {
+            players.get(num).activity.add("ImmuneSave");
+            activity.add("NightImmune");
+            dead = false;
         }
         if (dead) {
             players.get(num).attackers.add(AttackerName);

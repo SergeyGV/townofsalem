@@ -12,10 +12,10 @@ public class SerialKiller extends RoleControl {
         if (!jailed) {
             nightAction = "You have decided to kill " + String.valueOf(target) + "(" +
                     players.get(target).roleName + ") tonight.";
-        }
-        if (!blocked) {
-            target = checkTargetSwitch(target);
-            lethalAttack(target, "Serial Killer");
+            if (!blocked) {
+                target = checkTargetSwitch(target);
+                lethalAttack(target, "Serial Killer");
+            }
         }
 
     }

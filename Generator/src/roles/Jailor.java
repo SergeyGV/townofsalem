@@ -10,13 +10,18 @@ public class Jailor extends RoleControl {
 
         target = validTownTarget(playerNum);
         nightAction = "You hauled player " + String.valueOf(target) + " off to jail!";
-        players.get(target).nightAction = "You were hauled off to jail!"; /*
-        if (players.get(target).name.equals("Serial Killer")) {
-            players.attackers.add("JailedSK");
+        players.get(target).nightAction = "You were hauled off to jail!";
+        if (players.get(target).roleName.equals("Serial Killer")) {
             players.get(target).activity.add("SKJail");
-        } else { */
+            if (DocSubs.size() == 0) {
+                attackers.add("JailedSK");
+            } else {
+                notifyDoctors();
+                activity.add("DocSave");
+            }
+        } else {
             players.get(target).nightResult = "You did not perform any possible action due to jail.";
-        //}
+        }
         players.get(target).jailed = true;
 
     }
