@@ -274,7 +274,7 @@ public abstract class RoleControl {
             }
             return;
         }
-        if (RoleInfo.NightImmune.contains(players.get(num).roleName)) {
+        if (RoleInfo.NightImmune.contains(players.get(num).roleName) && dead) {
             players.get(num).activity.add("ImmuneSave");
             activity.add("NightImmune");
             dead = false;

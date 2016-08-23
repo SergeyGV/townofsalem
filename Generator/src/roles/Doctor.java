@@ -23,12 +23,11 @@ public class Doctor extends RoleControl {
                 }
                 players.get(target).subscribeDoctor(playerNum);
                 // Processing special cases that happened before the Doctor
-                /*
-                while (Players.get(target).attackers.size() != 0) {
-                    n.activity.add("DocAtt");
-                    Players.get(target).activity.add("DocSave");
-                    Players.get(target).attackers.remove(0);
-                }*/
+                while (players.get(target).attackers.size() != 0) {
+                    activity.add("DocAtt");
+                    players.get(target).activity.add("DocSave");
+                    players.get(target).attackers.remove(0);
+                }
             }
         }
 

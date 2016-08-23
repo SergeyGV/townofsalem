@@ -13,12 +13,7 @@ public class Jailor extends RoleControl {
         players.get(target).nightAction = "You were hauled off to jail!";
         if (players.get(target).roleName.equals("Serial Killer")) {
             players.get(target).activity.add("SKJail");
-            if (DocSubs.size() == 0) {
-                attackers.add("JailedSK");
-            } else {
-                notifyDoctors();
-                activity.add("DocSave");
-            }
+            attackers.add("JailedSK"); // Can be saved by Doc, situation handled in the Doctor class
         } else {
             players.get(target).nightResult = "You did not perform any possible action due to jail.";
         }
