@@ -23,6 +23,9 @@ public abstract class RoleControl {
     boolean jailed = false; // If the player is Jailed
     boolean blocked = false; // If the player is roleblocked
     boolean immune; // Used to keep track of if people vested/self-healed
+    public boolean forged = false; // Indicator if this player was forged or not
+    public boolean cleaned = false; // Indicator if this player was cleaned or not
+    public boolean disguised = false; // Indicator if this player was disguised as or not
     public boolean bitten = false; // Indicator if this player was bitten by a Vampire or not
     static boolean alert = false; // Used to keep track if the Veteran alerted or not
     static boolean gfBlock = true; // Indicator if the godfather is restricted or not
@@ -149,22 +152,6 @@ public abstract class RoleControl {
             }
         }
         return false;
-
-    }
-
-    /**
-     * Same as checkVetVisit, but is only used AFTER attackers have done their moves
-     * @param num The visited player's number
-     */
-    public void checkLateVetVisit(int num) { /*
-
-        if (checkVetVisit(num)) {
-            if (DocSubs.size() != 0) {
-                notifyDoctors();
-                player.activity.add("DocSave");
-                player.attackers.remove("Veteran");
-            }
-        } */
 
     }
 

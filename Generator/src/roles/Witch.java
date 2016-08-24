@@ -17,7 +17,8 @@ public class Witch extends RoleControl {
                     players.get(target).roleName + ") to " + String.valueOf(target2) + "(" +
                     players.get(target2).roleName + ").";
             target = checkTargetSwitch(target);
-            target2 = checkTargetSwitch(target2);
+            // Target 2 will be switched by the targeted Class... do NOT do it here
+            // Doing so will cause a switch here and then one there... meaning trans is ignored
             if (players.get(target).jailed) {
                 players.get(target).activity.add("WitchJail");
             } else if (RoleInfo.ControlImmune.contains(players.get(target).roleName)) {

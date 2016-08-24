@@ -163,7 +163,7 @@ public class ActivityPrint {
                             break;
                     }
                 }
-                System.out.println("You have died!"); /*
+                System.out.println("You have died!");
                 if (player.disguised) {
                     System.out.println("Someone stole your identity!");
                 }
@@ -172,7 +172,7 @@ public class ActivityPrint {
                 }
                 if (player.cleaned) {
                     System.out.println("You were cleaned by a janitor!");
-                } */
+                }
             } else {
                 if (player.bitten) {
                     System.out.println("You were bit by a Vampire!");

@@ -6,20 +6,26 @@ public class Forger extends RoleControl {
         super(name, num);
     }
 
-    public void Process() { /*
+    public void Process() {
 
-        player = Players.get(Forger);
-        if (!player.jailed) {
-            player.NightAction = "You have decided to forge " + String.valueOf(MafTarget) + "(" +
-                    Players.get(MafTarget).name + ") tonight.";
-            target = checkTargetSwitch(MafTarget);
-            if (!player.blocked) {
-                MafiaVisits.add(target);
-                Players.get(target).forged = true;
-                checkLateVetVisit(target);
-                AllVisits.get(target).add(Forger);
+        if (!jailed) {
+            // If 0, all present MKs are visibly blocked, and there is no point in doing anything
+            if (finMafTarget == 0) {
+                nightAction = "You have decided to do nothing this night.";
+                target = 0;
+            } else {
+                nightAction = "You have decided to forge " + String.valueOf(mafTarget) + "(" +
+                        players.get(mafTarget).roleName + ") tonight.";
+                target = mafTarget;
             }
-        } */
+            target = checkTargetSwitch(target);
+            if (target == 0) {
+                nightResult = "You did not perform your night ability.";
+            } else if (!blocked) {
+                players.get(target).forged = true;
+                checkVetVisit(target);
+            }
+        }
 
     }
 

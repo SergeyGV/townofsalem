@@ -28,6 +28,7 @@ public class Actions {
      * TODO: RoleControl - Refactor Notify/Update methods into one method
      * TODO: RoleControl - Refactor the mess of the attacking method
      * TODO: ActivityPrint - Sort messages before print so it's not a mess(for attacks, like SKs hitting each other)
+     * TODO: MD Roles - Figure out logic and only send out a few of them instead of all
      *
      * Note: Arsonist dousing himself via transport/witch while the BG is on him will cause
      * the BG to "save" him and then kill him. Intended behavior? Arsonist can't really douse
