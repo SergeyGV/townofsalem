@@ -28,6 +28,8 @@ BGArsoSave - This player was targeted by an Arsonist but was saved by a Bodyguar
 Doused - This player was doused by an Arsonist
 SpyVisits - This player, a spy, saw all the Mafia visits that night
 LKVisits - This player, a lookout, watched a target and saw X people visit him
+VampJail - The youngest Vampire was jailed, and as such, no one can be bit
+VampSize - The Vampires have reached their size limit, no one can be bit
 
 For attackers:
 Veteran - This player has visited an alerted Veteran
@@ -40,3 +42,4 @@ Serial Killer - This player was attacked by a Serial Killer
 Mafia - This player was attacked by a member of the mafia
 Bodyguard - This player was attacked by a bodyguard
 BGAttack - This player, a bodyguard, was killed defending his target
+Vampire - This player, a member of the Mafia, was killed by a Vampire

@@ -36,7 +36,7 @@ public class RoleInfo {
 		BiteImmune = new ArrayList<>(Arrays.asList("Vampire Hunter", "Godfather", "Mafioso",
 				"Framer", "Forger", "Janitor", "Disguisor", "Consort", "Consigliere",
 				"Serial Killer", "Arsonist", "Werewolf", "Executioner", "Witch",
-				"Blackmailer"));
+				"Blackmailer", "Vampire"));
 		SheriffResults = new ArrayList<>(Arrays.asList(
 				"Mafioso", "Disguisor", "Janitor", "Framer",
 				"Forger", "Consigliere", "Consort", "Blackmailer"));

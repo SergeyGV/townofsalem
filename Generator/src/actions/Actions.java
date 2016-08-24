@@ -6,6 +6,7 @@ import roles.*;
 
 import java.lang.reflect.Constructor;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.PriorityQueue;
 
@@ -17,6 +18,7 @@ public class Actions {
 
     private HashMap<Integer, RoleControl> PlayerData;
     private ArrayList<Integer> mafiaList;
+    private ArrayList<Integer> vampList;
 
     /**
      * The main generation method of the night activity
@@ -25,6 +27,7 @@ public class Actions {
     /*
      * TODO: RoleControl - Refactor Notify/Update methods into one method
      * TODO: RoleControl - Refactor the mess of the attacking method
+     * TODO: ActivityPrint - Sort messages before print so it's not a mess(for attacks, like SKs hitting each other)
      *
      * Note: Arsonist dousing himself via transport/witch while the BG is on him will cause
      * the BG to "save" him and then kill him. Intended behavior? Arsonist can't really douse
@@ -39,6 +42,7 @@ public class Actions {
         PriorityQueue<RoleControl> allRoles = new PriorityQueue<>(new RoleComparator());
         PlayerData = new HashMap<>();
         mafiaList = new ArrayList<>();
+        vampList = new ArrayList<>();
         for (int i = 0; i < playerlist.size(); i++) {
             try {
                 Class<?> gottenRole = Class.forName("roles." + playerlist.get(i).replaceAll(" ", ""));
@@ -49,6 +53,8 @@ public class Actions {
                 allRoles.add(theRole);
                 if (RoleInfo.allMafia.contains(playerlist.get(i))) {
                     mafiaList.add(i+1);
+                } else if (playerlist.get(i).equals("Vampire")) {
+                    vampList.add(i+1);
                 }
             } catch (Exception e) {
                 System.out.println("Something broke!");
@@ -57,6 +63,11 @@ public class Actions {
         allRoles.add(new MafiaKillers("MafTarget"));
         RoleControl.players = PlayerData;
         RoleControl.mafia = mafiaList;
+        RoleControl.vampires = vampList;
+        if (vampList.size() > 0) {
+            Collections.shuffle(vampList);
+            RoleControl.visitingVamp = vampList.get(0);
+        }
         while (!allRoles.isEmpty()) {
             allRoles.remove().Process();
         }

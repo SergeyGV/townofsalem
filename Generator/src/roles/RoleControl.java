@@ -19,9 +19,11 @@ public abstract class RoleControl {
     int target2; // Used for multi target roles
     int witched = 0; // Indicator for which target is the player forced to visit(if Witched)
     static int vetNum = 0; // Indicator for the Veteran's player number(if he exists)
+    public static int visitingVamp = 0; // Indicator for which Vampire is visiting
     boolean jailed = false; // If the player is Jailed
     boolean blocked = false; // If the player is roleblocked
     boolean immune; // Used to keep track of if people vested/self-healed
+    public boolean bitten = false; // Indicator if this player was bitten by a Vampire or not
     static boolean alert = false; // Used to keep track if the Veteran alerted or not
     static boolean gfBlock = true; // Indicator if the godfather is restricted or not
     static boolean mfBlock = true; // Indicator if the mafioso is restricted or not
@@ -30,6 +32,7 @@ public abstract class RoleControl {
     ArrayList<Integer> DocSubs = new ArrayList<>(); // Tracks Doctor subscribers
     ArrayList<Integer> BGSubs = new ArrayList<>(); // Tracks Bodyguard subscribers
     public static ArrayList<Integer> mafia; // Indicator for all the mafia in the role list
+    public static ArrayList<Integer> vampires; // Indicator for all the vampires in the role list
     static Random randomizer = new Random(); // Used for random generation of numbers
     static HashMap<Integer, Integer> switches; // Tracks which targets were transported
     public static HashMap<Integer, RoleControl> players; // Tracker for all the players
@@ -79,6 +82,22 @@ public abstract class RoleControl {
 
         int target = randomizer.nextInt(players.size()) + 1;
         while (mafia.contains(target)) {
+            target = randomizer.nextInt(players.size()) + 1;
+        }
+        return(target);
+
+    }
+
+    /**
+     * Returns a valid target for the vampires. A valid vampire target is everyone
+     * in the town that do not happen to already be a vampire.
+     *
+     * @return The target number
+     */
+    public int validVampTarget() {
+
+        int target = randomizer.nextInt(players.size()) + 1;
+        while (vampires.contains(target)) {
             target = randomizer.nextInt(players.size()) + 1;
         }
         return(target);

@@ -111,6 +111,12 @@ public class ActivityPrint {
                             }
                         } */
                         break;
+                    case "VampJail":
+                        System.out.println("The youngest Vampire was jailed, no one can be bit tonight!");
+                        break;
+                    case "VampSize":
+                        System.out.println("The Vampires have reached their size limit, no one can be bit!");
+                        break;
                     default:
                         System.out.println("You shouldn't be here. Offender:" + action);
                         break;
@@ -149,6 +155,9 @@ public class ActivityPrint {
                         case "BGAttack":
                             System.out.println("You were killed protecting your target!");
                             break;
+                        case "Vampire":
+                            System.out.println("You were attacked by a Vampire!");
+                            break;
                         default:
                             System.out.println("You shouldn't be here. Offender:" + attack);
                             break;
@@ -163,11 +172,11 @@ public class ActivityPrint {
                 }
                 if (player.cleaned) {
                     System.out.println("You were cleaned by a janitor!");
-                }
+                } */
             } else {
                 if (player.bitten) {
                     System.out.println("You were bit by a Vampire!");
-                } */
+                }
             }
         }
 
