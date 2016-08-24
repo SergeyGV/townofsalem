@@ -18,7 +18,7 @@ public class Sheriff extends RoleControl {
             if (!blocked) {
                 checkVetVisit(target);
                 if (players.get(target).roleName.equals("Serial Killer")) {
-                    nightResult = "Your target is";
+                    nightResult = "Your target is a Serial Killer!";
                 } else if (RoleInfo.SheriffResults.contains(players.get(target).roleName)) {
                     nightResult = "Your target is a member of the Mafia!";
                 } else {
