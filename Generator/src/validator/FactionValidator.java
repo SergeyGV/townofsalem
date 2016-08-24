@@ -23,9 +23,8 @@ public class FactionValidator {
             faction = storage.findFaction(role);
             switch (faction) {
                 case "Any":
-                    multiFactCats++;
-                    break;
                 case "Random Neutral":
+                case "Neutral Killing":
                     multiFactCats++;
                     break;
                 default:

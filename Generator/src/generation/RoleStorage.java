@@ -1,6 +1,5 @@
 package generation;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -23,6 +22,7 @@ public class RoleStorage {
     ArrayList<String> MafCats = new ArrayList<>();
     ArrayList<String> NeutCats = new ArrayList<>();
     HashMap<String, ArrayList<String>> director = new HashMap<>();
+    private Random randomizer = new Random();
 
     public RoleStorage() {
         TownCats = new ArrayList<>(Arrays.asList("Random Town", "Town Investigative", "Town Support",
@@ -145,10 +145,9 @@ public class RoleStorage {
             return "Town";
         } else if (MK.contains(role) || MS.contains(role) || MD.contains(role) || MafCats.contains(role)) {
             return "Mafia";
-        } else if (role.equals("Vampire") || role.equals("Any") || role.equals("Random Neutral")) {
+        } else if (role.equals("Vampire") || role.equals("Any") || role.equals("Random Neutral")
+                || NK.contains(role) || role.equals("Neutral Killing")) {
             return role;
-        } else if (NK.contains(role) || role.equals("Neutral Killing")) {
-            return "Neutral Killing";
         }
         return "No faction";
     }
@@ -161,22 +160,33 @@ public class RoleStorage {
         return (director.containsKey(faction) && director.get(faction).contains(role));
     }
 
-    public String getRandomFaction() {
+    // Call this outside FactionValidator and you will be thrown into the ocean
+    public String getRandomFaction(ArrayList<String> roleList) {
 
         int totalSize = getTownSize() + getMafiaSize() + NK.size();
-        if (new Random().nextInt(totalSize + 1) == totalSize) {
+        if (randomizer.nextInt(totalSize + 1) == totalSize) {
             return "Vampire";
         }
-        int rolledNum = new Random().nextInt(totalSize);
+        int rolledNum = randomizer.nextInt(totalSize);
         totalSize -= (NK.size() + 1);
         if (totalSize < rolledNum) {
-            return "Neutral Killing";
+            return getNonPresentNK(roleList);
         }
         totalSize -= getTownSize();
         if (totalSize < rolledNum) {
             return "Town";
         }
         return "Mafia";
+
+    }
+
+    private String getNonPresentNK(ArrayList<String> presentRoles) {
+
+        String chosen = NK.get(randomizer.nextInt(NK.size()));
+        while (presentRoles.contains(chosen)) {
+            chosen = NK.get(randomizer.nextInt(NK.size()));
+        }
+        return chosen;
 
     }
 
