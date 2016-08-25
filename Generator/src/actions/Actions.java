@@ -30,11 +30,7 @@ public class Actions {
      * TODO: RoleControl - Refactor Notify/Update methods into one method
      * TODO: RoleControl - Refactor the mess of the attacking method
      * TODO: ActivityPrint - Sort messages before print so it's not a mess(for attacks, like SKs hitting each other)
-     *
-     * Note: Arsonist dousing himself via transport/witch while the BG is on him will cause
-     * the BG to "save" him and then kill him. Intended behavior? Arsonist can't really douse
-     * himself, doing so just ignites, so he shouldn't really harm himself if forced on himself.
-     * Keep it for now... TODO: if changed, add ignition code
+     * TODO: Arsonist - Allow him to target himself, igniting all doused targets by other Arsonists
      *
      * Note: Immune players protected by BG show their immunity or no if saved?
      * Note: If Doc is shot and killed by Vet, no point in saving? Add return?
