@@ -19,7 +19,7 @@ public class Godfather extends RoleControl {
             if (mafKiller.equals("Godfather")) {
                 lethalAttack(finMafTarget, "Mafia");
                 mafVisits.add(finMafTarget);
-                players.get(target).visits.add(finMafTarget);
+                players.get(finMafTarget).visits.add(playerNum);
             }
         }
 

@@ -9,25 +9,33 @@ public class Arsonist extends RoleControl {
     public void Process() {
 
         if (!jailed) {
-            target = validTownTarget(playerNum);
-            nightAction = "You have decided to douse " + String.valueOf(target) + "(" +
-                    players.get(target).roleName + ") tonight.";
+            target = validTownTarget(0);
+            if (target != playerNum) {
+                nightAction = "You have decided to douse " + String.valueOf(target) + "(" +
+                        players.get(target).roleName + ") tonight.";
+            } else {
+                nightAction = "You have decided to ignite all doused targets.";
+            }
             target = checkTargetSwitch(target);
             if (!blocked) {
-                checkVetVisit(target);
-                if (players.get(target).jailed) {
-                    players.get(target).activity.add("DousedJail");
-                } else if (players.get(target).BGSubs.size() != 0) {
-                    players.get(target).notifyBG();
-                    players.get(target).activity.add("BGArsoSave");
-                    if (DocSubs.size() != 0) {
-                        notifyDoctors();
-                        activity.add("DocvsBG");
+                if (target != playerNum) {
+                    checkVetVisit(target);
+                    if (players.get(target).jailed) {
+                        players.get(target).activity.add("DousedJail");
+                    } else if (players.get(target).BGSubs.size() != 0) {
+                        players.get(target).notifyBG();
+                        players.get(target).activity.add("BGArsoSave");
+                        if (DocSubs.size() != 0) {
+                            notifyDoctors();
+                            activity.add("DocvsBG");
+                        } else {
+                            attackers.add("Bodyguard");
+                        }
                     } else {
-                        attackers.add("Bodyguard");
+                        players.get(target).activity.add("Doused");
                     }
                 } else {
-                    players.get(target).activity.add("Doused");
+                    ignited = true;
                 }
             }
         }

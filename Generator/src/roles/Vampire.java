@@ -55,7 +55,9 @@ public class Vampire extends RoleControl {
                 target = 0;
                 target = checkTargetSwitch(target);
                 checkVetVisit(target);
-                players.get(target).visits.add(playerNum);
+                if (target != 0) {
+                    players.get(target).visits.add(playerNum);
+                }
             }
         }
 

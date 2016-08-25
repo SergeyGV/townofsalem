@@ -14,6 +14,7 @@ public class Vigilante extends RoleControl {
                 target = checkTargetSwitch(0); // Target will switch, the 0 represents nothing
                 lethalAttack(target, "Vigilante");
                 players.get(target).visits.add(playerNum);
+                checkVetVisit(target);
             }
         }
 

@@ -10,7 +10,7 @@ public class Janitor extends RoleControl {
 
         if (!jailed) {
             // If 0, all present MKs are visibly blocked, and there is no point in doing anything
-            if (finMafTarget == 0 || visitingMD != playerNum) {
+            if (mkJailed || visitingMD != playerNum) {
                 nightAction = "You have decided to do nothing this night.";
                 target = 0;
             } else {

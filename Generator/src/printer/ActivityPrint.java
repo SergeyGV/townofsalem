@@ -105,8 +105,11 @@ public class ActivityPrint {
                         break;
                     case "LKVisits":
                         for (int Visit: player.getLookoutVisits()) {
-                            System.out.println("Player " + String.valueOf(Visit) + "(" +
-                                    player.getPlayerName(Visit) + ") visited your target last night!");
+                            // If witched, print all. Else, only print if the visit is not himself
+                            if (player.witched != 0 || i != Visit) {
+                                System.out.println("Player " + String.valueOf(Visit) + "(" +
+                                        player.getPlayerName(Visit) + ") visited your target last night!");
+                            }
                         }
                         break;
                     case "VampJail":
@@ -114,6 +117,9 @@ public class ActivityPrint {
                         break;
                     case "VampSize":
                         System.out.println("The Vampires have reached their size limit, no one can be bit!");
+                        break;
+                    case "DisgTaken":
+                        System.out.println("Another disguisor got to your target first, so you did nothing!");
                         break;
                     default:
                         System.out.println("You shouldn't be here. Offender:" + action);
@@ -156,8 +162,8 @@ public class ActivityPrint {
                         case "Vampire":
                             System.out.println("You were attacked by a Vampire!");
                             break;
-                        case "DisgTaken":
-                            System.out.println("Another disguisor got to your target first, so you did nothing!");
+                        case "Arsonist":
+                            System.out.println("You were incinerated by an Arsonist!");
                             break;
                         default:
                             System.out.println("You shouldn't be here. Offender:" + attack);

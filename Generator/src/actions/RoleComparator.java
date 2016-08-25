@@ -35,6 +35,7 @@ class RoleComparator implements Comparator<RoleControl> {
         tiers.put("Vampire Hunter", 3);
         tiers.put("Vampire", 3);
         tiers.put("Arsonist", 3);
+        tiers.put("ArsoIgnite", 2);
         tiers.put("Forger", 2);
         tiers.put("Janitor", 2);
         tiers.put("Disguisor", 2);

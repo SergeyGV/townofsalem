@@ -30,7 +30,6 @@ public class Actions {
      * TODO: RoleControl - Refactor Notify/Update methods into one method
      * TODO: RoleControl - Refactor the mess of the attacking method
      * TODO: ActivityPrint - Sort messages before print so it's not a mess(for attacks, like SKs hitting each other)
-     * TODO: Arsonist - Allow him to target himself, igniting all doused targets by other Arsonists
      *
      * Note: Immune players protected by BG show their immunity or no if saved?
      * Note: If Doc is shot and killed by Vet, no point in saving? Add return?
@@ -66,6 +65,7 @@ public class Actions {
             }
         }
         allRoles.add(new MafiaKillers("MafTarget"));
+        allRoles.add(new ArsoIgnite("ArsoIgnite"));
         RoleControl.players = PlayerData;
         RoleControl.mafia = mafiaList;
         RoleControl.vampires = vampList;

@@ -17,7 +17,7 @@ public class Mafioso extends RoleControl {
                 }
                 lethalAttack(finMafTarget, "Mafia");
                 mafVisits.add(finMafTarget);
-                players.get(target).visits.add(playerNum);
+                players.get(finMafTarget).visits.add(playerNum);
                 if (players.get(finMafTarget).attackers.contains("Mafia") && !gfBlock) {
                     nightResult = "The godfather has ordered you to kill his target.";
                 }

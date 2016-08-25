@@ -17,7 +17,7 @@ public abstract class RoleControl {
     int playerNum; // The number of the player
     int target; // Used to keep track of player targets
     int target2; // Used for multi target roles
-    int witched = 0; // Indicator for which target is the player forced to visit(if Witched)
+    public int witched = 0; // Indicator for which target is the player forced to visit(if Witched)
     static int vetNum = 0; // Indicator for the Veteran's player number(if he exists)
     public static int visitingVamp = 0; // Indicator for which Vampire is visiting
     public static int visitingMD = 0; // Indicator for which MD(Janitor/Forger) is following the MK
@@ -25,6 +25,8 @@ public abstract class RoleControl {
     boolean jailed = false; // If the player is Jailed
     boolean blocked = false; // If the player is roleblocked
     boolean immune; // Used to keep track of if people vested/self-healed
+    static boolean ignited = false; // Used to keep track if an Arsonist ignited or not
+    static boolean mkJailed = true; // If there is one MK, this tells if he is jailed or not
     public boolean forged = false; // Indicator if this player was forged or not
     public boolean cleaned = false; // Indicator if this player was cleaned or not
     public boolean disguised = false; // Indicator if this player was disguised as or not
@@ -45,7 +47,7 @@ public abstract class RoleControl {
     public static HashMap<Integer, RoleControl> players; // Tracker for all the players
 
     /**
-     * Used only by MafiaKillers
+     * Used only by special classes (MafiaKillers and ArsoIgnite)
      */
     public RoleControl(String name) {
         roleName = name;
