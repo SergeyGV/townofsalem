@@ -20,6 +20,8 @@ public abstract class RoleControl {
     int witched = 0; // Indicator for which target is the player forced to visit(if Witched)
     static int vetNum = 0; // Indicator for the Veteran's player number(if he exists)
     public static int visitingVamp = 0; // Indicator for which Vampire is visiting
+    public static int visitingMD = 0; // Indicator for which MD(Janitor/Forger) is following the MK
+    public static int visitingDisg = 0; // Indicator for which Disguisor is following the MK
     boolean jailed = false; // If the player is Jailed
     boolean blocked = false; // If the player is roleblocked
     boolean immune; // Used to keep track of if people vested/self-healed

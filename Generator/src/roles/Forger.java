@@ -10,7 +10,7 @@ public class Forger extends RoleControl {
 
         if (!jailed) {
             // If 0, all present MKs are visibly blocked, and there is no point in doing anything
-            if (finMafTarget == 0) {
+            if (finMafTarget == 0 || visitingMD != playerNum) {
                 nightAction = "You have decided to do nothing this night.";
                 target = 0;
             } else {

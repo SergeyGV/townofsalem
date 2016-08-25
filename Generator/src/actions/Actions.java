@@ -19,6 +19,8 @@ public class Actions {
     private HashMap<Integer, RoleControl> PlayerData;
     private ArrayList<Integer> mafiaList;
     private ArrayList<Integer> vampList;
+    private ArrayList<Integer> mdRoles; // Janitor and Forger only
+    private ArrayList<Integer> disgs; // Disguisor only
 
     /**
      * The main generation method of the night activity
@@ -28,7 +30,6 @@ public class Actions {
      * TODO: RoleControl - Refactor Notify/Update methods into one method
      * TODO: RoleControl - Refactor the mess of the attacking method
      * TODO: ActivityPrint - Sort messages before print so it's not a mess(for attacks, like SKs hitting each other)
-     * TODO: MD Roles - Figure out logic and only send out a few of them instead of all
      *
      * Note: Arsonist dousing himself via transport/witch while the BG is on him will cause
      * the BG to "save" him and then kill him. Intended behavior? Arsonist can't really douse
@@ -44,6 +45,8 @@ public class Actions {
         PlayerData = new HashMap<>();
         mafiaList = new ArrayList<>();
         vampList = new ArrayList<>();
+        mdRoles = new ArrayList<>();
+        disgs = new ArrayList<>();
         for (int i = 0; i < playerlist.size(); i++) {
             try {
                 Class<?> gottenRole = Class.forName("roles." + playerlist.get(i).replaceAll(" ", ""));
@@ -53,6 +56,11 @@ public class Actions {
                 PlayerData.put(i + 1, theRole);
                 allRoles.add(theRole);
                 if (RoleInfo.allMafia.contains(playerlist.get(i))) {
+                    if (playerlist.get(i).equals("Janitor") || playerlist.get(i).equals("Forger")) {
+                        mdRoles.add(i+1);
+                    } else if (playerlist.get(i).equals("Disguisor")) {
+                        disgs.add(i+1);
+                    }
                     mafiaList.add(i+1);
                 } else if (playerlist.get(i).equals("Vampire")) {
                     vampList.add(i+1);
@@ -68,6 +76,14 @@ public class Actions {
         if (vampList.size() > 0) {
             Collections.shuffle(vampList);
             RoleControl.visitingVamp = vampList.get(0);
+        }
+        if (mdRoles.size() > 0) {
+            Collections.shuffle(mdRoles);
+            RoleControl.visitingMD = mdRoles.get(0);
+        }
+        if (disgs.size() > 0) {
+            Collections.shuffle(disgs);
+            RoleControl.visitingDisg = disgs.get(0);
         }
         while (!allRoles.isEmpty()) {
             allRoles.remove().Process();

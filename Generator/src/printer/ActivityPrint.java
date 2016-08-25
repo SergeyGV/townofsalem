@@ -158,6 +158,9 @@ public class ActivityPrint {
                         case "Vampire":
                             System.out.println("You were attacked by a Vampire!");
                             break;
+                        case "DisgTaken":
+                            System.out.println("Another disguisor got to your target first, so you did nothing!");
+                            break;
                         default:
                             System.out.println("You shouldn't be here. Offender:" + attack);
                             break;
