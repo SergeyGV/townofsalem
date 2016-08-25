@@ -11,6 +11,7 @@ public class Jailor extends RoleControl {
         target = validTownTarget(playerNum);
         nightAction = "You hauled player " + String.valueOf(target) + " off to jail!";
         players.get(target).nightAction = "You were hauled off to jail!";
+        players.get(target).visits.add(playerNum);
         if (players.get(target).roleName.equals("Serial Killer")) {
             players.get(target).activity.add("SKJail");
             attackers.add("JailedSK"); // Can be saved by Doc, situation handled in the Doctor class

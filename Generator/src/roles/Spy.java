@@ -6,13 +6,12 @@ public class Spy extends RoleControl {
         super(name, num);
     }
 
-    public void Process() { /*
+    public void Process() {
 
-        player = Players.get(Spy);
-        if (!player.jailed && !player.blocked) {
-            player.activity.add("SpyVisits");
+        if (!jailed && !blocked) {
+            activity.add("SpyVisits");
         }
-        */
+
     }
 
 }

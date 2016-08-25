@@ -14,6 +14,8 @@ public class Blackmailer extends RoleControl {
                     "(" + players.get(target).roleName + ") tonight.";
             target = checkTargetSwitch(target);
             if (!blocked) {
+                mafVisits.add(target);
+                players.get(target).visits.add(playerNum);
                 if (players.get(target).jailed) {
                     players.get(target).activity.add("BMJail");
                 } else {

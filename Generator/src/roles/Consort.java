@@ -16,6 +16,8 @@ public class Consort extends RoleControl {
             nightAction = "You have decided to roleblock " + String.valueOf(target) + "(" +
                     players.get(target).roleName + ") tonight.";
             target = checkTargetSwitch(target); // Process both witching and transporting
+            players.get(target).visits.add(playerNum);
+            mafVisits.add(target);
             if (players.get(target).roleName.equals("Serial Killer")) {
                 attackers.add("SKVisit");
                 players.get(target).activity.add("SKBlock");

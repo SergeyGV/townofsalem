@@ -24,6 +24,8 @@ public class Janitor extends RoleControl {
             } else if (!blocked) {
                 players.get(target).cleaned = true;
                 checkVetVisit(target);
+                mafVisits.add(target);
+                players.get(target).visits.add(playerNum);
             }
         }
 

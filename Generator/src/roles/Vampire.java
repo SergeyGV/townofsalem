@@ -28,6 +28,7 @@ public class Vampire extends RoleControl {
                     }
                 }
                 target = checkTargetSwitch(target);
+                players.get(target).visits.add(playerNum);
                 if (!blocked) {
                     if (RoleInfo.BiteImmune.contains(players.get(target).roleName)) {
                         if (RoleInfo.allMafia.contains(players.get(target).roleName) &&
@@ -54,6 +55,7 @@ public class Vampire extends RoleControl {
                 target = 0;
                 target = checkTargetSwitch(target);
                 checkVetVisit(target);
+                players.get(target).visits.add(playerNum);
             }
         }
 

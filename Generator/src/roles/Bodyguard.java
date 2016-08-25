@@ -18,11 +18,14 @@ public class Bodyguard extends RoleControl {
             }
             target = checkTargetSwitch(target);
             // If dead to Veteran, he does not protect him
-            if (!blocked && !checkVetVisit(target)) {
-                if (target == playerNum) {
-                    immune = true;
-                } else {
-                    players.get(target).subscribeBG(playerNum);
+            if (!blocked) {
+                players.get(target).visits.add(playerNum);
+                if (!checkVetVisit(target)) {
+                    if (target == playerNum) {
+                        immune = true;
+                    } else {
+                        players.get(target).subscribeBG(playerNum);
+                    }
                 }
             }
         }

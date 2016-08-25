@@ -97,19 +97,17 @@ public class ActivityPrint {
                     case "Doused":
                         System.out.println("You were doused in gas!");
                         break;
-                    case "SpyVisits": /*
-                        for (int Visit: MafiaVisits) {
+                    case "SpyVisits":
+                        for (int Visit: RoleControl.mafVisits) {
                             System.out.println("A member of the mafia had visited " +
-                                    String.valueOf(Visit) + "(" + Players.get(Visit).name + ") last night!");
-                        } */
+                                    String.valueOf(Visit) + "(" + player.getPlayerName(Visit) + ") last night!");
+                        }
                         break;
-                    case "LKVisits": /*
-                        for (int Visit: AllVisits.get(player.watching)) {
-                            if (Players.get(i).witched != 0 || i != Visit) {
-                                System.out.println("Player " + String.valueOf(Visit) + "(" +
-                                        Players.get(Visit).name + ") visited your target last night!");
-                            }
-                        } */
+                    case "LKVisits":
+                        for (int Visit: player.getLookoutVisits()) {
+                            System.out.println("Player " + String.valueOf(Visit) + "(" +
+                                    player.getPlayerName(Visit) + ") visited your target last night!");
+                        }
                         break;
                     case "VampJail":
                         System.out.println("The youngest Vampire was jailed, no one can be bit tonight!");

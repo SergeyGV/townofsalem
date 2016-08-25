@@ -13,6 +13,7 @@ public class VampireHunter extends RoleControl {
             nightAction = "You have decided to check " + String.valueOf(target) + "(" +
                     players.get(target).roleName + ") tonight.";
             target = checkTargetSwitch(target);
+            players.get(target).visits.add(playerNum);
             if (!blocked) {
                 checkVetVisit(target);
                 if (players.get(target).roleName.equals("Vampire")) {

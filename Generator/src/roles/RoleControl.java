@@ -36,6 +36,8 @@ public abstract class RoleControl {
     public ArrayList<String> attackers; // Players that attacked and killed the player
     ArrayList<Integer> DocSubs = new ArrayList<>(); // Tracks Doctor subscribers
     ArrayList<Integer> BGSubs = new ArrayList<>(); // Tracks Bodyguard subscribers
+    ArrayList<Integer> visits = new ArrayList<>(); // Tracks all visitors to this player
+    public static ArrayList<Integer> mafVisits = new ArrayList<>(); // Tracks all players visited by the Mafia
     public static ArrayList<Integer> mafia; // Indicator for all the mafia in the role list
     public static ArrayList<Integer> vampires; // Indicator for all the vampires in the role list
     static Random randomizer = new Random(); // Used for random generation of numbers
@@ -178,6 +180,27 @@ public abstract class RoleControl {
         }
         return(target);
 
+    }
+
+    /**
+     * Lookouts ONLY
+     * Returns the Visits of the player that they watched that night
+     *
+     * @return The visits of the watched player
+     */
+    public ArrayList<Integer> getLookoutVisits() {
+        return players.get(target).visits;
+    }
+
+    /**
+     * Used by ActivityPrint for the Lookout and the Spy
+     * Returns the name of the player under the given number slot
+     *
+     * @param num The player numbers
+     * @return The role name
+     */
+    public String getPlayerName(int num) {
+        return players.get(num).roleName;
     }
 
 

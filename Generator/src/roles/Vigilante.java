@@ -13,6 +13,7 @@ public class Vigilante extends RoleControl {
             if (!blocked && witched != 0) {
                 target = checkTargetSwitch(0); // Target will switch, the 0 represents nothing
                 lethalAttack(target, "Vigilante");
+                players.get(target).visits.add(playerNum);
             }
         }
 

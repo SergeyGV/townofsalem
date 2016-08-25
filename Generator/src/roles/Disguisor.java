@@ -29,12 +29,16 @@ public class Disguisor extends RoleControl {
             target = checkTargetSwitch(target);
             if (target == 0) {
                 nightResult = "You did not perform your night ability.";
-            } else if (!blocked && !checkVetVisit(target)) {
+            } else if (!blocked) {
                 // Oh you poor sod... hope the town has the attention span of a rock
-                if (players.get(target).disguised) {
-                    activity.add("DisgTaken");
-                } else {
-                    players.get(target).disguised = true;
+                mafVisits.add(target);
+                players.get(target).visits.add(playerNum);
+                if (!checkVetVisit(target)) {
+                    if (players.get(target).disguised) {
+                        activity.add("DisgTaken");
+                    } else {
+                        players.get(target).disguised = true;
+                    }
                 }
             }
         }

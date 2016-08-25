@@ -15,6 +15,7 @@ public class SerialKiller extends RoleControl {
             if (!blocked) {
                 target = checkTargetSwitch(target);
                 lethalAttack(target, "Serial Killer");
+                players.get(target).visits.add(playerNum);
             }
         }
 

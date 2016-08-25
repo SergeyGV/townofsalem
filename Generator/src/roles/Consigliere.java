@@ -16,6 +16,8 @@ public class Consigliere extends RoleControl {
             if (!blocked) {
                 nightResult = "Your target is a " + players.get(target).roleName + "!";
                 checkVetVisit(target);
+                mafVisits.add(target);
+                players.get(target).visits.add(playerNum);
             }
 
         }

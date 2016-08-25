@@ -19,6 +19,7 @@ public class Doctor extends RoleControl {
             target = checkTargetSwitch(target);
             if (!blocked) {
                 checkVetVisit(target);
+                players.get(target).visits.add(playerNum);
                 if (target == playerNum) {
                     immune = true;
                 }

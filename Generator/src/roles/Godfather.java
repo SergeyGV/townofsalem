@@ -18,6 +18,8 @@ public class Godfather extends RoleControl {
             // Don't need to check for role blocking as MafiaKillers does it
             if (mafKiller.equals("Godfather")) {
                 lethalAttack(finMafTarget, "Mafia");
+                mafVisits.add(finMafTarget);
+                players.get(target).visits.add(finMafTarget);
             }
         }
 

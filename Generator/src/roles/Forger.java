@@ -23,7 +23,9 @@ public class Forger extends RoleControl {
                 nightResult = "You did not perform your night ability.";
             } else if (!blocked) {
                 players.get(target).forged = true;
+                mafVisits.add(target);
                 checkVetVisit(target);
+                players.get(target).visits.add(playerNum);
             }
         }
 

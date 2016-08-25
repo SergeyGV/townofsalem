@@ -15,6 +15,7 @@ public class Escort extends RoleControl {
             nightAction = "You have decided to roleblock " + String.valueOf(target) + "(" +
                     players.get(target).roleName + ") tonight.";
             target = checkTargetSwitch(target); // Process both witching and transporting
+            players.get(target).visits.add(playerNum);
             if (players.get(target).roleName.equals("Serial Killer")) {
                 attackers.add("SKVisit");
                 players.get(target).activity.add("SKBlock");

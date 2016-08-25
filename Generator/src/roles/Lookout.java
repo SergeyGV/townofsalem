@@ -6,21 +6,19 @@ public class Lookout extends RoleControl {
         super(name, num);
     }
 
-    public void Process() { /*
+    public void Process() {
 
-        player = Players.get(Lookout);
-        if (!player.jailed) {
-            target = validTownTarget(Lookout);
-            player.NightAction = "You have decided to watch " + String.valueOf(target) + "(" +
-                    Players.get(target).name + ") tonight.";
+        if (!jailed) {
+            target = validTownTarget(playerNum);
+            nightAction = "You have decided to watch " + String.valueOf(target) + "(" +
+                    players.get(target).roleName + ") tonight.";
             target = checkTargetSwitch(target);
-            if (!player.blocked) {
-                player.activity.add("LKVisits");
-                player.watching = target;
-                AllVisits.get(target).add(Lookout);
-                checkLateVetVisit(target);
+            if (!blocked) {
+                activity.add("LKVisits");
+                players.get(target).visits.add(playerNum);
+                checkVetVisit(target);
             }
-        } */
+        }
 
     }
 
