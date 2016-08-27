@@ -51,6 +51,14 @@ class RoleComparator implements Comparator<RoleControl> {
 
     }
 
+    /**
+     * Compares two RoleControl classes to see which one should be processed first.
+     * For use inside of a PriorityQueue
+     *
+     * @param roleOne A class that extends RoleControl
+     * @param roleTwo A class that extends RoleControl
+     * @return A number indicating which one should go first
+     */
     public int compare(RoleControl roleOne, RoleControl roleTwo) {
 
         return tiers.get(roleTwo.roleName) - tiers.get(roleOne.roleName);

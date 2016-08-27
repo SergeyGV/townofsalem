@@ -17,8 +17,8 @@ import java.util.PriorityQueue;
 public class Actions {
 
     private HashMap<Integer, RoleControl> PlayerData;
-    private ArrayList<Integer> mafiaList;
-    private ArrayList<Integer> vampList;
+    private ArrayList<Integer> mafiaList; // List of all Mafia
+    private ArrayList<Integer> vampList; // List of all Vampires
     private ArrayList<Integer> mdRoles; // Janitor and Forger only
     private ArrayList<Integer> disgs; // Disguisor only
 
@@ -44,12 +44,14 @@ public class Actions {
         disgs = new ArrayList<>();
         for (int i = 0; i < playerlist.size(); i++) {
             try {
+                // Reflection to get the proper class for each Role
                 Class<?> gottenRole = Class.forName("roles." + playerlist.get(i).replaceAll(" ", ""));
                 Constructor<?> cons = gottenRole.getConstructor(String.class, Integer.TYPE);
                 Object ins = cons.newInstance(playerlist.get(i), i + 1);
                 RoleControl theRole = (RoleControl) ins;
                 PlayerData.put(i + 1, theRole);
                 allRoles.add(theRole);
+                // Distribution for the private variables
                 if (RoleInfo.allMafia.contains(playerlist.get(i))) {
                     if (playerlist.get(i).equals("Janitor") || playerlist.get(i).equals("Forger")) {
                         mdRoles.add(i+1);
@@ -64,6 +66,7 @@ public class Actions {
                 System.out.println("Something broke!");
             }
         }
+        // Two special case RoleControls that must be present
         allRoles.add(new MafiaKillers("MafTarget"));
         allRoles.add(new ArsoIgnite("ArsoIgnite"));
         RoleControl.players = PlayerData;

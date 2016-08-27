@@ -269,6 +269,18 @@ public abstract class RoleControl {
      */
     public void lethalAttack(int num, String AttackerName) {
 
+        /*
+         * Logic:
+         * If in Jail, protectives do nothing. Notify attacker of immunity and target of failed attempt, exit
+         * If immune by RoleControl variable, notify attacker of immunity, do a case below, then exit
+         *      If target is Doc: Inform target that the attack failed due to immunity
+         *      Else: Inform target that the attack failed due to a vest
+         * If they Visited an alerted Veteran, process counter-attack and notify Veteran of the event, exit
+         * If a doctor(s) are protecting, notify them of attack, notify target of heal, preserve them
+         * If a bodyguard(s) are protecting, choose first, process counter-attack, inform target of save, exit
+         * If immune by RoleInfo variable, inform attacker of immunity and target of the failed attack, preserve them
+         * If not preserved, add the attackers name to the list of people who killed the target.
+         */
         boolean dead = true;
         if (players.get(num).jailed) {
             players.get(num).activity.add("JailSave");
@@ -277,7 +289,6 @@ public abstract class RoleControl {
         }
         if (players.get(num).immune) {
             if (players.get(num).roleName.equals("Doctor")) {
-                players.get(num).activity.add("DocSave");
                 players.get(num).activity.add("ImmuneSave");
             } else {
                 players.get(num).activity.add("VestSave");

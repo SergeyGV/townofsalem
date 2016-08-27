@@ -9,6 +9,7 @@ public class Arsonist extends RoleControl {
     public void Process() {
 
         if (!jailed) {
+            // Select any target
             target = validTownTarget(0);
             if (target != playerNum) {
                 nightAction = "You have decided to douse " + String.valueOf(target) + "(" +
@@ -18,11 +19,13 @@ public class Arsonist extends RoleControl {
             }
             target = checkTargetSwitch(target);
             if (!blocked) {
+                // If the target is someone else, douse them. Else, ignite.
                 if (target != playerNum) {
                     checkVetVisit(target);
                     if (players.get(target).jailed) {
                         players.get(target).activity.add("DousedJail");
                     } else if (players.get(target).BGSubs.size() != 0) {
+                        // BG can save from a douse attempt, but Doctors cannot. Hence special code
                         players.get(target).notifyBG();
                         players.get(target).activity.add("BGArsoSave");
                         if (DocSubs.size() != 0) {

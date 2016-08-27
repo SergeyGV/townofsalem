@@ -10,6 +10,7 @@ public class Vampire extends RoleControl {
 
     public void Process() {
 
+        // Global vampire notifications
         if (vampires.size() == 4) {
             activity.add(0, "VampSize");
         } else if (players.get(visitingVamp).jailed) {
@@ -18,9 +19,11 @@ public class Vampire extends RoleControl {
 
         if (!jailed) {
             if (playerNum == visitingVamp && vampires.size() != 4) {
+                // Only one Vampire is going to be in this block
                 target = validVampTarget();
                 nightAction = "You'll be visiting tonight! You have voted to bite " + String.valueOf(target)
                         + "(" + players.get(target).roleName + ") tonight.";
+                // Simulate activity for other vampires for voting on the target
                 for (int vampire: vampires) {
                     if (!players.get(vampire).jailed && vampire != playerNum) {
                         players.get(vampire).nightAction = "You have voted to bite " + String.valueOf(target)
@@ -31,6 +34,7 @@ public class Vampire extends RoleControl {
                 players.get(target).visits.add(playerNum);
                 if (!blocked) {
                     if (RoleInfo.BiteImmune.contains(players.get(target).roleName)) {
+                        // Mafia targeted by Vampires is attacked by them instead of being bit by them
                         if (RoleInfo.allMafia.contains(players.get(target).roleName) &&
                                 !players.get(target).jailed) {
                             lethalAttack(target, "Vampire");
