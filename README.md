@@ -22,9 +22,7 @@ Some chat messages will stray away from being faithful to the game and will inst
 
 ## Next steps
 
-Refactor the old Role class into the abstract class
-
-Work one by one on the Roles and have them function as intended
+Implement the GUI and publish this onto a website
 
 ## 100 Commit Milestone
 
@@ -36,7 +34,7 @@ So it was decided. The program would be made to have a UI, and would give the us
 
 Upon reaching that point, the UI was put on hold and the work switched back onto the simulation. The previous generator was overhauled into something much bigger. Requring an expansive user input validator, and a lot of logic put into it, the generator was eventually live and ready to process anything the user could throw at it.
 
-Now is time for the simulation. 
+The simulation had finally been tackled and brought to, and the game could now handle anything the user could throw at it. The last step remains, the interface.
 
 
 From a project that started as a small tool on an airplane, it had slowly grown into something bigger and bigger. It was quite an experience seeing all the different things that this project had become so far, and all the new things learned during its development. My only hope is that users on release will be able to enjoy this program as much as I enjoyed making it.
