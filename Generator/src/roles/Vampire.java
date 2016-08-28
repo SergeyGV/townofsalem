@@ -35,8 +35,7 @@ public class Vampire extends RoleControl {
                 if (!blocked) {
                     if (RoleInfo.BiteImmune.contains(players.get(target).roleName)) {
                         // Mafia targeted by Vampires is attacked by them instead of being bit by them
-                        if (RoleInfo.allMafia.contains(players.get(target).roleName) &&
-                                !players.get(target).jailed) {
+                        if (RoleInfo.allMafia.contains(players.get(target).roleName)) {
                             lethalAttack(target, "Vampire");
                         } else {
                             activity.add("NightImmune");
@@ -51,7 +50,12 @@ public class Vampire extends RoleControl {
                             }
                         }
                     } else if (!checkVetVisit(target)) {
-                        players.get(target).bitten = true;
+                        // If jailed treat it as a regular attack
+                        if (players.get(target).jailed) {
+                            lethalAttack(target, "Vampire");
+                        } else {
+                            players.get(target).bitten = true;
+                        }
                     }
                 }
             } else {
