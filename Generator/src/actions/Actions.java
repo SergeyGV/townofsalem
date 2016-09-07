@@ -30,9 +30,6 @@ public class Actions {
      * TODO: RoleControl - Refactor Notify/Update methods into one method
      * TODO: RoleControl - Refactor the mess of the attacking method
      * TODO: Doctor - If target attacked multiple times, show attack multiple times or once?
-     *
-     * Note: Immune players protected by BG show their immunity or no if saved?
-     * Note: If Doc is shot and killed by Vet, no point in saving? Add return?
      */
     public void generate(ArrayList<String> playerlist) {
 

@@ -47,7 +47,6 @@ public class Controller {
 			Actions test = new Actions();
 			test.generate(result);
 		}
-		//TODO: Factor the witch in generation(ex: two Any, no faction, Vig and Witch can roll)
 
 	}
 
