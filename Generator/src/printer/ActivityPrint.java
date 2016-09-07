@@ -3,6 +3,8 @@ package printer;
 import roles.RoleControl;
 
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Stack;
 
 public class ActivityPrint {
 
@@ -11,6 +13,9 @@ public class ActivityPrint {
         RoleControl player;
         for (int i = 1; i < PlayerData.size() + 1; i++) {
             player = PlayerData.get(i);
+            if (player.roleName.equals("Veteran")) {
+                vetSort(player);
+            }
             System.out.println(String.valueOf(i) + "(" + player.roleName + ")");
             // Night action printing
             if (!player.nightAction.equals("")) {
@@ -187,6 +192,32 @@ public class ActivityPrint {
             }
         }
 
+    }
+
+    /**
+     * Run through and sort the Vet messages
+     * Namely, place attackers getting shot notifications first.
+     * Then, place normal people that got shot after.
+     * @param veteran The RoleControl class of the Veteran
+     */
+    private void vetSort(RoleControl veteran) {
+        Stack<String> toMove = new Stack<>();
+        Iterator<String> vetAct;
+        String event;
+        for (vetAct = veteran.activity.iterator(); vetAct.hasNext();) {
+            event = vetAct.next();
+            if (event.equals("VetShot")) {
+                toMove.push(event);
+                vetAct.remove();
+            } else if (event.equals("VetAtt")) {
+                // Modify stack directly and put VetAtt at the back
+                toMove.add(0, event);
+                vetAct.remove();
+            }
+        }
+        while (!toMove.empty()) {
+            veteran.activity.add(0, toMove.pop());
+        }
     }
 
 }
