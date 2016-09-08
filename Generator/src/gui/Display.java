@@ -1,6 +1,7 @@
 package gui;
 
 import javax.imageio.ImageIO;
+import javax.swing.*;
 import java.awt.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
@@ -12,15 +13,37 @@ import java.io.File;
  */
 public class Display {
 
-    private Frame mainFrame; // Overarching Frame
-    private Panel mainWindow; // First menu
-    private RoleStack selectedRoles;
-    private int FrameLength = 700;
-    private int FrameWidth = 1000;
+    private JFrame mainFrame; // Overarching Frame
+    private JPanel controlPanel; // Controlling Panel
+    private int frameLength = 700;
+    private int frameWidth = 1000;
     private String BGpath = "Generator/pictures/TOSSimBG.png";
 
-    public Display() {
+    /**
+     * Launches the interface of this program
+     */
+    public void initDisplay() {
 
+        // Screen set up
+        mainFrame = new JFrame("Town of Salem Simulator");
+        mainFrame.setLayout(null);
+        mainFrame.setBounds(0, 0, frameWidth, frameLength);
+        mainFrame.addWindowListener(new WindowAdapter() {
+            public void windowClosing(WindowEvent e) {
+                System.exit(0);
+            }
+        });
+
+        // Background set up
+        controlPanel = new Window();
+        controlPanel.setBounds(0, 0, frameWidth, frameLength);
+        controlPanel.setVisible(true);
+        mainFrame.add(controlPanel);
+
+        // All components should already be ready to go/added before this line
+        mainFrame.setVisible(true);
+
+        /* AWT CODE - USE ONLY AS REFERENCE
         mainFrame = new Frame("Town Of Salem Simulator");
         mainFrame.setSize(FrameWidth, FrameLength);
         mainFrame.setResizable(false);
@@ -51,10 +74,11 @@ public class Display {
         mainWindow.add(Start);
         mainFrame.add(mainWindow);
         mainFrame.setVisible(true); // Should be done as the very last step
+        */
 
     }
 
-    class Window extends Panel {
+    class Window extends JPanel {
 
         Image background;
         public Window() {
