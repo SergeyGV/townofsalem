@@ -17,7 +17,7 @@ public class Display {
     private RoleStack selectedRoles;
     private int FrameLength = 700;
     private int FrameWidth = 1000;
-    private String BGpath = "Controller/pictures/TOSSimBG.png";
+    private String BGpath = "Generator/pictures/TOSSimBG.png";
 
     public Display() {
 
@@ -50,10 +50,6 @@ public class Display {
         mainWindow.add(RemoveRole);
         mainWindow.add(Start);
         mainFrame.add(mainWindow);
-        Label test = new Label("fug");
-        test.setBackground(new Color(0.4f, 0.6f, 0.8f, 0.2f));
-        test.setBounds(100, 100, 100, 100);
-        mainWindow.add(test);
         mainFrame.setVisible(true); // Should be done as the very last step
 
     }
@@ -65,7 +61,7 @@ public class Display {
             try {
                 background = ImageIO.read(new File(BGpath));
             } catch (Exception e) {
-                System.out.println("Couldn't add the background");
+                System.out.println("Background not added?");
             }
         }
 

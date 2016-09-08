@@ -98,7 +98,7 @@ public class RoleSelect {
         Image background;
         public RoleButton(String role, String category) {
             try {
-                background = ImageIO.read(new File("Controller/pictures/mini Buttons/"
+                background = ImageIO.read(new File("Generator/pictures/mini Buttons/"
                         + category + "/" + role.toLowerCase() + ".jpg"));
             } catch (Exception e) {
                 System.out.println("Couldn't add the background");
