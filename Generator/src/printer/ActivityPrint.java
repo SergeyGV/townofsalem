@@ -126,6 +126,9 @@ public class ActivityPrint {
                     case "DisgTaken":
                         System.out.println("Another disguisor got to your target first, so you did nothing!");
                         break;
+                    case "Disguised":
+                        System.out.println("You have successfully disguised yourself!");
+                        break;
                     default:
                         System.out.println("You shouldn't be here. Offender:" + action);
                         break;

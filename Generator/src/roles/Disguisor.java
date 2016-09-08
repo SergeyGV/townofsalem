@@ -27,17 +27,25 @@ public class Disguisor extends RoleControl {
                 target = mafTarget;
             }
             target = checkTargetSwitch(target);
+            // Only have target == 0 be a do nothing case, the witched if is only for the message
             if (target == 0) {
-                nightResult = "You did not perform your night ability.";
+                if (witched == 0) {
+                    nightResult = "You did not perform your night ability.";
+                }
             } else if (!blocked) {
                 // Oh you poor sod... hope the town has the attention span of a rock
                 mafVisits.add(target);
                 players.get(target).visits.add(playerNum);
-                if (!checkVetVisit(target)) {
+                // If he doesn't die to the Vet or by someone else, start disguising
+                if (!checkVetVisit(target) && attackers.size() == 0) {
                     if (players.get(target).disguised) {
                         activity.add("DisgTaken");
                     } else {
                         players.get(target).disguised = true;
+                        // If target died, notify of successful disguise
+                        if (players.get(target).attackers.size() != 0) {
+                            activity.add("Disguised");
+                        }
                     }
                 }
             }

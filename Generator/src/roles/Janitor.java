@@ -19,8 +19,11 @@ public class Janitor extends RoleControl {
                 target = mafTarget;
             }
             target = checkTargetSwitch(target);
+            // Only have target == 0 be a do nothing case, the witched if is only for the message
             if (target == 0) {
-                nightResult = "You did not perform your night ability.";
+                if (witched == 0) {
+                    nightResult = "You did not perform your night ability.";
+                }
             } else if (!blocked) {
                 players.get(target).cleaned = true;
                 checkVetVisit(target);
