@@ -15,9 +15,10 @@ public class Display {
 
     private JFrame mainFrame; // Overarching Frame
     private JPanel controlPanel; // Controlling Panel
+    // Custom BG dimensions, don't change unless BG is removed!
     private int frameLength = 700;
     private int frameWidth = 1000;
-    private String BGpath = "Generator/pictures/TOSSimBG.png";
+    private String BGpath = "Generator/Assets/mainBG.png";
 
     /**
      * Launches the interface of this program
@@ -35,26 +36,19 @@ public class Display {
         });
 
         // Background set up
-        controlPanel = new Window();
+        controlPanel = new MainWindow();
         controlPanel.setBounds(0, 0, frameWidth, frameLength);
+        controlPanel.setLayout(null);
         controlPanel.setVisible(true);
         mainFrame.add(controlPanel);
+
+        // Category set up
+        new CategorySelect(controlPanel);
 
         // All components should already be ready to go/added before this line
         mainFrame.setVisible(true);
 
         /* AWT CODE - USE ONLY AS REFERENCE
-        mainFrame = new Frame("Town Of Salem Simulator");
-        mainFrame.setSize(FrameWidth, FrameLength);
-        mainFrame.setResizable(false);
-        mainFrame.setLayout(null); // Locations will be done manually
-        mainFrame.addWindowListener(new WindowAdapter() {
-            public void windowClosing(WindowEvent e) {
-                System.exit(0);
-            }
-        });
-        mainWindow = new Window();
-        mainWindow.setLayout(null);
         mainWindow.setBounds(0, 0, FrameWidth, FrameLength);
         CategoryListener.categorySorter = new RoleSelect(mainWindow);
         new ImageMapper();
@@ -78,10 +72,10 @@ public class Display {
 
     }
 
-    class Window extends JPanel {
+    class MainWindow extends JPanel {
 
         Image background;
-        public Window() {
+        public MainWindow() {
             try {
                 background = ImageIO.read(new File(BGpath));
             } catch (Exception e) {
@@ -89,7 +83,8 @@ public class Display {
             }
         }
 
-        public void paint(Graphics g) {
+        public void paintComponent(Graphics g) {
+            super.paintComponent(g);
             g.drawImage(background, 0, 0, null);
         }
 

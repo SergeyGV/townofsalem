@@ -1,5 +1,7 @@
 package gui;
 
+import javax.swing.*;
+import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
@@ -9,11 +11,15 @@ import java.awt.event.MouseListener;
 
 public class CategoryListener implements MouseListener {
 
-    public static RoleSelect categorySorter;
+    //public static RoleSelect categorySorter;
     private String action;
+    private JButton listener;
+    private static JButton activeButton;
 
-    public CategoryListener(String category) {
+
+    public CategoryListener(String category, JButton button) {
         action = category;
+        listener = button;
     }
 
     public void mouseEntered(MouseEvent e) {
@@ -33,7 +39,12 @@ public class CategoryListener implements MouseListener {
     }
 
     public void mouseReleased(MouseEvent e) {
-        categorySorter.showNewPanel(action);
+        if (activeButton != null) {
+            activeButton.setBackground(Color.LIGHT_GRAY);
+        }
+        activeButton = listener;
+        listener.setBackground(Color.CYAN);
+        //categorySorter.showNewPanel(action);
     }
 
 }

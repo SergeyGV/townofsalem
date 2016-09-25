@@ -1,6 +1,9 @@
 package gui;
 
+import javax.imageio.ImageIO;
+import javax.swing.*;
 import java.awt.*;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -9,42 +12,28 @@ import java.util.Arrays;
  */
 public class CategorySelect {
 
-    private int initx = 500;
-    private int inity = 28;
-    private int length = 200;
+    private int initx = 30;
+    private int inity = 130;
+    private int length = 144;
     private int height = 40;
     private ArrayList<String> selections;
 
-    public CategorySelect(Panel target) {
+    public CategorySelect(JPanel target) {
 
         selections = new ArrayList<>(Arrays.asList("Town", "Mafia", "Neutral", "Random"));
-        Label catSelect;
+        JPanel catPanel = new JPanel();
+        catPanel.setBounds(initx, inity, length, height*4);
+        catPanel.setLayout(new GridLayout(4, 1));
+        JButton catButton;
         for (int i = 0; i < 4; i++) {
-            catSelect = new Label(selections.get(i));
-            catSelect.addMouseListener(new CategoryListener(selections.get(i)));
-            catSelect.setBounds(initx, inity + height*i, length, height);
-            target.add(catSelect);
+            catButton = new JButton(selections.get(i));
+            catButton.setVisible(true);
+            catButton.setBackground(Color.LIGHT_GRAY);
+            catButton.addMouseListener(new CategoryListener(selections.get(i), catButton));
+            catPanel.add(catButton);
         }
-
-    }
-
-    class CatDisplay extends Label {
-
-        Image background;
-        public CatDisplay(String role) {
-            /*
-            try {
-                background = ImageMapper.roleImages.get(role);
-            } catch (Exception e) {
-                System.out.println("Couldn't add the background");
-            }
-            */
-        }
-
-        public void paint(Graphics g) {
-            super.paint(g);
-            //g.drawImage(background, 0, 0, null);
-        }
+        catPanel.setVisible(true);
+        target.add(catPanel);
 
     }
 
