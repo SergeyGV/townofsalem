@@ -27,7 +27,7 @@ public class Display {
 
         // Screen set up
         mainFrame = new JFrame("Town of Salem Simulator");
-        mainFrame.setLayout(null);
+        mainFrame.setLayout(new GridLayout(1, 1));
         mainFrame.setBounds(0, 0, frameWidth, frameLength);
         mainFrame.addWindowListener(new WindowAdapter() {
             public void windowClosing(WindowEvent e) {
@@ -36,9 +36,9 @@ public class Display {
         });
 
         // Background set up
-        controlPanel = new MainWindow();
+        controlPanel = new JPanel();
         controlPanel.setBounds(0, 0, frameWidth, frameLength);
-        controlPanel.setLayout(null);
+        controlPanel.setLayout(new GridBagLayout());
         controlPanel.setVisible(true);
         mainFrame.add(controlPanel);
 

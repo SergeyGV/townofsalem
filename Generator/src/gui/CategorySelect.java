@@ -20,6 +20,11 @@ public class CategorySelect {
 
     public CategorySelect(JPanel target) {
 
+        // Constraints
+        GridBagConstraints constraints = new GridBagConstraints();
+        constraints.gridx = 0;
+        constraints.gridy = 0;
+        // Set up
         selections = new ArrayList<>(Arrays.asList("Town", "Mafia", "Neutral", "Random"));
         JPanel catPanel = new JPanel();
         catPanel.setBounds(initx, inity, length, height*4);
@@ -33,7 +38,7 @@ public class CategorySelect {
             catPanel.add(catButton);
         }
         catPanel.setVisible(true);
-        target.add(catPanel);
+        target.add(catPanel, constraints);
 
     }
 
