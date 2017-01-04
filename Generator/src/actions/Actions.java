@@ -16,11 +16,30 @@ import java.util.PriorityQueue;
 
 public class Actions {
 
+    // Current instance of Actions for access to special lists
+    public static Actions curActions;
+
     private HashMap<Integer, RoleControl> PlayerData;
     private ArrayList<Integer> mafiaList; // List of all Mafia
     private ArrayList<Integer> vampList; // List of all Vampires
     private ArrayList<Integer> mdRoles; // Janitor and Forger only
     private ArrayList<Integer> disgs; // Disguisor only
+
+    /**
+     * Default constructor - Nothing required
+     */
+    public Actions() {
+        curActions = this;
+    }
+
+    // Both getters used by MafiaKillers to process behavior of mafia helpers
+    public ArrayList<Integer> getMdRoles() {
+        return mdRoles;
+    }
+
+    public ArrayList<Integer> getDisgs() {
+        return disgs;
+    }
 
     /**
      * The main generation method of the night activity
@@ -63,6 +82,7 @@ public class Actions {
                 System.out.println("Something broke!");
             }
         }
+
         // Two special case RoleControls that must be present
         allRoles.add(new MafiaKillers("MafTarget"));
         allRoles.add(new ArsoIgnite("ArsoIgnite"));
@@ -72,14 +92,6 @@ public class Actions {
         if (vampList.size() > 0) {
             Collections.shuffle(vampList);
             RoleControl.visitingVamp = vampList.get(0);
-        }
-        if (mdRoles.size() > 0) {
-            Collections.shuffle(mdRoles);
-            RoleControl.visitingMD = mdRoles.get(0);
-        }
-        if (disgs.size() > 0) {
-            Collections.shuffle(disgs);
-            RoleControl.visitingDisg = disgs.get(0);
         }
         while (!allRoles.isEmpty()) {
             allRoles.remove().Process();
