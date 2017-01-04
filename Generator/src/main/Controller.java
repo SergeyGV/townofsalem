@@ -1,13 +1,12 @@
 package main;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Random;
 
 import actions.Actions;
 import actions.RoleInfo;
 import generation.Generator;
 import generation.RoleStorage;
+import gooey.Drawer;
 import validator.MainValidator;
 
 public class Controller {
@@ -15,9 +14,12 @@ public class Controller {
 
 	public static void main(String[] args) {
 
-		// new Display(); // Display the screen
+		// TODO: GUI...
+		// TODO: Update Disguisor to updated version
+
+		new Drawer().drawGUI();
 		// WHILE GUI IS WORKED ON
-		ArrayList<String> roles = new ArrayList();
+		ArrayList<String> roles = new ArrayList<>();
 		roles.add("Any");
 		roles.add("Any");
 		roles.add("Any");
