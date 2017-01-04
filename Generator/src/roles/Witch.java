@@ -28,11 +28,12 @@ public class Witch extends RoleControl {
             } else {
                 players.get(target).activity.add("Witched");
                 if (players.get(target).witched != 0) {
-                    nightResult = "Another witch has controlled your target first!";
+                    nightResult = "Another witch has controlled your target first!\n";
                 } else {
                     players.get(target).witched = target2;
                 }
             }
+            nightResult += "Your target is a " + players.get(target).roleName + "!";
         }
 
     }
