@@ -9,7 +9,8 @@ public class Jailor extends RoleControl {
     public void Process() {
 
         target = validTownTarget(playerNum);
-        nightAction = "You hauled player " + String.valueOf(target) + " off to jail!";
+        nightAction = "You hauled player " + String.valueOf(target) + "(" +
+                players.get(target).roleName + ") off to jail!";
         players.get(target).nightAction = "You were hauled off to jail!";
         players.get(target).visits.add(playerNum);
         if (players.get(target).roleName.equals("Serial Killer")) {
