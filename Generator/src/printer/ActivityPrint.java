@@ -123,12 +123,6 @@ public class ActivityPrint {
                     case "VampSize":
                         System.out.println("The Vampires have reached their size limit, no one can be bit!");
                         break;
-                    case "DisgTaken":
-                        System.out.println("Another disguisor got to your target first, so you did nothing!");
-                        break;
-                    case "Disguised":
-                        System.out.println("You have successfully disguised yourself!");
-                        break;
                     default:
                         System.out.println("You shouldn't be here. Offender:" + action);
                         break;
@@ -179,9 +173,6 @@ public class ActivityPrint {
                     }
                 }
                 System.out.println("You have died!");
-                if (player.disguised) {
-                    System.out.println("Someone stole your identity!");
-                }
                 if (player.forged) {
                     System.out.println("Someone forged your will!");
                 }
