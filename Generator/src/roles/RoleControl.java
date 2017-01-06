@@ -21,7 +21,6 @@ public abstract class RoleControl {
     static int vetNum = 0; // Indicator for the Veteran's player number(if he exists)
     public static int visitingVamp = 0; // Indicator for which Vampire is visiting
     public static int visitingMD = 0; // Indicator for which MD(Janitor/Forger) is following the MK
-    public static int visitingDisg = 0; // Indicator for which Disguisor is following the MK
     boolean jailed = false; // If the player is Jailed
     boolean blocked = false; // If the player is roleblocked
     boolean immune; // Used to keep track of if people vested/self-healed
@@ -29,7 +28,6 @@ public abstract class RoleControl {
     static boolean mkJailed = true; // If there is one MK, this tells if he is jailed or not
     public boolean forged = false; // Indicator if this player was forged or not
     public boolean cleaned = false; // Indicator if this player was cleaned or not
-    public boolean disguised = false; // Indicator if this player was disguised as or not
     public boolean bitten = false; // Indicator if this player was bitten by a Vampire or not
     static boolean alert = false; // Used to keep track if the Veteran alerted or not
     static boolean gfBlock = true; // Indicator if the godfather is restricted or not
