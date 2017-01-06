@@ -23,7 +23,6 @@ public class Actions {
     private ArrayList<Integer> mafiaList; // List of all Mafia
     private ArrayList<Integer> vampList; // List of all Vampires
     private ArrayList<Integer> mdRoles; // Janitor and Forger only
-    private ArrayList<Integer> disgs; // Disguisor only
 
     /**
      * Default constructor - Nothing required
@@ -35,10 +34,6 @@ public class Actions {
     // Both getters used by MafiaKillers to process behavior of mafia helpers
     public ArrayList<Integer> getMdRoles() {
         return mdRoles;
-    }
-
-    public ArrayList<Integer> getDisgs() {
-        return disgs;
     }
 
     /**
@@ -57,7 +52,6 @@ public class Actions {
         mafiaList = new ArrayList<>();
         vampList = new ArrayList<>();
         mdRoles = new ArrayList<>();
-        disgs = new ArrayList<>();
         for (int i = 0; i < playerlist.size(); i++) {
             try {
                 // Reflection to get the proper class for each Role
@@ -71,8 +65,6 @@ public class Actions {
                 if (RoleInfo.allMafia.contains(playerlist.get(i))) {
                     if (playerlist.get(i).equals("Janitor") || playerlist.get(i).equals("Forger")) {
                         mdRoles.add(i+1);
-                    } else if (playerlist.get(i).equals("Disguisor")) {
-                        disgs.add(i+1);
                     }
                     mafiaList.add(i+1);
                 } else if (playerlist.get(i).equals("Vampire")) {

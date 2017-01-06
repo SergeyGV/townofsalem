@@ -38,16 +38,9 @@ public class MafiaKillers extends RoleControl {
 
         // Get all non-jailed MDs & Disguisors
         ArrayList<Integer> availableMDs =  new ArrayList<>();
-        ArrayList<Integer> availableDisgs = new ArrayList<>();
         for (int md: Actions.curActions.getMdRoles()) {
             if (!players.get(md).jailed) {
                 availableMDs.add(md);
-            }
-        }
-
-        for (int disg: Actions.curActions.getDisgs()) {
-            if (!players.get(disg).jailed) {
-                availableDisgs.add(disg);
             }
         }
 
@@ -55,10 +48,6 @@ public class MafiaKillers extends RoleControl {
         if (availableMDs.size() > 0) {
             Collections.shuffle(availableMDs);
             RoleControl.visitingMD = availableMDs.get(0);
-        }
-        if (availableDisgs.size() > 0) {
-            Collections.shuffle(availableDisgs);
-            RoleControl.visitingDisg = availableDisgs.get(0);
         }
 
     }
