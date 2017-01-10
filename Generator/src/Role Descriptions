@@ -124,9 +124,9 @@ Mafia Random:
 
 
 Disguisor
-Desc: May choose to target a player, and if he dies, disguise as them
+Desc: May choose to target a player and disguise as them
 Immunities: None
-Influence: None, unless Witched(disguising is a terrible idea night 1)
+Influence: Under this sim is just a random visit with no other influence
 
 Janitor
 Desc: May choose to clean a target, hiding their role and will from the town
@@ -192,7 +192,8 @@ Influence: None
 Witch
 Desc: Can force a target to perform their action on others(few special cases)
 Immunities: Control, Roleblock
-Influence: Will force a given target to perform an action on someone/themselves
+Influence: Will force a given target to perform an action on someone/themselves.
+Also sees the specific role of whoever had been controlled
 
 
 Neutral Benign:

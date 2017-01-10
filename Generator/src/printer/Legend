@@ -30,8 +30,6 @@ SpyVisits - This player, a spy, saw all the Mafia visits that night
 LKVisits - This player, a lookout, watched a target and saw X people visit him
 VampJail - The youngest Vampire was jailed, and as such, no one can be bit
 VampSize - The Vampires have reached their size limit, no one can be bit
-DisgTaken - This player, a Disguisor, has tried to disguise as a player already disguised
-Disguised - This player, a Disguisor, has successfully disguised as another player
 
 For attackers:
 Veteran - This player has visited an alerted Veteran
