@@ -124,9 +124,9 @@ Mafia Random:
 
 
 Disguisor
-Desc: May choose to target a player, and if he dies, disguise as them
+Desc: May choose to target a player and disguise as them
 Immunities: None
-Influence: None, unless Witched(disguising is a terrible idea night 1)
+Influence: Under this sim is just a random visit with no other influence
 
 Janitor
 Desc: May choose to clean a target, hiding their role and will from the town
@@ -180,16 +180,41 @@ Neutral Evil:
 
 
 Jester
-Desc:
-Immunities:
-Influence:
+Desc: Has to trick the town to get himself lynched
+Immunities: None
+Influence: None
 
 Executioner
-Desc:
-Immunities:
-Influence:
+Desc: Has to trick the town to get his target lynched
+Immunities: Attack
+Influence: None
+
+Witch
+Desc: Can force a target to perform their action on others(few special cases)
+Immunities: Control, Roleblock
+Influence: Will force a given target to perform an action on someone/themselves.
+Also sees the specific role of whoever had been controlled
 
 
-Desc:
-Immunities:
-Influence:
+Neutral Benign:
+
+
+Survivor
+Desc: May put on a vest at night to gain attack immunity(4 times per game)
+Immunities: None
+Influence: May survive an attack directed at him, dependant on if he vested
+
+Amnesiac
+Desc: May become a dead role from the graveyard
+Immunities: None
+Influence: None
+
+
+Neutral Chaos:
+
+
+Vampire
+Desc: May choose to bite a player during the night, transforming them into a vampire.
+Immunities: None
+Influence: Players not immune to vampire bites will become a Vampire.
+Players immune to vampire bites will be attacked by the Vampire instead.
