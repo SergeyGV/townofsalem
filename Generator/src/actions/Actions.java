@@ -10,6 +10,8 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.PriorityQueue;
 
+import static java.lang.System.exit;
+
 /**
  * Actions - The main processor of the night activity
  */
@@ -71,7 +73,8 @@ public class Actions {
                     vampList.add(i+1);
                 }
             } catch (Exception e) {
-                System.out.println("Something broke!");
+                System.out.println("The role of " + playerlist.get(i) + " does not exist. Exiting simulation.");
+                exit(1);
             }
         }
 
