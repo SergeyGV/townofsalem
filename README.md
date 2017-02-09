@@ -20,21 +20,18 @@ At the very end the user will be shown the result of all the activity that occur
 
 Some chat messages will stray away from being faithful to the game and will instead be there for clarity. A prime example of this is when two Witches target the same person. Only the first Witch to control the target will have an effect on them, and as such the second Witch will get a message that another witch had controlled them first(whereas in the game, no such notification would appear).
 
+## Running
+
+As there's no GUI just quite yet...
+
+Go to main/Controller, and modify the role list inside the main function by modifying the roles.add statements. Role size list cannot exceed 15 and all roles must be valid roles from the game itself. There must also not be any impossible role lists, such as mafia roles being present without a killing mafia role. The validation suite will detect all of these errors and report them to you appropriately, and you will know what's going wrong.
+
+See the below link for a complete role list.
+
+http://town-of-salem.wikia.com/wiki/Roles
+
+Compile and run main within main/Controller.
+
 ## Next steps
 
-Implement the GUI and publish this onto a website
-
-## 100 Commit Milestone
-
-The journey first began on a flight back home, where the program was born and made into a ranked role list generator. Realizing the potential of the generator, the program then started the slow transformation into being a night one simulator of the generated role list. 
-
-The program eventually met its goal and was able to simulate everything how it was desired. A sense of accomplishment, but also a sense of desire to continue. The output is only terminal based, and it's restricted to a specific role list... what if...
-
-So it was decided. The program would be made to have a UI, and would give the user total freedom of the role list that they would want to put into the simulation. UIs in Java was an unfamiliar concept, but netherless the topic was learned about and the UI was developed to a point of where there was total confidence over its control.
-
-Upon reaching that point, the UI was put on hold and the work switched back onto the simulation. The previous generator was overhauled into something much bigger. Requring an expansive user input validator, and a lot of logic put into it, the generator was eventually live and ready to process anything the user could throw at it.
-
-The simulation had finally been tackled and brought to, and the game could now handle anything the user could throw at it. The last step remains, the interface.
-
-
-From a project that started as a small tool on an airplane, it had slowly grown into something bigger and bigger. It was quite an experience seeing all the different things that this project had become so far, and all the new things learned during its development. My only hope is that users on release will be able to enjoy this program as much as I enjoyed making it.
+Implement the GUI and more user options.
