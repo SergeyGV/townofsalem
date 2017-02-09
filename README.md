@@ -24,9 +24,11 @@ Some chat messages will stray away from being faithful to the game and will inst
 
 As there's no GUI just quite yet...
 
-Go to main/Controller, and modify the role list inside the main function by modifying the roles.add statements. Role size list cannot exceed 15 and all roles must be valid roles from the game itself. There must also not be any impossible role lists, such as mafia roles being present without a killing mafia role. The validation suite will detect all of these errors and report them to you appropriately, and you will know what's going wrong.
+Go to main/Controller, and modify the role list inside the main function by modifying the roles.add statements. Although the actual game has a maximum size limit of 15 and a minimum of 6, this program can work with any number of players that's not one(as there is no one to compete against).
 
-See the below link for a complete role list.
+All entries within the role list must either be a role from the game, a specific alignment within the game(ex: Town Support), a random role from a specific faction(ex: Random Mafia), or an Any to indicate anything goes. There must also not be any impossible role lists, such as mafia roles being present without a killing mafia role. There must also be at least two competing factions within the role list(the Any and Random Neutral slots both count as another faction). The validation suite will detect all of these errors and report them to you appropriately, and you will know what's going wrong and what to fix.
+
+See the below link for all of the roles, and their alignments.
 
 http://town-of-salem.wikia.com/wiki/Roles
 
