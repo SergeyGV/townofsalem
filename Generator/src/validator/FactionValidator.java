@@ -38,8 +38,10 @@ public class FactionValidator {
          * Case 2: One unique faction: Have witch&vig case or at least one Any/Random Neutral
          * Case 3: No unique faction: Have at least two Any's/Random Neutrals */
         if (unqFactions.size() == 1) {
-            if (multiFactCats == 0 && !(roles.contains("Vigilante")) && roles.contains("Witch")) {
+            if (multiFactCats == 0 && !((roles.contains("Vigilante")) && roles.contains("Witch"))) {
                 infractions.add("Only 1 competing faction possible; Need at least 2");
+            } else if (roles.contains("Vigilante") && roles.contains("Witch")) {
+                unqFactions.add("Witch");
             }
         } else if (unqFactions.size() == 0){
             if (multiFactCats < 2) {
