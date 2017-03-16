@@ -6,7 +6,6 @@ import actions.Actions;
 import actions.RoleInfo;
 import generation.Generator;
 import generation.RoleStorage;
-import gooey.Drawer;
 import validator.MainValidator;
 
 public class Controller {
@@ -15,26 +14,11 @@ public class Controller {
 	public static void main(String[] args) {
 
 		// TODO: GUI...
-		// TODO: Update Disguisor to updated version
+		// TODO: Update MafiaValidator to be accepting regards to the Any slots(?)
 
-		new Drawer().drawGUI();
-		// WHILE GUI IS WORKED ON
 		ArrayList<String> roles = new ArrayList<>();
-		roles.add("Any");
-		roles.add("Any");
-		roles.add("Any");
-		roles.add("Any");
-		roles.add("Any");
-		roles.add("Any");
-		roles.add("Any");
-		roles.add("Any");
-		roles.add("Any");
-		roles.add("Any");
-		roles.add("Any");
-		roles.add("Any");
-		roles.add("Any");
-		roles.add("Any");
-		roles.add("Any");
+		roles.add("Witch");
+		roles.add("Neutral Killing");
 		RoleStorage storage = new RoleStorage();
 		MainValidator val = new MainValidator(storage, roles);
 		Generator gen = new Generator(storage, roles, val);
