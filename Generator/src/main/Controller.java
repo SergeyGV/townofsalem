@@ -4,21 +4,22 @@ import java.util.ArrayList;
 
 import actions.Actions;
 import actions.RoleInfo;
+import display.ScreenControl;
 import generation.Generator;
 import generation.RoleStorage;
 import validator.MainValidator;
 
 public class Controller {
 
+	private ScreenControl screen;
 
-	public static void main(String[] args) {
+	private void initializeGUI() {
+		screen = new ScreenControl(this);
+		screen.showGUI();
+	}
 
-		// TODO: GUI...
-		// TODO: Update MafiaValidator to be accepting regards to the Any slots(?)
 
-		ArrayList<String> roles = new ArrayList<>();
-		roles.add("Witch");
-		roles.add("Neutral Killing");
+	public ArrayList<String> simulate(ArrayList<String> roles) {
 		RoleStorage storage = new RoleStorage();
 		MainValidator val = new MainValidator(storage, roles);
 		Generator gen = new Generator(storage, roles, val);
@@ -33,6 +34,17 @@ public class Controller {
 			Actions test = new Actions();
 			test.generate(result);
 		}
+		return new ArrayList<>();
+	}
+
+	public static void main(String[] args) {
+
+		// TODO: GUI...
+		// TODO: Update MafiaValidator to be accepting regards to the Any slots(?)
+		// TODO: ActivityPrint to return an ArrayList of results, and for that to be returned from generation
+
+		Controller simulator = new Controller();
+		simulator.initializeGUI();
 
 	}
 
