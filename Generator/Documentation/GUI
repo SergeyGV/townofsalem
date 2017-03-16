@@ -1,0 +1,51 @@
+GUI Workings
+------------
+Layout
+------
+
+State 1: Pre-generation
+Screen split into three equal vertical slices
+Left slice:
+    - Top contains role category selection
+    - Bottom contains roles for selection from selected category
+Middle slice:
+    - Top portion contains role list
+    - Bottom has a remove role button
+Right slice:
+    - Top portion contains varying information/helpful links
+    - Middle portion contains a violations screen
+    - Bottom portion contains a generation button
+
+State 2: Generation
+Screen split into two vertical parts(left should be a lot bigger)
+Left slice:
+    - One big block that contains the generation results
+Right slice:
+    - Top portion contains a re-generate button
+    - Bottom portion contains a back to pre-generation screen
+
+-----------------
+Logic for State 1
+-----------------
+
+User selects a category from top-left
+User sees varying roles for the appropriate category bottom-right
+User selects a role from the bottom-right display
+Role appears in the appropriate stack location top-middle display
+User continues selecting roles/categories for a maximum of 15 roles selected
+User can at any time click the button at the bottom-middle, removing the top role from the top-middle display
+User clicks on the generate button at bottom-right:
+    - If less than 6, update the middle-right display with that violation
+    - Run the validation suite with role list in the top-middle display
+    - Validation fails: display all violations on the middle-right display
+    - Validation passes: transition to state 2
+
+-----------------
+Logic for State 2
+-----------------
+
+Grab the role list from State 1 and save it
+Run generation with the role list
+Display the results within the left panel
+User clicks top-right button(regenerate) - Repeat previous two points
+User clicks bottom-right button(return) - Transition to state 1
