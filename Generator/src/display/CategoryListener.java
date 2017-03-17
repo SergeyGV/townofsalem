@@ -11,7 +11,7 @@ import java.awt.event.MouseListener;
 
 public class CategoryListener implements MouseListener {
 
-    //public static RoleSelect categorySorter;
+    public static RoleSelect categorySorter;
     private String action;
     private JButton listener;
     private static JButton activeButton;
@@ -44,7 +44,7 @@ public class CategoryListener implements MouseListener {
         }
         activeButton = listener;
         listener.setBackground(Color.CYAN);
-        //categorySorter.showNewPanel(action);
+        categorySorter.updateRoleList(action);
     }
 
 }

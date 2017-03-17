@@ -71,6 +71,8 @@ public class ScreenControl {
         constraints.gridheight = 3;
 
         JPanel rolePanel = new JPanel();
+        rolePanel.setLayout(new GridLayout(15, 1));
+        CategoryListener.categorySorter = new RoleSelect(rolePanel);
         leftPanel.add(rolePanel, constraints);
 
     }
