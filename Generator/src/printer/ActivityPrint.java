@@ -100,7 +100,7 @@ public class ActivityPrint {
                         System.out.println("Someone tried to douse you but a Bodyguard fended them off!");
                         break;
                     case "Doused":
-                        System.out.println("You were doused in gas!");
+                        System.out.println("(Secret) You were doused in gas!");
                         break;
                     case "SpyVisits":
                         for (int Visit: RoleControl.mafVisits) {
