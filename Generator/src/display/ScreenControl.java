@@ -36,12 +36,42 @@ public class ScreenControl {
         midPanel.setLayout(new GridBagLayout());
         rightPanel.setLayout(new GridBagLayout());
 
+        setUpLeftPanel();
+
         stateOne.add(leftPanel);
         stateOne.add(midPanel);
         stateOne.add(rightPanel);
 
+        pane.add(stateOne);
+
         mainFrame.pack();
         mainFrame.setVisible(true);
+
+    }
+
+    private void setUpLeftPanel() {
+
+        // Category Panel
+        GridBagConstraints constraints = new GridBagConstraints();
+        constraints.gridx = 0;
+        constraints.gridy = 0;
+        constraints.gridwidth = 1;
+        constraints.gridheight = 1;
+
+        JPanel catPanel = new JPanel();
+        catPanel.setLayout(new GridLayout(4, 1));
+        new CategorySelect(catPanel);
+        leftPanel.add(catPanel, constraints);
+
+        // Role Panel
+        constraints = new GridBagConstraints();
+        constraints.gridx = 0;
+        constraints.gridy = 1;
+        constraints.gridwidth = 1;
+        constraints.gridheight = 3;
+
+        JPanel rolePanel = new JPanel();
+        leftPanel.add(rolePanel, constraints);
 
     }
 
