@@ -12,7 +12,7 @@ public class RoleSelect {
     private ArrayList<String> Mafia;
     private ArrayList<String> Neutral;
     private ArrayList<String> General;
-    // What blank buttons will have in their text
+    // Text that goes into the filler button. Should be bigger than every other selectable role/general role
     private String buttFillerText = "                                   ";
 
     public RoleSelect(JPanel origin) {
@@ -31,11 +31,16 @@ public class RoleSelect {
                 "Random Neutral", "Neutral Benign", "Neutral Evil", "Neutral Killing", "Any"));
 
         for (int i = 0; i < 15; i++) {
-            JButton roleButt = new JButton(buttFillerText);
+            JButton roleButt = new JButton("");
             roleButt.setBackground(Color.LIGHT_GRAY);
             roleButtList.add(roleButt);
             origin.add(roleButt);
         }
+
+        // Filler button: Sets a consistent size for the other buttons
+        JButton filler = new JButton(buttFillerText);
+        filler.setVisible(false);
+        origin.add(filler);
 
     }
 
@@ -53,7 +58,7 @@ public class RoleSelect {
 
         // Wipe the current buttons first
         for (JButton butt: roleButtList) {
-            butt.setText(buttFillerText);
+            butt.setText("");
         }
 
         for (int i = 0; i < chosen.size(); i++) {
