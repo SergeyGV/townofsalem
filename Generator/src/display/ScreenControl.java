@@ -37,6 +37,7 @@ public class ScreenControl {
         rightPanel.setLayout(new GridBagLayout());
 
         setUpLeftPanel();
+        setUpMiddlePanel();
 
         stateOne.add(leftPanel);
         stateOne.add(midPanel);
@@ -68,13 +69,44 @@ public class ScreenControl {
         constraints.gridx = 0;
         constraints.gridy = 1;
         constraints.gridwidth = 1;
-        constraints.gridheight = 3;
+        constraints.gridheight = 4;
 
         JPanel rolePanel = new JPanel();
         // Rows = max(amount of roles per category) + 1
         rolePanel.setLayout(new GridLayout(16, 1));
         CategoryListener.categorySorter = new RoleSelect(rolePanel);
         leftPanel.add(rolePanel, constraints);
+
+    }
+
+    private void setUpMiddlePanel() {
+
+        // Role stack
+        GridBagConstraints constraints = new GridBagConstraints();
+        constraints.gridx = 0;
+        constraints.gridy = 0;
+        constraints.gridwidth = 1;
+        constraints.gridheight = 3;
+
+        JPanel roleStackPanel = new JPanel();
+        // Rows = max player size + 1
+        roleStackPanel.setLayout(new GridLayout(16, 1, 0, 1));
+        RoleStack stack = new RoleStack(roleStackPanel);
+        AddListener.target = stack;
+        RemoveListener.target = stack;
+        midPanel.add(roleStackPanel, constraints);
+
+        // Remove Role button
+        constraints = new GridBagConstraints();
+        constraints.gridx = 0;
+        constraints.gridy = 3;
+        constraints.gridwidth = 1;
+        constraints.gridheight = 1;
+
+        JButton removeRole = new JButton("Remove role");
+        removeRole.addMouseListener(new RemoveListener());
+        removeRole.setBackground(Color.LIGHT_GRAY);
+        midPanel.add(removeRole, constraints);
 
     }
 

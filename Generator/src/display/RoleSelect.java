@@ -33,6 +33,7 @@ public class RoleSelect {
         for (int i = 0; i < 15; i++) {
             JButton roleButt = new JButton("");
             roleButt.setBackground(Color.LIGHT_GRAY);
+            roleButt.addMouseListener(new AddListener(roleButt));
             roleButtList.add(roleButt);
             origin.add(roleButt);
         }
