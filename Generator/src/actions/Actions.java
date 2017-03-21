@@ -47,7 +47,7 @@ public class Actions {
      * TODO: RoleControl - Refactor the mess of the attacking method
      * TODO: Doctor - If target attacked multiple times, show attack multiple times or once?
      */
-    public void generate(ArrayList<String> playerlist) {
+    public ArrayList<String> generate(ArrayList<String> playerlist) {
 
         PriorityQueue<RoleControl> allRoles = new PriorityQueue<>(new RoleComparator());
         PlayerData = new HashMap<>();
@@ -92,7 +92,7 @@ public class Actions {
             allRoles.remove().Process();
         }
 
-        new ActivityPrint(PlayerData); // Report results to terminal
+        return ActivityPrint.getActivity(PlayerData); // Report results to terminal
 
     }
 

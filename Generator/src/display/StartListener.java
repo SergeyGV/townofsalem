@@ -11,10 +11,12 @@ public class StartListener implements MouseListener {
 
     JLabel violations;
     Controller generator;
+    ScreenControl drawer;
 
-    public StartListener(JLabel violationsBox, Controller gen) {
+    public StartListener(JLabel violationsBox, Controller gen, ScreenControl display) {
         violations = violationsBox;
         generator = gen;
+        drawer = display;
     }
 
     public void mouseEntered(MouseEvent e) {
@@ -48,7 +50,8 @@ public class StartListener implements MouseListener {
                 listOfViolations += "<html>";
                 violations.setText(listOfViolations);
             } else {
-
+                violations.setText("<html>Violations:<html>");
+                new InfoDisplay(results);
             }
         }
 

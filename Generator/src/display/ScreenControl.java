@@ -4,6 +4,7 @@ import main.Controller;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
 
 public class ScreenControl {
 
@@ -148,7 +149,7 @@ public class ScreenControl {
 
         JButton generateButt = new JButton("Generate!");
         generateButt.setBackground(Color.LIGHT_GRAY);
-        generateButt.addMouseListener(new StartListener(violationsBox, generator));
+        generateButt.addMouseListener(new StartListener(violationsBox, generator, this));
         rightPanel.add(generateButt, constraints);
 
     }

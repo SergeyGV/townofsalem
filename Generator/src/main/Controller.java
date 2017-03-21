@@ -31,16 +31,17 @@ public class Controller {
 			ArrayList<String> result = gen.Generate();
 			RoleInfo.populate(); // Generate investigative results
 			Actions test = new Actions();
-			test.generate(result);
+			return test.generate(result);
 		}
-		return new ArrayList<>();
+
 	}
 
 	public static void main(String[] args) {
 
-		// TODO: GUI...
+		// TODO: Update Docs for GUI
+		// TODO: Make errors more specific
 		// TODO: Update MafiaValidator to be accepting regards to the Any slots(?)
-		// TODO: ActivityPrint to return an ArrayList of results, and for that to be returned from generation
+		// TODO: Reset variables after simulations
 
 		Controller simulator = new Controller();
 		simulator.initializeGUI();
