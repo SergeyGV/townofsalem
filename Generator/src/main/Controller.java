@@ -25,9 +25,8 @@ public class Controller {
 		Generator gen = new Generator(storage, roles, val);
 		val.validate();
 		if (val.getInfractions().size() != 0) {
-			for (String inf: val.getInfractions()) {
-				System.out.println(inf);
-			}
+			val.getInfractions().add(0, "Violations:");
+			return val.getInfractions();
 		} else {
 			ArrayList<String> result = gen.Generate();
 			RoleInfo.populate(); // Generate investigative results

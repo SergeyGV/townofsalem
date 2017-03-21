@@ -39,8 +39,16 @@ public class StartListener implements MouseListener {
         if (roleList.size() == 0) {
             violations.setText("<html>Violations: Must have at least one character to start the game.<html>");
         } else {
-            for (String role: roleList) {
-                System.out.println(role);
+            ArrayList<String> results = generator.simulate(roleList);
+            if (results.get(0).equals("Violations:")) {
+                String listOfViolations = "<html>";
+                for (String violation: results) {
+                    listOfViolations += violation + "<br>";
+                }
+                listOfViolations += "<html>";
+                violations.setText(listOfViolations);
+            } else {
+
             }
         }
 
