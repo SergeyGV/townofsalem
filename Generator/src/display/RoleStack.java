@@ -44,4 +44,18 @@ public class RoleStack {
         }
     }
 
+    public ArrayList<String> getRoles() {
+
+        ArrayList<String> validRoles = new ArrayList<>();
+        for (JLabel role: roles) {
+            if (!role.getText().equals(" ")) {
+                validRoles.add(role.getText());
+            } else {
+                break;
+            }
+        }
+        return validRoles;
+
+    }
+
 }

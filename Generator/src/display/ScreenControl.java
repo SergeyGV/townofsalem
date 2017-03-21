@@ -38,6 +38,7 @@ public class ScreenControl {
 
         setUpLeftPanel();
         setUpMiddlePanel();
+        setUpRightPanel();
 
         stateOne.add(leftPanel);
         stateOne.add(midPanel);
@@ -107,6 +108,48 @@ public class ScreenControl {
         removeRole.addMouseListener(new RemoveListener());
         removeRole.setBackground(Color.LIGHT_GRAY);
         midPanel.add(removeRole, constraints);
+
+    }
+
+    private void setUpRightPanel() {
+
+        // Info box
+        GridBagConstraints constraints = new GridBagConstraints();
+        constraints.gridx = 0;
+        constraints.gridy = 0;
+        constraints.gridwidth = 1;
+        constraints.gridheight = 1;
+
+        JLabel infoBox = new JLabel("<html>To fill in with actual information a while later.<html>");
+        infoBox.setPreferredSize(new Dimension(200, 150));
+        infoBox.setBackground(Color.LIGHT_GRAY);
+        infoBox.setOpaque(true);
+        rightPanel.add(infoBox, constraints);
+
+        // Violations box
+        constraints = new GridBagConstraints();
+        constraints.gridx = 0;
+        constraints.gridy = 1;
+        constraints.gridwidth = 1;
+        constraints.gridheight = 2;
+
+        JLabel violationsBox = new JLabel("<html>Violations:<html>");
+        violationsBox.setPreferredSize(new Dimension(200, 250));
+        violationsBox.setBackground(Color.LIGHT_GRAY);
+        violationsBox.setOpaque(true);
+        rightPanel.add(violationsBox, constraints);
+
+        // Generation Button
+        constraints = new GridBagConstraints();
+        constraints.gridx = 0;
+        constraints.gridy = 3;
+        constraints.gridwidth = 1;
+        constraints.gridheight = 1;
+
+        JButton generateButt = new JButton("Generate!");
+        generateButt.setBackground(Color.LIGHT_GRAY);
+        generateButt.addMouseListener(new StartListener(violationsBox, generator));
+        rightPanel.add(generateButt, constraints);
 
     }
 
