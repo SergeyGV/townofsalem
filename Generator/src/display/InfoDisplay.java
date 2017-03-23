@@ -7,8 +7,13 @@ import java.util.ArrayList;
 public class InfoDisplay {
 
     JFrame displayBox;
+    private static InfoDisplay currentDisplay = null;
 
     public InfoDisplay(ArrayList<String> results) {
+
+        if (currentDisplay == null) {
+            currentDisplay = this;
+        }
 
         displayBox = new JFrame();
         displayBox.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
@@ -23,6 +28,7 @@ public class InfoDisplay {
         constraints.gridheight = 3;
 
         JLabel resultsBox = new JLabel("");
+        resultsBox.setFont(new Font(resultsBox.getFont().getFontName(), Font.PLAIN, 10));
 
         String toPrint = "<html>";
         for (String result: results) {

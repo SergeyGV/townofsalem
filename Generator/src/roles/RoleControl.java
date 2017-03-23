@@ -49,6 +49,7 @@ public abstract class RoleControl {
      */
     public RoleControl(String name) {
         roleName = name;
+        resetStaticVariables();
     }
 
     public RoleControl(String name, int num) {
@@ -58,7 +59,23 @@ public abstract class RoleControl {
         nightResult = "";
         activity = new ArrayList<>();
         attackers = new ArrayList<>();
-        switches = new HashMap<>();
+        resetStaticVariables();
+    }
+
+    private void resetStaticVariables() {
+
+        RoleControl.mafKiller = "No one";
+        RoleControl.vetNum = 0;
+        RoleControl.visitingMD = 0;
+        RoleControl.visitingVamp = 0;
+        RoleControl.ignited = false;
+        RoleControl.mkJailed = true;
+        RoleControl.alert = false;
+        RoleControl.mfBlock = true;
+        RoleControl.gfBlock = true;
+        RoleControl.mafVisits = new ArrayList<>();
+        RoleControl.switches = new HashMap<>();
+
     }
 
     /**
