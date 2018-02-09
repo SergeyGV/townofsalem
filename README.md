@@ -1,5 +1,9 @@
 # Town of Salem Simulator
 
+## Note (Feb 9th, 2017)
+
+This simulator was created before the Coven expansion was introduced, alongside the balancing made to other town roles. Although it's simple to add the roles and the new faction due to the structure of the system, there are currently no plans on it due to work and this being and old project. Feel free to contact me though if you have any questions about this project
+
 ## Background
 
 Based off of the original Mafia style party games, Town of Salem is an online flash game with the same premise. 
@@ -22,18 +26,4 @@ Some chat messages will stray away from being faithful to the game and will inst
 
 ## Running
 
-As there's no GUI just quite yet...
-
-Go to main/Controller, and modify the role list inside the main function by modifying the roles.add statements. Although the actual game has a maximum size limit of 15 and a minimum of 6, this program can work with any number of players that's not one(as there is no one to compete against).
-
-All entries within the role list must either be a role from the game, a specific alignment within the game(ex: Town Support), a random role from a specific faction(ex: Random Mafia), or an Any to indicate anything goes. There must also not be any impossible role lists, such as mafia roles being present without a killing mafia role. There must also be at least two competing factions within the role list(the Any and Random Neutral slots both count as another faction). The validation suite will detect all of these errors and report them to you appropriately, and you will know what's going wrong and what to fix.
-
-See the below link for all of the roles, and their alignments.
-
-http://town-of-salem.wikia.com/wiki/Roles
-
-Compile and run main within main/Controller.
-
-## Next steps
-
-Implement the GUI and more user options.
+Generator.jar is the compiled version, so simply run that. Manual compiling onstructions to be added later.
