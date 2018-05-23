@@ -2,7 +2,7 @@
 
 ## Note (Feb 9th, 2017)
 
-This simulator was created before the Coven expansion was introduced, alongside the balancing made to other town roles. Although it's simple to add the roles and the new faction due to the structure of the system, there are currently no plans on it due to work and this being and old project. Feel free to contact me though if you have any questions about this project
+This simulator was created before the Coven expansion was introduced, alongside the balancing made to other town roles. Although it's simple to add the roles and the new faction due to the structure of the system, there are currently no plans on it due to work and this being an old project. Feel free to contact me though if you have any questions about this project
 
 ## Background
 
